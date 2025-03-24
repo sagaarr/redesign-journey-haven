@@ -44,7 +44,7 @@ const NavBar = () => {
     <header 
       className={cn(
         'fixed top-0 w-full z-50 transition-all duration-300',
-        scrolled ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-transparent'
+        scrolled ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-black/40 backdrop-blur-sm'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -52,7 +52,7 @@ const NavBar = () => {
           <div className="w-1/3 md:w-1/4 flex justify-start items-center">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-full">
+                <Button variant="ghost" size="icon" className="rounded-full text-white hover:bg-white/10">
                   <Globe className="h-5 w-5" />
                 </Button>
               </DropdownMenuTrigger>
@@ -78,7 +78,7 @@ const NavBar = () => {
               <img 
                 src="/lovable-uploads/d02c0ac4-0007-4c02-a70e-3db61b7dd182.png" 
                 alt="Walk Right India Logo" 
-                className="h-12 md:h-16"
+                className="h-10 md:h-16 bg-white/80 p-1 rounded"
               />
             </a>
           </div>
@@ -89,7 +89,7 @@ const NavBar = () => {
                 <a 
                   key={link.name}
                   href={link.href}
-                  className="font-medium text-gray-700 hover:text-[#00A8E8] transition-colors"
+                  className="font-medium text-white hover:text-[#00A8E8] transition-colors"
                 >
                   {link.name}
                 </a>
@@ -99,7 +99,7 @@ const NavBar = () => {
             <div className="md:hidden">
               <button 
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2 rounded-md focus:outline-none"
+                className="p-2 rounded-md focus:outline-none text-white bg-white/10 hover:bg-white/20"
               >
                 {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
