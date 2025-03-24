@@ -57,16 +57,6 @@ const SafetyStats = () => {
             </Card>
           ))}
         </div>
-
-        <div className="mt-16 max-w-4xl mx-auto">
-          <div className="glass-card overflow-hidden p-2">
-            <img 
-              src="/lovable-uploads/c423e579-764c-4f1c-bddd-9cf850e46e04.png" 
-              alt="Keep Left for cyclists, Walk Right for pedestrians" 
-              className="w-full h-auto rounded-lg"
-            />
-          </div>
-        </div>
       </div>
     </section>
   );

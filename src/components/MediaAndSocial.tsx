@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Image, Play, Instagram, Twitter, Facebook, Youtube } from 'lucide-react';
+import { Play, Instagram, Twitter, Facebook, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/components/ui/hover-card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
