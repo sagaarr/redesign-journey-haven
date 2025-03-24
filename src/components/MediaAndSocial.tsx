@@ -1,12 +1,14 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Play, Instagram, Twitter, Facebook, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/components/ui/hover-card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const MediaAndSocial = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="media-social" className="py-20 bg-gradient-to-b from-gray-900 to-black border-b border-white/10">
       <div className="container px-4 sm:px-6">
@@ -15,7 +17,7 @@ const MediaAndSocial = () => {
             <span className="text-[#1EAEDB]">Media</span> & <span className="text-[#ea384c]">Social</span>
           </h2>
           <p className="mt-4 text-lg text-white/80">
-            Explore our campaign content and connect with us on social media
+            {t('media.subtitle')}
           </p>
         </div>
 
@@ -94,7 +96,7 @@ const MediaAndSocial = () => {
               <div className="mt-6 flex justify-center">
                 <Button variant="outline" className="border-[#ea384c] text-[#ea384c] hover:bg-[#ea384c]/20">
                   <Instagram className="h-4 w-4 mr-2" />
-                  Follow on Instagram
+                  {t('media.follow')} Instagram
                 </Button>
               </div>
             </TabsContent>
@@ -164,7 +166,7 @@ const MediaAndSocial = () => {
               <div className="mt-6 flex justify-center">
                 <Button variant="outline" className="border-[#1EAEDB] text-[#1EAEDB] hover:bg-[#1EAEDB]/20">
                   <Twitter className="h-4 w-4 mr-2" />
-                  Follow on Twitter
+                  {t('media.follow')} Twitter
                 </Button>
               </div>
             </TabsContent>
@@ -220,7 +222,7 @@ const MediaAndSocial = () => {
               <div className="mt-6 flex justify-center">
                 <Button variant="outline" className="border-blue-600 text-blue-600 hover:bg-blue-600/20">
                   <Facebook className="h-4 w-4 mr-2" />
-                  Follow on Facebook
+                  {t('media.follow')} Facebook
                 </Button>
               </div>
             </TabsContent>
@@ -278,7 +280,7 @@ const MediaAndSocial = () => {
               <div className="mt-6 flex justify-center">
                 <Button variant="outline" className="border-red-600 text-red-600 hover:bg-red-600/20">
                   <Youtube className="h-4 w-4 mr-2" />
-                  Subscribe on YouTube
+                  {t('media.follow')} YouTube
                 </Button>
               </div>
             </TabsContent>

@@ -2,8 +2,11 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Shield, ShieldCheck, AlertCircle } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Initiatives = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="initiatives" className="py-20 bg-gradient-to-b from-black to-gray-900 border-y border-white/10 relative overflow-hidden">
       {/* Background accents */}
@@ -20,7 +23,7 @@ const Initiatives = () => {
             </span>
           </div>
           <h2 className="section-headline mt-2 text-white">
-            <span className="text-[#1EAEDB]">International</span> <span className="text-white">Rule For</span> <span className="text-[#ea384c]">Pedestrians</span>
+            <span className="text-[#1EAEDB]">{t('initiatives.heading1')}</span> <span className="text-white">{t('initiatives.heading2')}</span> <span className="text-[#ea384c]">{t('initiatives.heading3')}</span>
           </h2>
         </div>
 
@@ -31,7 +34,7 @@ const Initiatives = () => {
                 <AlertCircle className="h-10 w-10 text-white" />
               </div>
               <p className="text-xl md:text-2xl font-medium italic mb-8 leading-relaxed">
-                "We should walk <span className="relative inline-block text-[#ea384c]">against<span className="absolute bottom-0 left-0 w-full h-1 bg-[#ea384c]/40"></span></span> the traffic, if there is no footpath or walkway, as it gives a better view of the <span className="text-[#1EAEDB]">oncoming vehicles</span> and thus helps us to walk <span className="text-white font-bold">safely</span>"
+                "{t('initiatives.rule')}"
               </p>
               
               <div className="h-px w-24 bg-gradient-to-r from-[#ea384c]/30 via-white/30 to-[#1EAEDB]/30 mx-auto mb-8"></div>
@@ -41,24 +44,24 @@ const Initiatives = () => {
             
             <div className="space-y-6 text-center">
               <p className="text-lg text-white/80">
-                Our initiative <span className="text-[#1EAEDB] font-medium">Walk 'Right'</span> is aimed to make every citizen aware of this fact and make our roads a <span className="text-white">safer place</span>
-                by avoiding and reducing the <span className="text-[#ea384c]">pedestrian death rate</span>.
+                {t('initiatives.description1')} <span className="text-[#1EAEDB] font-medium">{t('walkRight')}</span> {t('initiatives.description2')} <span className="text-white">safer place</span>
+                {t('initiatives.description3')} <span className="text-[#ea384c]">pedestrian death rate</span>.
               </p>
               
               <p className="text-lg text-white/80">
-                So come and join us in the <span className="text-[#1EAEDB] font-medium">Walk 'Right'</span> movement and be cautious and safe. Because after all...
+                So come and join us in the <span className="text-[#1EAEDB] font-medium">{t('walkRight')}</span> movement and be cautious and safe. Because after all...
               </p>
               
               <div className="p-6 bg-gradient-to-r from-[#ea384c]/10 via-white/5 to-[#1EAEDB]/10 rounded-lg border border-white/30 animate-pulse">
                 <p className="text-2xl font-bold">
-                  <span className="text-[#ea384c]">LIFE</span> is important and <span className="text-[#1EAEDB]">YOU</span> are <span className="text-white">important</span>.
+                  {t('initiatives.safeLife')}
                 </p>
               </div>
             </div>
             
             <div className="pt-6 flex justify-center">
               <Button variant="outline" className="border-[#1EAEDB] text-[#1EAEDB] hover:bg-[#1EAEDB]/20 group transition-all duration-300 transform hover:scale-105">
-                Learn More <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                {t('initiatives.learnMore')} <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
           </div>

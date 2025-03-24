@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { Quote } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Testimonials = () => {
+  const { t } = useLanguage();
+  
   const testimonials = [
     {
       quote: "The UNM Foundation's school safety program has transformed how our students think about road safety. We've seen a remarkable change in behavior.",
@@ -28,10 +31,10 @@ const Testimonials = () => {
     <section className="py-20 bg-white">
       <div className="container px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="badge badge-primary">Testimonials</span>
-          <h2 className="section-headline mt-2">Voices of Impact</h2>
+          <span className="badge badge-primary">{t('testimonials.badge')}</span>
+          <h2 className="section-headline mt-2">{t('testimonials.title')}</h2>
           <p className="mt-4 text-gray-600 text-lg">
-            Hear from the people whose lives have been touched by our pedestrian safety initiatives.
+            {t('testimonials.subtitle')}
           </p>
         </div>
 

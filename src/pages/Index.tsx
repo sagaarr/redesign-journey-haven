@@ -5,6 +5,8 @@ import Hero from '@/components/Hero';
 import SafetyStats from '@/components/SafetyStats';
 import Initiatives from '@/components/Initiatives';
 import MediaAndSocial from '@/components/MediaAndSocial';
+import Testimonials from '@/components/Testimonials';
+import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -45,7 +47,9 @@ const Index = () => {
         <Hero />
         <SafetyStats />
         <Initiatives />
+        <Testimonials />
         <MediaAndSocial />
+        <CallToAction />
       </main>
       <Footer />
     </div>

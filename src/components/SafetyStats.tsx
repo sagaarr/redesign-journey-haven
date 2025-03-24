@@ -9,8 +9,11 @@ import {
   DialogTrigger
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const SafetyStats = () => {
+  const { t } = useLanguage();
+  
   const pedestrianDeathsData = [
     { year: '2016', deaths: 5200 },
     { year: '2017', deaths: 5600 },
@@ -26,27 +29,27 @@ const SafetyStats = () => {
     {
       icon: <AlertTriangle className="h-12 w-12 text-red-500" />,
       value: '270,000+',
-      label: 'Annual Pedestrian Fatalities',
-      description: 'worldwide, according to WHO reports'
+      label: t('stats.annual'),
+      description: t('stats.worldwideReport')
     },
     {
       icon: <Users className="h-12 w-12 text-amber-500" />,
       value: '22%',
-      label: 'of Road Fatalities',
-      description: 'are pedestrians globally'
+      label: t('stats.pedestrians'),
+      description: t('stats.roadFatalities')
     },
     {
       icon: <Activity className="h-12 w-12 text-emerald-500" />,
       value: '63+',
-      label: 'Pedestrians',
-      description: 'are killed daily due to road accidents in India',
+      label: t('stats.killedDaily'),
+      description: t('navLinks.home'),
       hasGraph: true
     },
     {
       icon: <TrendingUp className="h-12 w-12 text-blue-500" />,
       value: '50%',
-      label: 'Reduction Potential',
-      description: 'through awareness and proper road safety'
+      label: t('stats.reduction'),
+      description: t('navLinks.about')
     }
   ];
 
@@ -54,10 +57,10 @@ const SafetyStats = () => {
     <section id="stats" className="py-20 bg-card/30">
       <div className="container px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="badge badge-primary">The Problem We're Addressing</span>
-          <h2 className="section-headline mt-2 text-white">Pedestrian Safety Crisis in India</h2>
+          <span className="badge badge-primary">{t('stats.heading')}</span>
+          <h2 className="section-headline mt-2 text-white">{t('stats.heading')}</h2>
           <p className="mt-4 text-gray-300 text-lg">
-            All you have to do is follow the simple rule - <span className="font-bold text-primary">WALK 'RIGHT'!</span> These statistics highlight why our work is so crucial.
+            {t('stats.description')}
           </p>
         </div>
 
@@ -82,7 +85,7 @@ const SafetyStats = () => {
                         className="mt-4 bg-primary/20 border-primary/30 hover:bg-primary/30 text-primary"
                       >
                         <BarChart2 className="mr-2 h-4 w-4" />
-                        View Trend Data
+                        {t('stats.viewTrend')}
                       </Button>
                     </DialogTrigger>
                   </CardContent>
@@ -90,7 +93,7 @@ const SafetyStats = () => {
                   <DialogContent className="w-full max-w-3xl p-0 border-none bg-black/90 backdrop-blur-md shadow-xl">
                     <div className="p-6 rounded-lg w-full h-96">
                       <h4 className="text-white text-center text-xl font-semibold mb-4">
-                        Pedestrian Deaths in India (2016-2023)
+                        {t('stats.chartTitle')}
                       </h4>
                       <ResponsiveContainer width="100%" height="85%">
                         <LineChart data={pedestrianDeathsData}>
