@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const NavBar = () => {
@@ -35,36 +35,41 @@ const NavBar = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="flex items-center">
-            <a href="#" className="font-display font-bold text-2xl">
-              UNM<span className="text-primary">Foundation</span>
+          <div className="w-1/3 md:w-1/4 flex justify-start">
+            {/* Empty div for layout spacing */}
+          </div>
+          
+          <div className="flex-1 flex justify-center">
+            <a href="#" className="flex items-center justify-center">
+              <img 
+                src="/lovable-uploads/d02c0ac4-0007-4c02-a70e-3db61b7dd182.png" 
+                alt="Walk Right India Logo" 
+                className="h-12 md:h-16"
+              />
             </a>
           </div>
           
-          <nav className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a 
-                key={link.name}
-                href={link.href}
-                className="font-medium text-gray-700 hover:text-primary transition-colors"
+          <div className="w-1/3 md:w-1/4 flex justify-end">
+            <div className="hidden md:flex items-center space-x-8">
+              {navLinks.map((link) => (
+                <a 
+                  key={link.name}
+                  href={link.href}
+                  className="font-medium text-gray-700 hover:text-[#00A8E8] transition-colors"
+                >
+                  {link.name}
+                </a>
+              ))}
+            </div>
+            
+            <div className="md:hidden">
+              <button 
+                onClick={() => setIsOpen(!isOpen)}
+                className="p-2 rounded-md focus:outline-none"
               >
-                {link.name}
-              </a>
-            ))}
-          </nav>
-          
-          <div className="hidden md:flex items-center space-x-2">
-            <Button variant="outline">Support Us</Button>
-            <Button>Walk Right</Button>
-          </div>
-          
-          <div className="md:hidden">
-            <button 
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md focus:outline-none"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -75,12 +80,19 @@ const NavBar = () => {
         isOpen ? 'translate-x-0' : 'translate-x-full'
       )}>
         <div className="flex flex-col h-full pt-20 px-4">
+          <div className="flex justify-center mb-8">
+            <img 
+              src="/lovable-uploads/d02c0ac4-0007-4c02-a70e-3db61b7dd182.png" 
+              alt="Walk Right India Logo" 
+              className="h-12"
+            />
+          </div>
           <nav className="flex flex-col space-y-6">
             {navLinks.map((link) => (
               <a 
                 key={link.name}
                 href={link.href}
-                className="text-xl font-medium text-gray-800 hover:text-primary"
+                className="text-xl font-medium text-gray-800 hover:text-[#00A8E8]"
                 onClick={() => setIsOpen(false)}
               >
                 {link.name}
@@ -88,8 +100,7 @@ const NavBar = () => {
             ))}
           </nav>
           <div className="mt-8 space-y-3">
-            <Button className="w-full" variant="outline">Support Us</Button>
-            <Button className="w-full">Walk Right</Button>
+            <Button className="w-full bg-[#00A8E8] hover:bg-[#0088CC]">Walk Right</Button>
           </div>
         </div>
       </div>
