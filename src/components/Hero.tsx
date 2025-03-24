@@ -3,9 +3,11 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Hero = () => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
   
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
@@ -60,12 +62,14 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-        <div className="w-1 h-10 relative overflow-hidden">
-          <span className="absolute w-full h-full bg-gradient-to-b from-white/50 to-white rounded-full animate-slide-in"></span>
+      {/* Scroll indicator - Improved centering */}
+      <div className="absolute bottom-8 left-0 right-0 mx-auto w-full flex justify-center items-center animate-bounce">
+        <div className="flex flex-col items-center">
+          <div className="w-1 h-10 relative overflow-hidden">
+            <span className="absolute w-full h-full bg-gradient-to-b from-white/50 to-white rounded-full animate-slide-in"></span>
+          </div>
+          <span className="text-sm mt-2 text-white text-center">Scroll to Learn More</span>
         </div>
-        <span className="text-sm mt-2 text-white">Scroll to Learn More</span>
       </div>
     </section>
   );
