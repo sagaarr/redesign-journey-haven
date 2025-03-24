@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AlertTriangle, Users, Activity, TrendingUp, BarChart2 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
@@ -89,7 +89,9 @@ const SafetyStats = () => {
                   
                   <DialogContent className="w-full max-w-3xl p-0 border-none bg-black/90 backdrop-blur-md shadow-xl">
                     <div className="p-6 rounded-lg w-full h-96">
-                      <h4 className="text-white text-center text-xl font-semibold mb-4">Pedestrian Deaths in India (2016-2023)</h4>
+                      <h4 className="text-white text-center text-xl font-semibold mb-4">
+                        Pedestrian Deaths in India (2016-2023)
+                      </h4>
                       <ResponsiveContainer width="100%" height="85%">
                         <LineChart data={pedestrianDeathsData}>
                           <CartesianGrid strokeDasharray="3 3" stroke="#444" />
