@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Image, Play, Instagram, Twitter, Facebook, Youtube } from 'lucide-react';
@@ -20,9 +19,6 @@ const MediaAndSocial = () => {
         </div>
 
         <div className="glass-card p-6 relative overflow-hidden">
-          <div className="absolute -top-16 -left-16 w-64 h-64 bg-[#ea384c]/10 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-16 -right-16 w-64 h-64 bg-[#1EAEDB]/10 rounded-full blur-3xl"></div>
-          
           <Tabs defaultValue="instagram" className="w-full">
             <TabsList className="grid grid-cols-4 w-full bg-black/30 mb-8">
               <TabsTrigger value="instagram" className="flex items-center gap-2">
