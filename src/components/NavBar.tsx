@@ -78,7 +78,7 @@ const NavBar = () => {
               <img 
                 src="/lovable-uploads/d02c0ac4-0007-4c02-a70e-3db61b7dd182.png" 
                 alt="Walk Right India Logo" 
-                className="h-10 md:h-16 bg-white/80 p-1 rounded"
+                className="h-10 md:h-16" 
               />
             </a>
           </div>
@@ -112,7 +112,7 @@ const NavBar = () => {
                           size="icon" 
                           className="mr-2 text-white"
                         >
-                          <ArrowLeft className="h-6 w-6" />
+                          <ArrowLeft className="h-8 w-8" />
                         </Button>
                       </SheetClose>
                       <div className="flex justify-center flex-1">
