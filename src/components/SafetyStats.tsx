@@ -1,33 +1,33 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Users, AlertTriangle, Activity, TrendingUp } from 'lucide-react';
+import { AlertTriangle, Users, Activity, TrendingUp } from 'lucide-react';
 
 const SafetyStats = () => {
   const stats = [
     {
       icon: <AlertTriangle className="h-12 w-12 text-red-500" />,
-      value: '140,000+',
-      label: 'Annual Road Fatalities',
-      description: 'in India, with pedestrians being highly vulnerable'
+      value: '270,000+',
+      label: 'Annual Pedestrian Fatalities',
+      description: 'worldwide, according to WHO reports'
     },
     {
       icon: <Users className="h-12 w-12 text-amber-500" />,
-      value: '30%',
-      label: 'of Road Accidents',
-      description: 'involve pedestrians in urban areas'
+      value: '22%',
+      label: 'of Road Fatalities',
+      description: 'are pedestrians globally'
     },
     {
       icon: <Activity className="h-12 w-12 text-emerald-500" />,
-      value: '50%',
-      label: 'Reduction Potential',
-      description: 'through awareness and infrastructure improvements'
+      value: '63+',
+      label: 'Pedestrians',
+      description: 'are killed daily due to road accidents in India'
     },
     {
       icon: <TrendingUp className="h-12 w-12 text-blue-500" />,
-      value: '10,000+',
-      label: 'Lives Impacted',
-      description: 'through our pedestrian safety programs'
+      value: '50%',
+      label: 'Reduction Potential',
+      description: 'through awareness and proper road safety'
     }
   ];
 
@@ -38,7 +38,7 @@ const SafetyStats = () => {
           <span className="badge badge-primary">The Problem We're Addressing</span>
           <h2 className="section-headline mt-2">Pedestrian Safety Crisis in India</h2>
           <p className="mt-4 text-gray-600 text-lg">
-            Every day, pedestrians face significant risks on India's roads. These statistics highlight why our work is so crucial.
+            All you have to do is follow the simple rule - <span className="font-bold text-primary">WALK 'RIGHT'!</span> These statistics highlight why our work is so crucial.
           </p>
         </div>
 
@@ -55,6 +55,35 @@ const SafetyStats = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        <div className="mt-16 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-blue-600 rounded-lg p-6 text-white text-center">
+              <h3 className="text-2xl font-bold mb-3">KEEP LEFT</h3>
+              <div className="flex justify-center my-4">
+                <svg className="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="40" r="10" fill="white"/>
+                  <path d="M40 55 L45 80 L55 80 L60 55" stroke="white" strokeWidth="3" fill="none"/>
+                  <circle cx="30" cy="70" r="15" stroke="white" strokeWidth="3" fill="none"/>
+                  <circle cx="70" cy="70" r="15" stroke="white" strokeWidth="3" fill="none"/>
+                </svg>
+              </div>
+              <p className="text-sm text-white/80">For cyclists and vehicles</p>
+            </div>
+            
+            <div className="bg-amber-500 rounded-lg p-6 text-white text-center">
+              <h3 className="text-2xl font-bold mb-3">WALK RIGHT</h3>
+              <div className="flex justify-center my-4">
+                <svg className="w-24 h-24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="50" cy="25" r="10" fill="white"/>
+                  <path d="M50 35 L40 60 L50 60 L45 85" stroke="white" strokeWidth="3" fill="none"/>
+                  <path d="M50 35 L60 60 L55 60 L65 85" stroke="white" strokeWidth="3" fill="none"/>
+                </svg>
+              </div>
+              <p className="text-sm text-white/80">For pedestrians in India</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

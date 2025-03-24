@@ -1,31 +1,40 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Play } from 'lucide-react';
 
 const Hero = () => {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Background with subtle grain texture */}
-      <div className="absolute inset-0 bg-gradient-to-b from-blue-50 to-white subtle-grain opacity-90"></div>
-      
-      {/* Animated floating shapes */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-[10%] left-[15%] w-64 h-64 rounded-full bg-blue-500/5 animate-pulse" style={{ animationDuration: '7s' }}></div>
-        <div className="absolute bottom-[20%] right-[10%] w-72 h-72 rounded-full bg-primary/5 animate-pulse" style={{ animationDuration: '9s' }}></div>
-        <div className="absolute top-[40%] right-[25%] w-40 h-40 rounded-full bg-pink-500/5 animate-pulse" style={{ animationDuration: '8s' }}></div>
+      {/* Video Background */}
+      <div className="absolute inset-0 w-full h-full z-0">
+        <div className="absolute inset-0 bg-black/50 z-10"></div> {/* Overlay for better text visibility */}
+        <video 
+          className="w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="https://assets.mixkit.co/videos/preview/mixkit-people-walking-on-a-city-street-crossing-4028-large.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
       </div>
       
-      <div className="container px-4 sm:px-6 relative z-10">
+      {/* Content */}
+      <div className="container px-4 sm:px-6 relative z-20">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="badge badge-primary animate-fade-in" style={{ animationDelay: '0.3s' }}>Walk Right, Stay Safe</span>
+          <span className="inline-block px-4 py-1 rounded-full bg-primary/20 text-primary text-sm font-medium mb-6 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+            Walk Right, Stay Safe
+          </span>
           
-          <h1 className="headline mt-4 text-balance animate-fade-in" style={{ animationDelay: '0.5s' }}>
-            Protecting <span className="text-gradient">Pedestrian Lives</span> Across India
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in" style={{ animationDelay: '0.5s' }}>
+            Take the <span className="text-primary">right</span> step.
+            <span className="block text-red-500">Today.</span>
           </h1>
           
-          <p className="mt-6 text-xl text-gray-600 max-w-2xl mx-auto text-balance animate-fade-in" style={{ animationDelay: '0.7s' }}>
-            The UNM Foundation is dedicated to reducing pedestrian accidents through education, awareness, and advocacy for safer streets.
+          <p className="mt-6 text-xl text-white/90 max-w-2xl mx-auto text-balance animate-fade-in" style={{ animationDelay: '0.7s' }}>
+            INDIA NEEDS TO <span className="text-primary font-bold">WALK 'RIGHT'.</span> Join our mission to make pedestrian safety a priority across India.
           </p>
           
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.9s' }}>
@@ -33,9 +42,17 @@ const Hero = () => {
               Support Our Cause
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button size="lg" variant="outline">
-              Learn About Road Safety
+            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-primary">
+              <Play className="mr-2 h-4 w-4" />
+              Watch Safety Video
             </Button>
+          </div>
+          
+          <div className="mt-16 text-white/80 animate-fade-in" style={{ animationDelay: '1.1s' }}>
+            <p className="font-medium">
+              According to WHO, more than <span className="text-red-500 font-bold">270,000</span> pedestrians lose their lives annually,
+              accounting for <span className="text-red-500 font-bold">22%</span> of global road traffic deaths
+            </p>
           </div>
         </div>
       </div>
@@ -43,9 +60,9 @@ const Hero = () => {
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
         <div className="w-1 h-10 relative overflow-hidden">
-          <span className="absolute w-full h-full bg-gradient-to-b from-primary/50 to-primary rounded-full animate-slide-in"></span>
+          <span className="absolute w-full h-full bg-gradient-to-b from-white/50 to-white rounded-full animate-slide-in"></span>
         </div>
-        <span className="text-sm mt-2 text-gray-500">Scroll to Learn More</span>
+        <span className="text-sm mt-2 text-white">Scroll to Learn More</span>
       </div>
     </section>
   );
