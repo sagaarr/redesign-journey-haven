@@ -30,7 +30,7 @@ const Hero = () => {
       <div className="container px-4 sm:px-6 relative z-20">
         <div className="max-w-3xl mx-auto text-center">
           <span className="inline-block px-4 py-1 rounded-full bg-[#00A8E8]/20 text-[#00A8E8] text-sm font-medium mb-6 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            {t('walkRight')}, {t('hero.subtitle')}
+            {t('walkRight')}, Walk Right, Stay Safe
           </span>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in" style={{ animationDelay: '0.5s' }}>
@@ -39,7 +39,7 @@ const Hero = () => {
           </h1>
           
           <p className="mt-6 text-xl text-white/90 max-w-2xl mx-auto text-balance animate-fade-in" style={{ animationDelay: '0.7s' }}>
-            INDIA NEEDS TO <span className="text-[#00A8E8] font-bold">{t('walkRight')}.</span> {t('hero.subtitle')}
+            INDIA NEEDS TO <span className="text-[#00A8E8] font-bold">{t('walkRight')}.</span> Walk Right, Stay Safe
           </p>
           
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.9s' }}>
