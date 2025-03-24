@@ -1,12 +1,9 @@
-
 import React, { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
 import SafetyStats from '@/components/SafetyStats';
 import Initiatives from '@/components/Initiatives';
 import BlogPreview from '@/components/BlogPreview';
-import Testimonials from '@/components/Testimonials';
-import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -48,8 +45,6 @@ const Index = () => {
         <SafetyStats />
         <Initiatives />
         <BlogPreview />
-        <Testimonials />
-        <CallToAction />
       </main>
       <Footer />
     </div>
