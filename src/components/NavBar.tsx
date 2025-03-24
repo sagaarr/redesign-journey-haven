@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger 
 } from '@/components/ui/dropdown-menu';
 import { useLanguage, Language } from '@/contexts/LanguageContext';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -106,14 +106,15 @@ const NavBar = () => {
                 <SheetContent side="right" className="p-0 w-full sm:max-w-md">
                   <div className="flex flex-col h-full">
                     <div className="flex items-center justify-between p-4 border-b">
-                      <Button 
-                        variant="ghost" 
-                        size="icon" 
-                        className="mr-2"
-                        onClick={() => document.querySelector('[data-radix-dialog-overlay]')?.click()}
-                      >
-                        <ArrowLeft className="h-6 w-6" />
-                      </Button>
+                      <SheetClose asChild>
+                        <Button 
+                          variant="ghost" 
+                          size="icon" 
+                          className="mr-2"
+                        >
+                          <ArrowLeft className="h-6 w-6" />
+                        </Button>
+                      </SheetClose>
                       <div className="flex justify-center flex-1">
                         <img 
                           src="/lovable-uploads/d02c0ac4-0007-4c02-a70e-3db61b7dd182.png" 
@@ -125,14 +126,14 @@ const NavBar = () => {
                     </div>
                     <nav className="flex flex-col p-4 space-y-6">
                       {navLinks.map((link) => (
-                        <a 
-                          key={link.name}
-                          href={link.href}
-                          className="text-xl font-medium text-gray-800 hover:text-[#00A8E8]"
-                          onClick={() => document.querySelector('[data-radix-dialog-overlay]')?.click()}
-                        >
-                          {link.name}
-                        </a>
+                        <SheetClose asChild key={link.name}>
+                          <a 
+                            href={link.href}
+                            className="text-xl font-medium text-gray-800 hover:text-[#00A8E8]"
+                          >
+                            {link.name}
+                          </a>
+                        </SheetClose>
                       ))}
                     </nav>
                     <div className="mt-auto p-4 space-y-3">
