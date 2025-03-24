@@ -103,14 +103,14 @@ const NavBar = () => {
                     <Menu className="h-6 w-6" />
                   </Button>
                 </SheetTrigger>
-                <SheetContent side="right" className="p-0 w-full sm:max-w-md">
+                <SheetContent side="right" className="p-0 w-full sm:max-w-md bg-black">
                   <div className="flex flex-col h-full">
-                    <div className="flex items-center justify-between p-4 border-b">
+                    <div className="flex items-center justify-between p-4 border-b border-white/10">
                       <SheetClose asChild>
                         <Button 
                           variant="ghost" 
                           size="icon" 
-                          className="mr-2"
+                          className="mr-2 text-white"
                         >
                           <ArrowLeft className="h-6 w-6" />
                         </Button>
@@ -129,7 +129,7 @@ const NavBar = () => {
                         <SheetClose asChild key={link.name}>
                           <a 
                             href={link.href}
-                            className="text-xl font-medium text-gray-800 hover:text-[#00A8E8]"
+                            className="text-xl font-medium text-white hover:text-[#00A8E8]"
                           >
                             {link.name}
                           </a>
@@ -137,7 +137,6 @@ const NavBar = () => {
                       ))}
                     </nav>
                     <div className="mt-auto p-4 space-y-3">
-                      <Button className="w-full bg-[#00A8E8] hover:bg-[#0088CC]">{t('walkRight')}</Button>
                       <div className="flex justify-center space-x-4 mt-6">
                         {languageOptions.map((lang) => (
                           <Button 
@@ -145,7 +144,10 @@ const NavBar = () => {
                             variant={language === lang.code ? "default" : "outline"} 
                             size="sm"
                             onClick={() => setLanguage(lang.code as Language)}
-                            className="min-w-16"
+                            className={cn(
+                              "min-w-16",
+                              language === lang.code ? "" : "text-white border-white/30 hover:text-white hover:bg-white/10"
+                            )}
                           >
                             {lang.name}
                           </Button>
