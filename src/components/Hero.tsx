@@ -8,7 +8,7 @@ const Hero = () => {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full z-0">
-        <div className="absolute inset-0 bg-black/50 z-10"></div> {/* Overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black/70 z-10"></div> {/* Darker overlay for better text visibility */}
         <video 
           className="w-full h-full object-cover"
           autoPlay

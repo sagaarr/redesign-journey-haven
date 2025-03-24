@@ -7,8 +7,8 @@ const CallToAction = () => {
   return (
     <section className="relative py-20 overflow-hidden">
       {/* Background with overlay */}
-      <div className="absolute inset-0 bg-[#00A8E8]/90">
-        <div className="absolute inset-0 bg-gradient-to-r from-[#00A8E8]/90 to-[#0088CC]/90"></div>
+      <div className="absolute inset-0 bg-[#00A8E8]/80">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#00A8E8]/80 to-[#0088CC]/80"></div>
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4xIj48cGF0aCBkPSJNMzYgMzBoLTZtNiAwdjZtLTYtNnY2Ii8+PHBhdGggZD0iTTMwIDMwaC02bTYgMHY2bS02LTZ2NiIvPjwvZz48L2c+PC9zdmc+')]"></div>
       </div>
       

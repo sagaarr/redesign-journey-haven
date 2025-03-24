@@ -33,28 +33,29 @@ const BlogPreview = () => {
   ];
 
   return (
-    <section id="blog" className="py-20 bg-gray-50">
+    <section id="blog" className="py-20 bg-black">
       <div className="container px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="badge badge-primary">Blog & Resources</span>
-          <h2 className="section-headline mt-2">Latest from Our Blog</h2>
-          <p className="mt-4 text-gray-600 text-lg">
+          <h2 className="section-headline mt-2 text-white">Latest from Our Blog</h2>
+          <p className="mt-4 text-gray-300 text-lg">
             Insights, research, and stories about pedestrian safety and our ongoing initiatives.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {blogPosts.map((post, index) => (
-            <Card key={index} className="overflow-hidden hover-card border-0 shadow-md">
-              <div className="h-48 overflow-hidden">
+            <Card key={index} className="overflow-hidden hover-card border-0 shadow-lg bg-gradient-to-b from-gray-900 to-black">
+              <div className="h-48 overflow-hidden relative">
+                <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-60 z-10"></div>
                 <img 
                   src={post.image} 
                   alt={post.title} 
                   className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                 />
               </div>
-              <CardContent className="p-6">
-                <div className="flex items-center justify-between text-sm text-gray-500 mb-3">
+              <CardContent className="p-6 relative">
+                <div className="flex items-center justify-between text-sm text-gray-400 mb-3">
                   <div className="flex items-center">
                     <Calendar className="h-4 w-4 mr-1" />
                     {post.date}
@@ -64,11 +65,11 @@ const BlogPreview = () => {
                     {post.author}
                   </div>
                 </div>
-                <span className="text-xs font-medium py-1 px-2 bg-primary/10 text-primary rounded-full">{post.category}</span>
-                <h3 className="text-xl font-bold mt-2 mb-2 line-clamp-2 hover:text-primary transition-colors">
+                <span className="text-xs font-medium py-1 px-2 bg-primary/20 text-primary rounded-full">{post.category}</span>
+                <h3 className="text-xl font-bold mt-2 mb-2 line-clamp-2 text-white hover:text-primary transition-colors">
                   {post.title}
                 </h3>
-                <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
+                <p className="text-gray-400 mb-4 line-clamp-3">{post.excerpt}</p>
                 <a href="#" className="inline-flex items-center text-primary font-medium hover:underline">
                   Read More
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -79,7 +80,7 @@ const BlogPreview = () => {
         </div>
         
         <div className="mt-12 text-center">
-          <Button size="lg">
+          <Button size="lg" className="bg-primary hover:bg-primary/80">
             View All Blog Posts
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
