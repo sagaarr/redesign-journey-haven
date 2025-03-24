@@ -62,9 +62,9 @@ const SafetyStats = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-transparent"></div>
               
               {stat.hasGraph ? (
-                <HoverCard openDelay={0} closeDelay={100}>
+                <HoverCard openDelay={0} closeDelay={200}>
                   <HoverCardTrigger asChild>
-                    <CardContent className="pt-6 flex flex-col items-center text-center relative z-10 hover:cursor-pointer">
+                    <CardContent className="pt-6 flex flex-col items-center text-center relative z-10 cursor-pointer">
                       <div className="mb-4 p-3 rounded-full bg-black/30">
                         {stat.icon}
                       </div>
@@ -74,7 +74,7 @@ const SafetyStats = () => {
                       <p className="text-primary text-xs mt-3 animate-pulse">Hover to see trend</p>
                     </CardContent>
                   </HoverCardTrigger>
-                  <HoverCardContent side="right" align="start" className="w-80 md:w-96 p-0 border-none bg-black/90 backdrop-blur-md z-50 shadow-xl">
+                  <HoverCardContent side="right" align="start" className="w-80 md:w-96 p-0 border-none bg-black/90 backdrop-blur-md shadow-xl">
                     <div className="p-4 rounded-lg w-full h-72">
                       <h4 className="text-white text-center mb-3">Pedestrian Deaths in India (2016-2023)</h4>
                       <ResponsiveContainer width="100%" height="80%">
