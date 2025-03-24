@@ -30,7 +30,7 @@ const Hero = () => {
       <div className="container px-4 sm:px-6 relative z-20">
         <div className="max-w-3xl mx-auto text-center">
           <span className="inline-block px-4 py-1 rounded-full bg-[#00A8E8]/20 text-[#00A8E8] text-sm font-medium mb-6 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            {t('walkRight')}, Walk Right, Stay Safe
+            Walk Right, Stay Safe
           </span>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in" style={{ animationDelay: '0.5s' }}>
