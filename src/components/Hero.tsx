@@ -32,7 +32,8 @@ const Hero = () => {
           </span>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in" style={{ animationDelay: '0.5s' }}>
-            {t('hero.title')}
+            Take the <span className="text-[#00A8E8]">right</span> step.
+            <span className="block text-red-500">Today.</span>
           </h1>
           
           <p className="mt-6 text-xl text-white/90 max-w-2xl mx-auto text-balance animate-fade-in" style={{ animationDelay: '0.7s' }}>
