@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X, Globe, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { 
   DropdownMenu, 
@@ -10,9 +10,9 @@ import {
   DropdownMenuTrigger 
 } from '@/components/ui/dropdown-menu';
 import { useLanguage, Language } from '@/contexts/LanguageContext';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
   
@@ -97,56 +97,63 @@ const NavBar = () => {
             </div>
             
             <div className="md:hidden">
-              <button 
-                onClick={() => setIsOpen(!isOpen)}
-                className="p-2 rounded-md focus:outline-none text-white bg-white/10 hover:bg-white/20"
-              >
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Mobile menu */}
-      <div className={cn(
-        'md:hidden fixed inset-0 bg-white z-40 transform transition-transform duration-300 ease-in-out',
-        isOpen ? 'translate-x-0' : 'translate-x-full'
-      )}>
-        <div className="flex flex-col h-full pt-20 px-4">
-          <div className="flex justify-center mb-8">
-            <img 
-              src="/lovable-uploads/d02c0ac4-0007-4c02-a70e-3db61b7dd182.png" 
-              alt="Walk Right India Logo" 
-              className="h-12"
-            />
-          </div>
-          <nav className="flex flex-col space-y-6">
-            {navLinks.map((link) => (
-              <a 
-                key={link.name}
-                href={link.href}
-                className="text-xl font-medium text-gray-800 hover:text-[#00A8E8]"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
-            ))}
-          </nav>
-          <div className="mt-8 space-y-3">
-            <Button className="w-full bg-[#00A8E8] hover:bg-[#0088CC]">{t('walkRight')}</Button>
-            <div className="flex justify-center space-x-4 mt-6">
-              {languageOptions.map((lang) => (
-                <Button 
-                  key={lang.code} 
-                  variant={language === lang.code ? "default" : "outline"} 
-                  size="sm"
-                  onClick={() => setLanguage(lang.code as Language)}
-                  className="min-w-16"
-                >
-                  {lang.name}
-                </Button>
-              ))}
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="p-2 rounded-md focus:outline-none text-white bg-white/10 hover:bg-white/20">
+                    <Menu className="h-6 w-6" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right" className="p-0 w-full sm:max-w-md">
+                  <div className="flex flex-col h-full">
+                    <div className="flex items-center justify-between p-4 border-b">
+                      <Button 
+                        variant="ghost" 
+                        size="icon" 
+                        className="mr-2"
+                        onClick={() => document.querySelector('[data-radix-dialog-overlay]')?.click()}
+                      >
+                        <ArrowLeft className="h-6 w-6" />
+                      </Button>
+                      <div className="flex justify-center flex-1">
+                        <img 
+                          src="/lovable-uploads/d02c0ac4-0007-4c02-a70e-3db61b7dd182.png" 
+                          alt="Walk Right India Logo" 
+                          className="h-10"
+                        />
+                      </div>
+                      <div className="w-10"></div> {/* Spacer for alignment */}
+                    </div>
+                    <nav className="flex flex-col p-4 space-y-6">
+                      {navLinks.map((link) => (
+                        <a 
+                          key={link.name}
+                          href={link.href}
+                          className="text-xl font-medium text-gray-800 hover:text-[#00A8E8]"
+                          onClick={() => document.querySelector('[data-radix-dialog-overlay]')?.click()}
+                        >
+                          {link.name}
+                        </a>
+                      ))}
+                    </nav>
+                    <div className="mt-auto p-4 space-y-3">
+                      <Button className="w-full bg-[#00A8E8] hover:bg-[#0088CC]">{t('walkRight')}</Button>
+                      <div className="flex justify-center space-x-4 mt-6">
+                        {languageOptions.map((lang) => (
+                          <Button 
+                            key={lang.code} 
+                            variant={language === lang.code ? "default" : "outline"} 
+                            size="sm"
+                            onClick={() => setLanguage(lang.code as Language)}
+                            className="min-w-16"
+                          >
+                            {lang.name}
+                          </Button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </SheetContent>
+              </Sheet>
             </div>
           </div>
         </div>
