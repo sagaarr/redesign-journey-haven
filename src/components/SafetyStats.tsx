@@ -1,9 +1,14 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { AlertTriangle, Users, Activity, TrendingUp } from 'lucide-react';
+import { AlertTriangle, Users, Activity, TrendingUp, BarChart2 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
+import { 
+  Dialog,
+  DialogContent,
+  DialogTrigger
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
 
 const SafetyStats = () => {
   const pedestrianDeathsData = [
@@ -62,22 +67,30 @@ const SafetyStats = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-transparent"></div>
               
               {stat.hasGraph ? (
-                <HoverCard>
-                  <HoverCardTrigger>
-                    <CardContent className="pt-6 flex flex-col items-center text-center relative z-10 cursor-pointer">
-                      <div className="mb-4 p-3 rounded-full bg-black/30">
-                        {stat.icon}
-                      </div>
-                      <h3 className="text-3xl font-bold mb-2 text-white">{stat.value}</h3>
-                      <p className="font-semibold text-gray-200">{stat.label}</p>
-                      <p className="text-gray-400 text-sm mt-2">{stat.description}</p>
-                      <p className="text-primary text-xs mt-3 animate-pulse">Hover to see trend</p>
-                    </CardContent>
-                  </HoverCardTrigger>
-                  <HoverCardContent className="w-80 md:w-96 p-0 border-none bg-black/90 backdrop-blur-md shadow-xl">
-                    <div className="p-4 rounded-lg w-full h-72">
-                      <h4 className="text-white text-center mb-3">Pedestrian Deaths in India (2016-2023)</h4>
-                      <ResponsiveContainer width="100%" height="80%">
+                <Dialog>
+                  <CardContent className="pt-6 flex flex-col items-center text-center relative z-10">
+                    <div className="mb-4 p-3 rounded-full bg-black/30">
+                      {stat.icon}
+                    </div>
+                    <h3 className="text-3xl font-bold mb-2 text-white">{stat.value}</h3>
+                    <p className="font-semibold text-gray-200">{stat.label}</p>
+                    <p className="text-gray-400 text-sm mt-2">{stat.description}</p>
+                    
+                    <DialogTrigger asChild>
+                      <Button 
+                        variant="outline" 
+                        className="mt-4 bg-primary/20 border-primary/30 hover:bg-primary/30 text-primary"
+                      >
+                        <BarChart2 className="mr-2 h-4 w-4" />
+                        View Trend Data
+                      </Button>
+                    </DialogTrigger>
+                  </CardContent>
+                  
+                  <DialogContent className="w-full max-w-3xl p-0 border-none bg-black/90 backdrop-blur-md shadow-xl">
+                    <div className="p-6 rounded-lg w-full h-96">
+                      <h4 className="text-white text-center text-xl font-semibold mb-4">Pedestrian Deaths in India (2016-2023)</h4>
+                      <ResponsiveContainer width="100%" height="85%">
                         <LineChart data={pedestrianDeathsData}>
                           <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                           <XAxis dataKey="year" stroke="#999" />
@@ -102,8 +115,8 @@ const SafetyStats = () => {
                         </LineChart>
                       </ResponsiveContainer>
                     </div>
-                  </HoverCardContent>
-                </HoverCard>
+                  </DialogContent>
+                </Dialog>
               ) : (
                 <CardContent className="pt-6 flex flex-col items-center text-center relative z-10">
                   <div className="mb-4 p-3 rounded-full bg-black/30">
