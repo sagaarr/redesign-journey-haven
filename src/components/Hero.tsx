@@ -2,8 +2,11 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Video Background */}
@@ -25,21 +28,20 @@ const Hero = () => {
       <div className="container px-4 sm:px-6 relative z-20">
         <div className="max-w-3xl mx-auto text-center">
           <span className="inline-block px-4 py-1 rounded-full bg-[#00A8E8]/20 text-[#00A8E8] text-sm font-medium mb-6 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            Walk Right, Stay Safe
+            {t('walkRight')}, {t('hero.subtitle')}
           </span>
           
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in" style={{ animationDelay: '0.5s' }}>
-            Take the <span className="text-[#00A8E8]">right</span> step.
-            <span className="block text-red-500">Today.</span>
+            {t('hero.title')}
           </h1>
           
           <p className="mt-6 text-xl text-white/90 max-w-2xl mx-auto text-balance animate-fade-in" style={{ animationDelay: '0.7s' }}>
-            INDIA NEEDS TO <span className="text-[#00A8E8] font-bold">WALK 'RIGHT'.</span> Join our mission to make pedestrian safety a priority across India.
+            INDIA NEEDS TO <span className="text-[#00A8E8] font-bold">{t('walkRight')}.</span> {t('hero.subtitle')}
           </p>
           
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.9s' }}>
             <Button size="lg" className="group bg-[#00A8E8] hover:bg-[#0088CC]">
-              Support Our Cause
+              {t('hero.button')}
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-[#00A8E8]">
@@ -50,8 +52,8 @@ const Hero = () => {
           
           <div className="mt-16 text-white/80 animate-fade-in" style={{ animationDelay: '1.1s' }}>
             <p className="font-medium">
-              According to WHO, more than <span className="text-red-500 font-bold">270,000</span> pedestrians lose their lives annually,
-              accounting for <span className="text-red-500 font-bold">22%</span> of global road traffic deaths
+              {t('stats.worldwideReport')} <span className="text-red-500 font-bold">270,000</span> {t('stats.pedestrians')},
+              {t('stats.roadFatalities')} <span className="text-red-500 font-bold">22%</span>
             </p>
           </div>
         </div>
