@@ -1,12 +1,20 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Globe } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuTrigger 
+} from '@/components/ui/dropdown-menu';
+import { useLanguage, Language } from '@/contexts/LanguageContext';
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -19,11 +27,17 @@ const NavBar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Initiatives', href: '#initiatives' },
-    { name: 'Blog', href: '#blog' },
-    { name: 'Get Involved', href: '#contact' },
+    { name: t('navLinks.home'), href: '#' },
+    { name: t('navLinks.about'), href: '#about' },
+    { name: t('navLinks.initiatives'), href: '#initiatives' },
+    { name: t('navLinks.blog'), href: '#blog' },
+    { name: t('navLinks.getInvolved'), href: '#contact' },
+  ];
+
+  const languageOptions = [
+    { code: 'en', name: 'English' },
+    { code: 'hi', name: 'हिंदी' },
+    { code: 'mr', name: 'मराठी' },
   ];
 
   return (
@@ -35,8 +49,28 @@ const NavBar = () => {
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="w-1/3 md:w-1/4 flex justify-start">
-            {/* Empty div for layout spacing */}
+          <div className="w-1/3 md:w-1/4 flex justify-start items-center">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="icon" className="rounded-full">
+                  <Globe className="h-5 w-5" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-36">
+                {languageOptions.map((lang) => (
+                  <DropdownMenuItem 
+                    key={lang.code} 
+                    onClick={() => setLanguage(lang.code as Language)}
+                    className={cn(
+                      "cursor-pointer",
+                      language === lang.code && "bg-accent text-accent-foreground"
+                    )}
+                  >
+                    {lang.name}
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
           
           <div className="flex-1 flex justify-center">
@@ -100,7 +134,20 @@ const NavBar = () => {
             ))}
           </nav>
           <div className="mt-8 space-y-3">
-            <Button className="w-full bg-[#00A8E8] hover:bg-[#0088CC]">Walk Right</Button>
+            <Button className="w-full bg-[#00A8E8] hover:bg-[#0088CC]">{t('walkRight')}</Button>
+            <div className="flex justify-center space-x-4 mt-6">
+              {languageOptions.map((lang) => (
+                <Button 
+                  key={lang.code} 
+                  variant={language === lang.code ? "default" : "outline"} 
+                  size="sm"
+                  onClick={() => setLanguage(lang.code as Language)}
+                  className="min-w-16"
+                >
+                  {lang.name}
+                </Button>
+              ))}
+            </div>
           </div>
         </div>
       </div>
