@@ -20,11 +20,10 @@ const NavBar = () => {
 
   const navLinks = [
     { name: 'Home', href: '#' },
-    { name: 'About', href: '#about' },
-    { name: 'Programs', href: '#programs' },
-    { name: 'Impact', href: '#impact' },
-    { name: 'News', href: '#news' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About Us', href: '#about' },
+    { name: 'Initiatives', href: '#initiatives' },
+    { name: 'Blog', href: '#blog' },
+    { name: 'Get Involved', href: '#contact' },
   ];
 
   return (
@@ -55,8 +54,8 @@ const NavBar = () => {
           </nav>
           
           <div className="hidden md:flex items-center space-x-2">
-            <Button variant="outline">Get Involved</Button>
-            <Button>Donate Now</Button>
+            <Button variant="outline">Support Us</Button>
+            <Button>Walk Right</Button>
           </div>
           
           <div className="md:hidden">
@@ -89,8 +88,8 @@ const NavBar = () => {
             ))}
           </nav>
           <div className="mt-8 space-y-3">
-            <Button className="w-full" variant="outline">Get Involved</Button>
-            <Button className="w-full">Donate Now</Button>
+            <Button className="w-full" variant="outline">Support Us</Button>
+            <Button className="w-full">Walk Right</Button>
           </div>
         </div>
       </div>

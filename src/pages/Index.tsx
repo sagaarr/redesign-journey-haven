@@ -2,10 +2,11 @@
 import React, { useEffect } from 'react';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Impact from '@/components/Impact';
-import News from '@/components/News';
-import Contact from '@/components/Contact';
+import SafetyStats from '@/components/SafetyStats';
+import Initiatives from '@/components/Initiatives';
+import BlogPreview from '@/components/BlogPreview';
+import Testimonials from '@/components/Testimonials';
+import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -44,10 +45,11 @@ const Index = () => {
       <NavBar />
       <main>
         <Hero />
-        <About />
-        <Impact />
-        <News />
-        <Contact />
+        <SafetyStats />
+        <Initiatives />
+        <BlogPreview />
+        <Testimonials />
+        <CallToAction />
       </main>
       <Footer />
     </div>

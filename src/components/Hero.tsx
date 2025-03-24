@@ -18,23 +18,23 @@ const Hero = () => {
       
       <div className="container px-4 sm:px-6 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
-          <span className="badge badge-primary animate-fade-in" style={{ animationDelay: '0.3s' }}>Transforming Lives Through Education</span>
+          <span className="badge badge-primary animate-fade-in" style={{ animationDelay: '0.3s' }}>Walk Right, Stay Safe</span>
           
           <h1 className="headline mt-4 text-balance animate-fade-in" style={{ animationDelay: '0.5s' }}>
-            Empowering Future <span className="text-gradient">Generations</span>
+            Protecting <span className="text-gradient">Pedestrian Lives</span> Across India
           </h1>
           
           <p className="mt-6 text-xl text-gray-600 max-w-2xl mx-auto text-balance animate-fade-in" style={{ animationDelay: '0.7s' }}>
-            The UNM Foundation partners with donors to make a positive impact on the University of New Mexico and our communities.
+            The UNM Foundation is dedicated to reducing pedestrian accidents through education, awareness, and advocacy for safer streets.
           </p>
           
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.9s' }}>
             <Button size="lg" className="group">
-              Make a Donation
+              Support Our Cause
               <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button size="lg" variant="outline">
-              Our Impact
+              Learn About Road Safety
             </Button>
           </div>
         </div>
@@ -45,7 +45,7 @@ const Hero = () => {
         <div className="w-1 h-10 relative overflow-hidden">
           <span className="absolute w-full h-full bg-gradient-to-b from-primary/50 to-primary rounded-full animate-slide-in"></span>
         </div>
-        <span className="text-sm mt-2 text-gray-500">Scroll</span>
+        <span className="text-sm mt-2 text-gray-500">Scroll to Learn More</span>
       </div>
     </section>
   );
