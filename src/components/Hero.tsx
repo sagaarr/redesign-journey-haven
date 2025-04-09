@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -8,8 +8,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
-  CarouselNext
 } from '@/components/ui/carousel';
 
 const Hero = () => {
@@ -28,7 +26,12 @@ const Hero = () => {
       {/* Image Slider Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <div className="absolute inset-0 bg-black/70 z-10"></div> {/* Darker overlay for better text visibility */}
-        <Carousel className="w-full h-full" opts={{ loop: true, duration: 30 }} autoPlay={true}>
+        <Carousel 
+          className="w-full h-full" 
+          opts={{ loop: true, duration: 30 }} 
+          autoPlay={true}
+          autoPlayInterval={5000}
+        >
           <CarouselContent className="h-full">
             {heroImages.map((image, index) => (
               <CarouselItem key={index} className="h-full">
