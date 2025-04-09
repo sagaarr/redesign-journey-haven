@@ -14,11 +14,39 @@ const Hero = () => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
   
-  const heroImages = [
-    "/lovable-uploads/36472fbd-e07b-49d3-b095-355a160b6036.png",
-    "/lovable-uploads/c0bd6173-b74b-4b5a-8a00-bda5e94da974.png",
-    "/lovable-uploads/4f563850-d96b-4829-87a9-1c7ebc6c94f8.png",
-    "/lovable-uploads/d0aab6de-6147-46a0-9cba-deba28803897.png"
+  const heroSlides = [
+    {
+      image: "/lovable-uploads/36472fbd-e07b-49d3-b095-355a160b6036.png",
+      title: "Walk Safely",
+      subtitle: "Always Use Sidewalks",
+      description: "Use footpaths where available. If none, walk on the right side of the road facing traffic.",
+      rule: "📘 Rule: Rules of the Road Regulations, 1989 – Rule 8",
+      law: "⚖️ Law Reference: IPC Section 283 – Obstruction in public way"
+    },
+    {
+      image: "/lovable-uploads/c0bd6173-b74b-4b5a-8a00-bda5e94da974.png",
+      title: "Cross Responsibly",
+      subtitle: "Use Crosswalks & Signals",
+      description: "Always cross at zebra crossings, signals, or subways. Look left–right–left before crossing.",
+      rule: "📘 Rule: Rules of the Road Regulations, 1989 – Rule 11",
+      law: "⚖️ Law Reference: IPC Section 336 – Act endangering life or personal safety of others"
+    },
+    {
+      image: "/lovable-uploads/4f563850-d96b-4829-87a9-1c7ebc6c94f8.png",
+      title: "Stay Alert",
+      subtitle: "Avoid Distractions",
+      description: "Do not use mobile phones or wear headphones while crossing. Stay focused on surroundings.",
+      rule: "📘 Guideline: Indian Roads Congress (IRC:103-2012) – Pedestrian Facilities",
+      law: "⚖️ Law Reference: IPC Section 336 – Careless behavior leading to danger"
+    },
+    {
+      image: "/lovable-uploads/d0aab6de-6147-46a0-9cba-deba28803897.png",
+      title: "Know the Law",
+      subtitle: "Follow Indian Road Laws",
+      description: "Careless walking or creating a traffic hazard can be penalized. Walk responsibly and lawfully.",
+      rule: "📘 Rule: Rules of the Road Regulations, 1989 – General conduct",
+      law: "⚖️ Law References:\n– IPC Section 283 – Public obstruction\n– IPC Section 336 – Risk to life/safety"
+    }
   ];
   
   return (
@@ -33,14 +61,27 @@ const Hero = () => {
           autoPlayInterval={5000}
         >
           <CarouselContent className="h-full">
-            {heroImages.map((image, index) => (
+            {heroSlides.map((slide, index) => (
               <CarouselItem key={index} className="h-full">
-                <div className="h-full w-full">
+                <div className="h-full w-full relative">
                   <img 
-                    src={image} 
+                    src={slide.image} 
                     alt={`Road safety image ${index + 1}`} 
                     className="w-full h-full object-cover"
                   />
+                  
+                  {/* Slide Content Overlay */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-black/70 p-6 md:p-8 rounded-lg max-w-lg mx-4 text-white">
+                      <h2 className="text-2xl md:text-3xl font-bold mb-2 text-[#00A8E8]">{slide.title}</h2>
+                      <h3 className="text-xl md:text-2xl font-semibold mb-3 text-white">{slide.subtitle}</h3>
+                      <p className="mb-4 text-white/90">{slide.description}</p>
+                      <div className="text-sm space-y-1">
+                        <p className="text-green-400">{slide.rule}</p>
+                        <p className="text-yellow-400">{slide.law}</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </CarouselItem>
             ))}
