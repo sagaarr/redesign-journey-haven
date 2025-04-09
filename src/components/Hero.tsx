@@ -50,7 +50,7 @@ const Hero = () => {
   ];
   
   return (
-    <section id="hero" className="relative h-[100vh] min-h-[600px] w-full flex flex-col justify-center overflow-hidden">
+    <section id="hero" className="relative h-[120vh] sm:h-[100vh] min-h-[600px] w-full flex flex-col justify-center overflow-hidden">
       {/* Image Slider Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <Carousel 
@@ -74,25 +74,25 @@ const Hero = () => {
                       className="w-full h-full object-cover"
                       style={{
                         objectPosition: isMobile ? "center 35%" : "center center",
-                        transform: isMobile ? "scale(1.4)" : "scale(1)"
+                        transform: isMobile ? "scale(1.5)" : "scale(1)"
                       }}
                     />
                   </div>
                   
                   {/* Content layout */}
                   <div className="absolute inset-0 flex items-center justify-center z-20">
-                    <div className="container mx-auto px-4 py-16 md:py-20">
+                    <div className="container mx-auto px-4 py-8 md:py-20">
                       {/* Mobile optimized layout */}
-                      <div className="flex flex-col gap-8 lg:grid lg:grid-cols-12 max-w-7xl mx-auto">
+                      <div className="flex flex-col gap-6 lg:gap-8 lg:grid lg:grid-cols-12 max-w-7xl mx-auto">
                         {/* Title section */}
                         <div className="lg:col-span-5 flex flex-col justify-center">
-                          <div className="bg-black/70 backdrop-blur-md p-5 md:p-8 rounded-xl border-l-4 border-[#00A8E8] shadow-xl">
+                          <div className="bg-black/70 backdrop-blur-md p-4 md:p-8 rounded-xl border-l-4 border-[#00A8E8] shadow-xl">
                             <div className="bg-gradient-to-r from-[#00A8E8] to-blue-700 h-2 w-16 md:w-24 mb-3 rounded"></div>
-                            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white drop-shadow-lg">
+                            <h2 className="text-2xl sm:text-4xl lg:text-6xl font-bold text-white drop-shadow-lg">
                               {slide.title}
                             </h2>
-                            <div className="h-1 w-12 md:w-16 lg:w-32 bg-white/80 my-3 rounded"></div>
-                            <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[#00A8E8] drop-shadow-xl">
+                            <div className="h-1 w-12 md:w-16 lg:w-32 bg-white/80 my-2 md:my-3 rounded"></div>
+                            <h3 className="text-lg sm:text-2xl lg:text-3xl font-bold text-[#00A8E8] drop-shadow-xl">
                               {slide.subtitle}
                             </h3>
                           </div>
@@ -100,20 +100,20 @@ const Hero = () => {
                         
                         {/* Content section */}
                         <div className="lg:col-span-7 flex flex-col justify-center">
-                          <div className="bg-black/70 backdrop-blur-md p-5 md:p-8 rounded-xl border-t-2 border-white/20 shadow-2xl">
-                            <p className="text-lg sm:text-xl lg:text-xl text-white leading-snug mb-5 drop-shadow-md font-medium">
+                          <div className="bg-black/70 backdrop-blur-md p-4 md:p-8 rounded-xl border-t-2 border-white/20 shadow-2xl">
+                            <p className="text-base sm:text-xl lg:text-xl text-white leading-snug mb-4 md:mb-5 drop-shadow-md font-medium">
                               {slide.description}
                             </p>
                             
                             {/* Rules and laws */}
-                            <div className="space-y-3">
-                              <div className="bg-gradient-to-r from-green-600/90 to-green-800/90 backdrop-blur-md p-4 rounded-lg shadow-lg">
-                                <p className="text-sm sm:text-base lg:text-lg font-medium text-white drop-shadow-sm">
+                            <div className="space-y-2 md:space-y-3">
+                              <div className="bg-gradient-to-r from-green-600/90 to-green-800/90 backdrop-blur-md p-3 md:p-4 rounded-lg shadow-lg">
+                                <p className="text-xs sm:text-base lg:text-lg font-medium text-white drop-shadow-sm">
                                   {slide.rule}
                                 </p>
                               </div>
-                              <div className="bg-gradient-to-r from-red-600/90 to-red-800/90 backdrop-blur-md p-4 rounded-lg shadow-lg">
-                                <p className="text-sm sm:text-base lg:text-lg font-medium text-white drop-shadow-sm">
+                              <div className="bg-gradient-to-r from-red-600/90 to-red-800/90 backdrop-blur-md p-3 md:p-4 rounded-lg shadow-lg">
+                                <p className="text-xs sm:text-base lg:text-lg font-medium text-white drop-shadow-sm">
                                   {slide.law}
                                 </p>
                               </div>
@@ -136,7 +136,7 @@ const Hero = () => {
           <div className="w-1 h-8 md:h-12 relative overflow-hidden rounded-full bg-white/90">
             <span className="absolute w-full h-full bg-gradient-to-b from-[#00A8E8] to-blue-700 rounded-full animate-slide-in"></span>
           </div>
-          <span className="text-sm mt-2 text-white font-semibold px-3 py-1 md:px-4 md:py-2 rounded-full bg-black/80 backdrop-blur-sm shadow-lg">
+          <span className="text-xs md:text-sm mt-2 text-white font-semibold px-2 py-1 md:px-4 md:py-2 rounded-full bg-black/80 backdrop-blur-sm shadow-lg">
             Scroll to Learn More
           </span>
         </div>
