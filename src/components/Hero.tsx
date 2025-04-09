@@ -70,15 +70,17 @@ const Hero = () => {
                     className="w-full h-full object-cover"
                   />
                   
-                  {/* Slide Content Overlay */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="bg-black/70 p-6 md:p-8 rounded-lg max-w-lg mx-4 text-white">
-                      <h2 className="text-2xl md:text-3xl font-bold mb-2 text-[#00A8E8]">{slide.title}</h2>
-                      <h3 className="text-xl md:text-2xl font-semibold mb-3 text-white">{slide.subtitle}</h3>
-                      <p className="mb-4 text-white/90">{slide.description}</p>
-                      <div className="text-sm space-y-1">
-                        <p className="text-green-400">{slide.rule}</p>
-                        <p className="text-yellow-400">{slide.law}</p>
+                  {/* Slide Content Overlay - Full width display */}
+                  <div className="absolute inset-0 flex items-center z-20">
+                    <div className="container mx-auto px-4">
+                      <div className="bg-black/70 p-8 rounded-lg max-w-3xl">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-[#00A8E8]">{slide.title}</h2>
+                        <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-4 text-white">{slide.subtitle}</h3>
+                        <p className="text-lg mb-6 text-white/90">{slide.description}</p>
+                        <div className="space-y-2">
+                          <p className="text-green-400 text-lg">{slide.rule}</p>
+                          <p className="text-yellow-400 text-lg">{slide.law}</p>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -89,44 +91,8 @@ const Hero = () => {
         </Carousel>
       </div>
       
-      {/* Content */}
-      <div className="container px-4 sm:px-6 relative z-20">
-        <div className="max-w-3xl mx-auto text-center">
-          <span className="inline-block px-4 py-1 rounded-full bg-[#00A8E8]/20 text-[#00A8E8] text-sm font-medium mb-6 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-            Walk Right, Stay Safe
-          </span>
-          
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight animate-fade-in" style={{ animationDelay: '0.5s' }}>
-            Take the <span className="text-[#00A8E8]">right</span> step.
-            <span className="block text-red-500">Today.</span>
-          </h1>
-          
-          <p className="mt-6 text-xl text-white/90 max-w-2xl mx-auto text-balance animate-fade-in" style={{ animationDelay: '0.7s' }}>
-            INDIA NEEDS TO <span className="text-[#00A8E8] font-bold">{t('walkRight')}.</span> Walk Right, Stay Safe
-          </p>
-          
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.9s' }}>
-            <Button size="lg" className="group bg-[#00A8E8] hover:bg-[#0088CC]">
-              {t('hero.button')}
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button size="lg" variant="outline" className="bg-transparent border-white text-white hover:bg-white hover:text-[#00A8E8]">
-              <Play className="mr-2 h-4 w-4" />
-              Watch Safety Video
-            </Button>
-          </div>
-          
-          <div className="mt-16 text-white/80 animate-fade-in" style={{ animationDelay: '1.1s' }}>
-            <p className="font-medium">
-              {t('stats.worldwideReport')} <span className="text-red-500 font-bold">270,000</span> {t('stats.pedestrians')},
-              {t('stats.roadFatalities')} <span className="text-red-500 font-bold">22%</span>
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      {/* Scroll indicator - Improved centering */}
-      <div className="absolute bottom-8 left-0 right-0 mx-auto w-full flex justify-center items-center animate-bounce">
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-0 right-0 mx-auto w-full flex justify-center items-center animate-bounce z-20">
         <div className="flex flex-col items-center">
           <div className="w-1 h-10 relative overflow-hidden">
             <span className="absolute w-full h-full bg-gradient-to-b from-white/50 to-white rounded-full animate-slide-in"></span>
