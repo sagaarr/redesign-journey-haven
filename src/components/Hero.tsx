@@ -53,7 +53,6 @@ const Hero = () => {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Image Slider Background */}
       <div className="absolute inset-0 w-full h-full z-0">
-        {/* Removed the dark overlay to make content more visible */}
         <Carousel 
           className="w-full h-full" 
           opts={{ loop: true, duration: 30 }} 
@@ -70,41 +69,43 @@ const Hero = () => {
                     className="w-full h-full object-cover"
                   />
                   
-                  {/* Redesigned text layout with better visibility */}
+                  {/* Improved text layout to ensure visibility */}
                   <div className="absolute inset-0 flex items-center justify-center z-20">
                     <div className="container mx-auto px-4 md:px-8 py-6">
-                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                        {/* Left side - Highlighted Title with improved visibility */}
+                      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                        {/* Left side - Title section with improved visibility */}
                         <div className="lg:col-span-5 flex flex-col justify-center">
-                          {/* Title container with partially transparent background for visibility */}
-                          <div className="bg-black/40 backdrop-blur-sm p-6 rounded-xl border-l-4 border-[#00A8E8] shadow-xl">
+                          {/* Title container with fully visible text */}
+                          <div className="bg-black/50 backdrop-blur-md p-6 md:p-8 rounded-xl border-l-4 border-[#00A8E8] shadow-xl max-w-full">
                             <div className="bg-gradient-to-r from-[#00A8E8] to-blue-700 h-2 w-24 mb-4 rounded"></div>
-                            <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white drop-shadow-lg animate-fade-in">
+                            <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white drop-shadow-lg animate-fade-in break-words hyphens-auto">
                               {slide.title}
                             </h2>
                             <div className="h-1 w-16 lg:w-32 bg-white/70 my-4 rounded"></div>
-                            <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#00A8E8] drop-shadow-xl">
+                            {/* Ensured subtitle doesn't overflow by controlling text size and adding line breaks if needed */}
+                            <h3 className="text-xl md:text-3xl font-bold text-[#00A8E8] drop-shadow-xl break-words hyphens-auto">
                               {slide.subtitle}
                             </h3>
                           </div>
                         </div>
                         
-                        {/* Right side - Content */}
+                        {/* Right side - Content with improved layout */}
                         <div className="lg:col-span-7 flex flex-col justify-center">
-                          <div className="bg-black/30 backdrop-blur-md p-6 md:p-8 rounded-xl border-t-2 border-white/20 shadow-2xl">
-                            <p className="text-xl md:text-2xl text-white leading-relaxed mb-6 drop-shadow-md max-w-3xl">
+                          {/* Added more spacing and controlled content width */}
+                          <div className="bg-black/50 backdrop-blur-md p-6 md:p-8 rounded-xl border-t-2 border-white/20 shadow-2xl max-w-full overflow-hidden">
+                            <p className="text-xl text-white leading-relaxed mb-6 drop-shadow-md max-w-3xl">
                               {slide.description}
                             </p>
                             
-                            {/* Redesigned laws and rules with better visibility */}
+                            {/* Rules and laws with better text wrapping */}
                             <div className="space-y-4 mt-2">
-                              <div className="bg-gradient-to-r from-green-500/90 to-green-700/90 backdrop-blur-md px-5 py-4 rounded-lg shadow-lg">
-                                <p className="text-lg md:text-xl font-medium text-white drop-shadow-sm">
+                              <div className="bg-gradient-to-r from-green-600/90 to-green-800/90 backdrop-blur-md px-5 py-4 rounded-lg shadow-lg">
+                                <p className="text-base md:text-lg font-medium text-white drop-shadow-sm break-words">
                                   {slide.rule}
                                 </p>
                               </div>
-                              <div className="bg-gradient-to-r from-yellow-500/90 to-amber-600/90 backdrop-blur-md px-5 py-4 rounded-lg shadow-lg">
-                                <p className="text-lg md:text-xl font-medium text-white drop-shadow-sm">
+                              <div className="bg-gradient-to-r from-yellow-600/90 to-amber-700/90 backdrop-blur-md px-5 py-4 rounded-lg shadow-lg">
+                                <p className="text-base md:text-lg font-medium text-white drop-shadow-sm break-words">
                                   {slide.law}
                                 </p>
                               </div>
