@@ -104,7 +104,8 @@ const Hero = () => {
                                   {slide.rule}
                                 </p>
                               </div>
-                              <div className="bg-gradient-to-r from-yellow-600/90 to-amber-700/90 backdrop-blur-md px-5 py-4 rounded-lg shadow-lg">
+                              {/* Changed law reference background to red shades */}
+                              <div className="bg-gradient-to-r from-red-700/90 to-red-900/90 backdrop-blur-md px-5 py-4 rounded-lg shadow-lg">
                                 <p className="text-base md:text-lg font-medium text-white drop-shadow-sm break-words">
                                   {slide.law}
                                 </p>
