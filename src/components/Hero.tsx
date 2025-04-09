@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -8,11 +8,18 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from '@/components/ui/carousel';
+import { Slider } from '@/components/ui/slider';
+import Autoplay from 'embla-carousel-autoplay';
 
 const Hero = () => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
+  const autoplayRef = useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: false })
+  );
   
   const heroSlides = [
     {
@@ -48,6 +55,8 @@ const Hero = () => {
       law: "⚖️ Law References:\n– IPC Section 283 – Public obstruction\n– IPC Section 336 – Risk to life/safety"
     }
   ];
+
+  const [currentSlide, setCurrentSlide] = React.useState(0);
   
   return (
     <section id="hero" className="relative h-screen min-h-[600px] w-full flex flex-col justify-center overflow-hidden">
@@ -55,9 +64,12 @@ const Hero = () => {
       <div className="absolute inset-0 w-full h-full z-0">
         <Carousel 
           className="w-full h-full" 
-          opts={{ loop: true, duration: 30 }} 
-          autoPlay={true}
-          autoPlayInterval={5000}
+          plugins={[autoplayRef.current]}
+          onSlideChange={(index) => setCurrentSlide(index)}
+          opts={{ 
+            loop: true,
+            duration: 30
+          }}
         >
           <CarouselContent className="h-full">
             {heroSlides.map((slide, index) => (
@@ -72,9 +84,7 @@ const Hero = () => {
                       src={slide.image} 
                       alt={`Road safety image ${index + 1}`} 
                       className="w-full h-full object-cover"
-                      style={{
-                        objectPosition: "center center"
-                      }}
+                      style={{ objectPosition: "center center" }}
                     />
                   </div>
                   
@@ -126,6 +136,26 @@ const Hero = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
+          
+          <div className="absolute bottom-24 left-0 right-0 z-30">
+            <div className="container mx-auto px-4">
+              <div className="flex justify-center items-center">
+                <div className="w-full max-w-md">
+                  <Slider 
+                    value={[currentSlide]}
+                    min={0}
+                    max={heroSlides.length - 1}
+                    step={1}
+                    className="cursor-pointer"
+                    onValueChange={(value) => {
+                      if (autoplayRef.current) autoplayRef.current.reset();
+                      setCurrentSlide(value[0]);
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </Carousel>
       </div>
       
