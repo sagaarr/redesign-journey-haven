@@ -50,7 +50,7 @@ const Hero = () => {
   ];
   
   return (
-    <section id="hero" className="relative h-[120vh] sm:h-[100vh] min-h-[600px] w-full flex flex-col justify-center overflow-hidden">
+    <section id="hero" className="relative h-screen min-h-[600px] w-full flex flex-col justify-center overflow-hidden">
       {/* Image Slider Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <Carousel 
@@ -64,7 +64,7 @@ const Hero = () => {
               <CarouselItem key={index} className="h-full">
                 <div className="h-full w-full relative">
                   {/* Darker overlay for better text visibility */}
-                  <div className="absolute inset-0 bg-black/90 z-10"></div>
+                  <div className="absolute inset-0 bg-black/70 z-10"></div>
                   
                   {/* Background image */}
                   <div className="absolute inset-0 overflow-hidden">
@@ -73,8 +73,7 @@ const Hero = () => {
                       alt={`Road safety image ${index + 1}`} 
                       className="w-full h-full object-cover"
                       style={{
-                        objectPosition: isMobile ? "center 35%" : "center center",
-                        transform: isMobile ? "scale(1.5)" : "scale(1)"
+                        objectPosition: "center center"
                       }}
                     />
                   </div>
