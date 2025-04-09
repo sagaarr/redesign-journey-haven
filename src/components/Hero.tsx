@@ -1,29 +1,48 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Play } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselPrevious,
+  CarouselNext
+} from '@/components/ui/carousel';
 
 const Hero = () => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
   
+  const heroImages = [
+    "/lovable-uploads/36472fbd-e07b-49d3-b095-355a160b6036.png",
+    "/lovable-uploads/c0bd6173-b74b-4b5a-8a00-bda5e94da974.png",
+    "/lovable-uploads/4f563850-d96b-4829-87a9-1c7ebc6c94f8.png",
+    "/lovable-uploads/d0aab6de-6147-46a0-9cba-deba28803897.png"
+  ];
+  
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Video Background */}
+      {/* Image Slider Background */}
       <div className="absolute inset-0 w-full h-full z-0">
         <div className="absolute inset-0 bg-black/70 z-10"></div> {/* Darker overlay for better text visibility */}
-        <video 
-          className="w-full h-full object-cover"
-          autoPlay
-          muted
-          loop
-          playsInline
-        >
-          <source src="https://assets.mixkit.co/videos/preview/mixkit-people-walking-on-a-city-street-crossing-4028-large.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <Carousel className="w-full h-full" opts={{ loop: true, duration: 30 }} autoPlay={true}>
+          <CarouselContent className="h-full">
+            {heroImages.map((image, index) => (
+              <CarouselItem key={index} className="h-full">
+                <div className="h-full w-full">
+                  <img 
+                    src={image} 
+                    alt={`Road safety image ${index + 1}`} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
       </div>
       
       {/* Content */}
