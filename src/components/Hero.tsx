@@ -53,7 +53,8 @@ const Hero = () => {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Image Slider Background */}
       <div className="absolute inset-0 w-full h-full z-0">
-        <div className="absolute inset-0 bg-black/40 z-10"></div> {/* Lighter overlay for better visibility */}
+        {/* Very light overlay to preserve image clarity */}
+        <div className="absolute inset-0 bg-black/25 z-10"></div>
         <Carousel 
           className="w-full h-full" 
           opts={{ loop: true, duration: 30 }} 
@@ -70,32 +71,40 @@ const Hero = () => {
                     className="w-full h-full object-cover"
                   />
                   
-                  {/* New text content design with no overlay */}
-                  <div className="absolute inset-0 flex items-center z-20">
-                    <div className="container mx-auto px-6">
-                      <div className="max-w-3xl backdrop-blur-sm p-8 border-l-4 border-[#00A8E8]">
-                        <div className="space-y-6">
-                          <div>
-                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg mb-2">
-                              {slide.title}
-                            </h2>
-                            <div className="h-1 w-24 bg-[#00A8E8] rounded mb-4"></div>
-                            <h3 className="text-xl md:text-3xl font-semibold text-[#00A8E8] drop-shadow-md">
-                              {slide.subtitle}
-                            </h3>
-                          </div>
-                          
-                          <p className="text-lg md:text-xl text-white drop-shadow-md leading-relaxed">
+                  {/* New dramatic text layout that utilizes more space */}
+                  <div className="absolute inset-0 flex items-center justify-center z-20">
+                    <div className="container mx-auto px-4 md:px-8 py-6">
+                      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+                        {/* Left side - Big Title */}
+                        <div className="lg:col-span-2 flex flex-col justify-center">
+                          <div className="bg-gradient-to-r from-[#00A8E8] to-blue-700 h-2 w-24 mb-4 rounded"></div>
+                          <h2 className="text-4xl md:text-6xl lg:text-8xl font-bold text-white text-shadow-lg animate-fade-in">
+                            {slide.title}
+                          </h2>
+                          <div className="h-1 w-16 lg:w-32 bg-white/50 my-4 rounded"></div>
+                          <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#00A8E8] drop-shadow-xl">
+                            {slide.subtitle}
+                          </h3>
+                        </div>
+                        
+                        {/* Right side - Content */}
+                        <div className="lg:col-span-3 flex flex-col justify-center backdrop-blur-sm bg-black/30 border-l-4 border-[#00A8E8] p-6 md:p-8 rounded-r-xl">
+                          <p className="text-xl md:text-2xl text-white leading-relaxed mb-6 drop-shadow-md max-w-3xl">
                             {slide.description}
                           </p>
                           
-                          <div className="space-y-2 pt-2">
-                            <p className="text-green-400 text-lg md:text-xl font-medium drop-shadow-sm bg-black/20 backdrop-blur-sm inline-block px-3 py-1 rounded">
-                              {slide.rule}
-                            </p>
-                            <p className="text-yellow-300 text-lg md:text-xl font-medium drop-shadow-sm bg-black/20 backdrop-blur-sm inline-block px-3 py-1 rounded">
-                              {slide.law}
-                            </p>
+                          {/* Laws and rules with enhanced styling */}
+                          <div className="space-y-3 mt-2">
+                            <div className="inline-block bg-gradient-to-r from-green-500/80 to-green-700/80 backdrop-blur-md px-4 py-3 rounded-lg shadow-lg">
+                              <p className="text-lg md:text-xl font-medium text-white drop-shadow-sm">
+                                {slide.rule}
+                              </p>
+                            </div>
+                            <div className="inline-block bg-gradient-to-r from-yellow-500/80 to-amber-600/80 backdrop-blur-md px-4 py-3 rounded-lg shadow-lg mt-3">
+                              <p className="text-lg md:text-xl font-medium text-white drop-shadow-sm">
+                                {slide.law}
+                              </p>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -108,13 +117,13 @@ const Hero = () => {
         </Carousel>
       </div>
       
-      {/* Scroll indicator */}
+      {/* Enhanced scroll indicator */}
       <div className="absolute bottom-8 left-0 right-0 mx-auto w-full flex justify-center items-center animate-bounce z-20">
         <div className="flex flex-col items-center">
-          <div className="w-1 h-10 relative overflow-hidden">
-            <span className="absolute w-full h-full bg-gradient-to-b from-white/50 to-white rounded-full animate-slide-in"></span>
+          <div className="w-1 h-16 relative overflow-hidden rounded-full bg-white/20">
+            <span className="absolute w-full h-full bg-gradient-to-b from-[#00A8E8] to-blue-700 rounded-full animate-slide-in"></span>
           </div>
-          <span className="text-sm mt-2 text-white text-center">Scroll to Learn More</span>
+          <span className="text-sm mt-2 text-white font-medium px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm">Scroll to Learn More</span>
         </div>
       </div>
     </section>
