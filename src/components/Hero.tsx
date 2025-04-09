@@ -53,7 +53,7 @@ const Hero = () => {
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Image Slider Background */}
       <div className="absolute inset-0 w-full h-full z-0">
-        <div className="absolute inset-0 bg-black/70 z-10"></div> {/* Darker overlay for better text visibility */}
+        <div className="absolute inset-0 bg-black/40 z-10"></div> {/* Lighter overlay for better visibility */}
         <Carousel 
           className="w-full h-full" 
           opts={{ loop: true, duration: 30 }} 
@@ -70,16 +70,33 @@ const Hero = () => {
                     className="w-full h-full object-cover"
                   />
                   
-                  {/* Slide Content Overlay - Full width display */}
+                  {/* New text content design with no overlay */}
                   <div className="absolute inset-0 flex items-center z-20">
-                    <div className="container mx-auto px-4">
-                      <div className="bg-black/70 p-8 rounded-lg max-w-3xl">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-3 text-[#00A8E8]">{slide.title}</h2>
-                        <h3 className="text-xl md:text-2xl lg:text-3xl font-semibold mb-4 text-white">{slide.subtitle}</h3>
-                        <p className="text-lg mb-6 text-white/90">{slide.description}</p>
-                        <div className="space-y-2">
-                          <p className="text-green-400 text-lg">{slide.rule}</p>
-                          <p className="text-yellow-400 text-lg">{slide.law}</p>
+                    <div className="container mx-auto px-6">
+                      <div className="max-w-3xl backdrop-blur-sm p-8 border-l-4 border-[#00A8E8]">
+                        <div className="space-y-6">
+                          <div>
+                            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg mb-2">
+                              {slide.title}
+                            </h2>
+                            <div className="h-1 w-24 bg-[#00A8E8] rounded mb-4"></div>
+                            <h3 className="text-xl md:text-3xl font-semibold text-[#00A8E8] drop-shadow-md">
+                              {slide.subtitle}
+                            </h3>
+                          </div>
+                          
+                          <p className="text-lg md:text-xl text-white drop-shadow-md leading-relaxed">
+                            {slide.description}
+                          </p>
+                          
+                          <div className="space-y-2 pt-2">
+                            <p className="text-green-400 text-lg md:text-xl font-medium drop-shadow-sm bg-black/20 backdrop-blur-sm inline-block px-3 py-1 rounded">
+                              {slide.rule}
+                            </p>
+                            <p className="text-yellow-300 text-lg md:text-xl font-medium drop-shadow-sm bg-black/20 backdrop-blur-sm inline-block px-3 py-1 rounded">
+                              {slide.law}
+                            </p>
+                          </div>
                         </div>
                       </div>
                     </div>
