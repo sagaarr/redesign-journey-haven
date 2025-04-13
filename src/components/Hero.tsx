@@ -35,10 +35,10 @@ const Hero = () => {
         behavior: 'smooth'
       });
     } else {
-      // Find the next section (after Hero)
-      const mediaGallerySection = document.querySelector('#media-gallery');
-      if (mediaGallerySection) {
-        mediaGallerySection.scrollIntoView({ behavior: 'smooth' });
+      // Find the next section (gallery)
+      const gallerySection = document.getElementById('gallery');
+      if (gallerySection) {
+        gallerySection.scrollIntoView({ behavior: 'smooth' });
       }
     }
   };

@@ -48,7 +48,7 @@ const MediaGallery = () => {
   };
 
   return (
-    <section id="gallery" className="py-16 bg-black">
+    <section className="py-16 bg-black">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-10">
           <span className="badge bg-primary/20 text-primary rounded-full px-3 py-1 text-sm">Media Gallery</span>

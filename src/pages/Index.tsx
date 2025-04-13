@@ -45,7 +45,7 @@ const Index = () => {
       <NavBar />
       <main>
         <Hero />
-        <section id="media-gallery">
+        <section id="gallery">
           <MediaGallery />
         </section>
         <SafetyStats />
