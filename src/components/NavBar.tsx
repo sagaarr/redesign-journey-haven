@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, Globe, ArrowLeft } from 'lucide-react';
@@ -28,7 +29,6 @@ const NavBar = () => {
   const navLinks = [
     { name: t('navLinks.home'), href: '/' },
     { name: 'Gallery', href: '/gallery' },
-    { name: t('navLinks.initiatives'), href: '#initiatives' },
     { name: t('navLinks.getInvolved'), href: '#contact' },
   ];
 

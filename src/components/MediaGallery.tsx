@@ -5,28 +5,40 @@ import { Image, Video, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import MediaPopup from './MediaPopup';
 
 const MediaGallery = () => {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState("photos");
+  const [popupOpen, setPopupOpen] = useState(false);
+  const [currentItemIndex, setCurrentItemIndex] = useState(0);
 
+  // Media items config
   const dummyPhotos = [
-    { id: 1, src: "https://images.unsplash.com/photo-1618783916343-568507b6e8ea?q=80&w=800", alt: "Road safety initiative" },
-    { id: 2, src: "https://images.unsplash.com/photo-1581092926525-6f18d64e7352?q=80&w=800", alt: "Pedestrian crossing" },
-    { id: 3, src: "https://images.unsplash.com/photo-1574350791058-2de8fa711885?q=80&w=800", alt: "Community workshop" },
-    { id: 4, src: "https://images.unsplash.com/photo-1517523267857-911fd453fa8b?q=80&w=800", alt: "Traffic education" },
-    { id: 5, src: "https://images.unsplash.com/photo-1496163668521-39614a16b23f?q=80&w=800", alt: "Road safety awareness" },
-    { id: 6, src: "https://images.unsplash.com/photo-1524225724388-acd4a85bfa61?q=80&w=800", alt: "School safety program" },
+    { id: 1, type: 'photo', src: "https://images.unsplash.com/photo-1618783916343-568507b6e8ea?q=80&w=800", alt: "Road safety initiative" },
+    { id: 2, type: 'photo', src: "https://images.unsplash.com/photo-1581092926525-6f18d64e7352?q=80&w=800", alt: "Pedestrian crossing" },
+    { id: 3, type: 'photo', src: "https://images.unsplash.com/photo-1574350791058-2de8fa711885?q=80&w=800", alt: "Community workshop" },
+    { id: 4, type: 'photo', src: "https://images.unsplash.com/photo-1517523267857-911fd453fa8b?q=80&w=800", alt: "Traffic education" },
+    { id: 5, type: 'photo', src: "https://images.unsplash.com/photo-1496163668521-39614a16b23f?q=80&w=800", alt: "Road safety awareness" },
+    { id: 6, type: 'photo', src: "https://images.unsplash.com/photo-1524225724388-acd4a85bfa61?q=80&w=800", alt: "School safety program" },
   ];
 
   const dummyVideos = [
-    { id: 1, youtubeId: "ZE8ODPL2VPI", title: "Road Safety Awareness" },
-    { id: 2, youtubeId: "QXU3L7V0_7I", title: "Pedestrian Safety Tips" },
-    { id: 3, youtubeId: "UxrHGPX_-QQ", title: "Safe Crossing Techniques" },
-    { id: 4, youtubeId: "9j4NKx2EGyE", title: "Traffic Rules Education" },
-    { id: 5, youtubeId: "zcTkSs-5Vuo", title: "Road Safety for Children" },
-    { id: 6, youtubeId: "dAhQ6xKoOj4", title: "Community Safety Initiatives" },
+    { id: 1, type: 'video', youtubeId: "ZE8ODPL2VPI", title: "Road Safety Awareness" },
+    { id: 2, type: 'video', youtubeId: "QXU3L7V0_7I", title: "Pedestrian Safety Tips" },
+    { id: 3, type: 'video', youtubeId: "UxrHGPX_-QQ", title: "Safe Crossing Techniques" },
+    { id: 4, type: 'video', youtubeId: "9j4NKx2EGyE", title: "Traffic Rules Education" },
+    { id: 5, type: 'video', youtubeId: "zcTkSs-5Vuo", title: "Road Safety for Children" },
+    { id: 6, type: 'video', youtubeId: "dAhQ6xKoOj4", title: "Community Safety Initiatives" },
   ];
+
+  const getActiveItems = () => activeTab === "photos" ? dummyPhotos : dummyVideos;
+
+  const handleItemClick = (index: number) => {
+    setCurrentItemIndex(index);
+    setPopupOpen(true);
+  };
 
   return (
     <section id="gallery" className="py-16 bg-black">
@@ -64,44 +76,48 @@ const MediaGallery = () => {
             </TabsList>
           </div>
 
-          <TabsContent value="photos" className="mt-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {dummyPhotos.map((photo) => (
-                <div 
-                  key={photo.id} 
-                  className="relative overflow-hidden rounded-lg bg-gray-800 aspect-video group cursor-pointer"
-                >
-                  <img 
-                    src={photo.src} 
-                    alt={photo.alt}
-                    className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-                    <p className="text-white p-4 text-sm font-medium">{photo.alt}</p>
+          <ScrollArea className="h-[500px]">
+            <TabsContent value="photos" className="mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {dummyPhotos.map((photo, index) => (
+                  <div 
+                    key={photo.id} 
+                    className="relative overflow-hidden rounded-lg bg-gray-800 aspect-video group cursor-pointer"
+                    onClick={() => handleItemClick(index)}
+                  >
+                    <img 
+                      src={photo.src} 
+                      alt={photo.alt}
+                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                      <p className="text-white p-4 text-sm font-medium">{photo.alt}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </TabsContent>
+                ))}
+              </div>
+            </TabsContent>
 
-          <TabsContent value="videos" className="mt-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-              {dummyVideos.map((video) => (
-                <div 
-                  key={video.id} 
-                  className="relative overflow-hidden rounded-lg bg-gray-800 aspect-video"
-                >
-                  <iframe
-                    src={`https://www.youtube.com/embed/${video.youtubeId}`}
-                    title={video.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                  />
-                </div>
-              ))}
-            </div>
-          </TabsContent>
+            <TabsContent value="videos" className="mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                {dummyVideos.map((video, index) => (
+                  <div 
+                    key={video.id} 
+                    className="relative overflow-hidden rounded-lg bg-gray-800 aspect-video cursor-pointer"
+                    onClick={() => handleItemClick(index)}
+                  >
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                      title={video.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+          </ScrollArea>
         </Tabs>
 
         <div className="flex justify-center mt-10">
@@ -112,6 +128,15 @@ const MediaGallery = () => {
           </Link>
         </div>
       </div>
+      
+      {/* Media Popup */}
+      <MediaPopup 
+        items={getActiveItems()}
+        currentIndex={currentItemIndex}
+        open={popupOpen}
+        onOpenChange={setPopupOpen}
+        onNavigate={setCurrentItemIndex}
+      />
     </section>
   );
 };
