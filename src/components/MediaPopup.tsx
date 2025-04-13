@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { Dialog, DialogContent } from '@/components/ui/dialog';
@@ -26,7 +25,6 @@ const MediaPopup = ({ items, currentIndex, open, onOpenChange, onNavigate }: Med
   useEffect(() => {
     setIsMounted(true);
     
-    // Add keyboard navigation
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!open) return;
       
@@ -49,7 +47,6 @@ const MediaPopup = ({ items, currentIndex, open, onOpenChange, onNavigate }: Med
   if (!currentItem) return null;
   
   const navigateTo = (index: number) => {
-    // Circular navigation
     const newIndex = (index + items.length) % items.length;
     onNavigate(newIndex);
   };
@@ -60,7 +57,6 @@ const MediaPopup = ({ items, currentIndex, open, onOpenChange, onNavigate }: Med
         className="max-w-7xl w-full bg-black/95 border-none p-1 sm:p-2"
       >
         <div className="relative flex items-center justify-center w-full h-full min-h-[50vh] sm:min-h-[70vh]">
-          {/* Media Content */}
           <div className="w-full h-full flex items-center justify-center">
             {currentItem.type === 'photo' ? (
               <img 
@@ -81,7 +77,6 @@ const MediaPopup = ({ items, currentIndex, open, onOpenChange, onNavigate }: Med
             )}
           </div>
           
-          {/* Navigation Controls */}
           <button 
             onClick={() => navigateTo(currentIndex - 1)}
             className="absolute left-2 sm:left-4 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors"
@@ -106,7 +101,6 @@ const MediaPopup = ({ items, currentIndex, open, onOpenChange, onNavigate }: Med
             <X size={24} />
           </button>
           
-          {/* Caption */}
           {(currentItem.alt || currentItem.title) && (
             <div className="absolute bottom-0 left-0 right-0 bg-black/70 p-2 text-white text-center">
               {currentItem.alt || currentItem.title}

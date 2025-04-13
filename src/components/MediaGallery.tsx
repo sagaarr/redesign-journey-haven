@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Image, Video, ArrowRight } from 'lucide-react';
@@ -8,14 +7,22 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import MediaPopup from './MediaPopup';
 
+type MediaItem = {
+  id: number;
+  type: 'photo' | 'video';
+  src?: string;
+  alt?: string;
+  youtubeId?: string;
+  title?: string;
+};
+
 const MediaGallery = () => {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState("photos");
   const [popupOpen, setPopupOpen] = useState(false);
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
 
-  // Media items config
-  const dummyPhotos = [
+  const dummyPhotos: MediaItem[] = [
     { id: 1, type: 'photo', src: "https://images.unsplash.com/photo-1618783916343-568507b6e8ea?q=80&w=800", alt: "Road safety initiative" },
     { id: 2, type: 'photo', src: "https://images.unsplash.com/photo-1581092926525-6f18d64e7352?q=80&w=800", alt: "Pedestrian crossing" },
     { id: 3, type: 'photo', src: "https://images.unsplash.com/photo-1574350791058-2de8fa711885?q=80&w=800", alt: "Community workshop" },
@@ -24,7 +31,7 @@ const MediaGallery = () => {
     { id: 6, type: 'photo', src: "https://images.unsplash.com/photo-1524225724388-acd4a85bfa61?q=80&w=800", alt: "School safety program" },
   ];
 
-  const dummyVideos = [
+  const dummyVideos: MediaItem[] = [
     { id: 1, type: 'video', youtubeId: "ZE8ODPL2VPI", title: "Road Safety Awareness" },
     { id: 2, type: 'video', youtubeId: "QXU3L7V0_7I", title: "Pedestrian Safety Tips" },
     { id: 3, type: 'video', youtubeId: "UxrHGPX_-QQ", title: "Safe Crossing Techniques" },
@@ -129,7 +136,6 @@ const MediaGallery = () => {
         </div>
       </div>
       
-      {/* Media Popup */}
       <MediaPopup 
         items={getActiveItems()}
         currentIndex={currentItemIndex}
