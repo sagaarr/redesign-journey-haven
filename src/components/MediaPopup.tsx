@@ -58,7 +58,6 @@ const MediaPopup = ({ items, currentIndex, open, onOpenChange, onNavigate }: Med
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent 
         className="max-w-7xl w-full bg-black/95 border-none p-1 sm:p-2"
-        overlayClassName="bg-black/90"
       >
         <div className="relative flex items-center justify-center w-full h-full min-h-[50vh] sm:min-h-[70vh]">
           {/* Media Content */}

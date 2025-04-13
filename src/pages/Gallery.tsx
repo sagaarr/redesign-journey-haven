@@ -8,6 +8,15 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import MediaPopup from '@/components/MediaPopup';
 
+type MediaItem = {
+  id: number;
+  type: 'photo' | 'video';
+  src?: string;
+  alt?: string;
+  youtubeId?: string;
+  title?: string;
+};
+
 const Gallery = () => {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState("photos");
@@ -15,7 +24,7 @@ const Gallery = () => {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
 
   // Extended dummy photos for the full gallery
-  const allPhotos = [
+  const allPhotos: MediaItem[] = [
     { id: 1, type: 'photo', src: "https://images.unsplash.com/photo-1618783916343-568507b6e8ea?q=80&w=800", alt: "Road safety initiative" },
     { id: 2, type: 'photo', src: "https://images.unsplash.com/photo-1581092926525-6f18d64e7352?q=80&w=800", alt: "Pedestrian crossing" },
     { id: 3, type: 'photo', src: "https://images.unsplash.com/photo-1574350791058-2de8fa711885?q=80&w=800", alt: "Community workshop" },
@@ -31,7 +40,7 @@ const Gallery = () => {
   ];
 
   // Extended dummy videos for the full gallery
-  const allVideos = [
+  const allVideos: MediaItem[] = [
     { id: 1, type: 'video', youtubeId: "ZE8ODPL2VPI", title: "Road Safety Awareness" },
     { id: 2, type: 'video', youtubeId: "QXU3L7V0_7I", title: "Pedestrian Safety Tips" },
     { id: 3, type: 'video', youtubeId: "UxrHGPX_-QQ", title: "Safe Crossing Techniques" },
@@ -46,7 +55,7 @@ const Gallery = () => {
     { id: 12, type: 'video', youtubeId: "l4s4tM3cJjY", title: "Community Engagement" },
   ];
 
-  const getActiveItems = () => activeTab === "photos" ? allPhotos : allVideos;
+  const getActiveItems = (): MediaItem[] => activeTab === "photos" ? allPhotos : allVideos;
 
   const handleItemClick = (index: number) => {
     setCurrentItemIndex(index);
