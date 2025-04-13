@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+
+import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, ArrowUp } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { 
@@ -12,40 +12,6 @@ import {
 const Hero = () => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
-  const [showUpArrow, setShowUpArrow] = useState(false);
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      const bottomThreshold = document.documentElement.scrollHeight - window.innerHeight - 200;
-      setShowUpArrow(window.scrollY > bottomThreshold);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-  
-  const scrollToNextSection = () => {
-    if (showUpArrow) {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    } else {
-      const galleryContent = document.getElementById('gallery-content');
-      if (galleryContent) {
-        const offset = galleryContent.getBoundingClientRect().top + window.scrollY - 100;
-        window.scrollTo({
-          top: offset,
-          behavior: 'smooth'
-        });
-      } else {
-        const gallerySection = document.getElementById('gallery');
-        if (gallerySection) {
-          gallerySection.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    }
-  };
   
   const heroSlides = [
     {
@@ -143,20 +109,6 @@ const Hero = () => {
             ))}
           </CarouselContent>
         </Carousel>
-      </div>
-      
-      <div className="fixed right-6 bottom-10 z-50">
-        <button
-          onClick={scrollToNextSection}
-          className="flex items-center justify-center p-3 rounded-full bg-primary shadow-lg hover:bg-primary/90 transition-all duration-300 text-white"
-          aria-label={showUpArrow ? "Scroll to top" : "Scroll down"}
-        >
-          {showUpArrow ? (
-            <ArrowUp className="h-6 w-6" />
-          ) : (
-            <ArrowDown className="h-6 w-6" />
-          )}
-        </button>
       </div>
     </section>
   );
