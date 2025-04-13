@@ -24,20 +24,13 @@ const Gallery = () => {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
 
   // Extended dummy photos for the full gallery
-  const allPhotos: MediaItem[] = [
-    { id: 1, type: 'photo', src: "https://images.unsplash.com/photo-1618783916343-568507b6e8ea?q=80&w=800", alt: "Road safety initiative" },
-    { id: 2, type: 'photo', src: "https://images.unsplash.com/photo-1581092926525-6f18d64e7352?q=80&w=800", alt: "Pedestrian crossing" },
-    { id: 3, type: 'photo', src: "https://images.unsplash.com/photo-1574350791058-2de8fa711885?q=80&w=800", alt: "Community workshop" },
-    { id: 4, type: 'photo', src: "https://images.unsplash.com/photo-1517523267857-911fd453fa8b?q=80&w=800", alt: "Traffic education" },
-    { id: 5, type: 'photo', src: "https://images.unsplash.com/photo-1496163668521-39614a16b23f?q=80&w=800", alt: "Road safety awareness" },
-    { id: 6, type: 'photo', src: "https://images.unsplash.com/photo-1524225724388-acd4a85bfa61?q=80&w=800", alt: "School safety program" },
-    { id: 7, type: 'photo', src: "https://images.unsplash.com/photo-1517429128068-53f07d33f3aa?q=80&w=800", alt: "Pedestrian walkway" },
-    { id: 8, type: 'photo', src: "https://images.unsplash.com/photo-1465778893942-32123c606c6d?q=80&w=800", alt: "City street view" },
-    { id: 9, type: 'photo', src: "https://images.unsplash.com/photo-1534803005679-28899af955ed?q=80&w=800", alt: "Traffic signal" },
-    { id: 10, type: 'photo', src: "https://images.unsplash.com/photo-1588392382834-a891154bca4d?q=80&w=800", alt: "Nature path" },
-    { id: 11, type: 'photo', src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800", alt: "Safety workshop" },
-    { id: 12, type: 'photo', src: "https://images.unsplash.com/photo-1525786210598-d527194d3e9a?q=80&w=800", alt: "Crosswalk marking" },
-  ];
+  const allPhotos: MediaItem[] = Array.from({ length: 17 }, (_, i) => ({
+    id: i + 1,
+    type: 'photo',
+    src: `/lovable-uploads/gallery/${i + 1}.jpg`,
+    alt: `Gallery image ${i + 1}`,
+  }));
+
 
   // Extended dummy videos for the full gallery
   const allVideos: MediaItem[] = [
@@ -65,7 +58,7 @@ const Gallery = () => {
   return (
     <div className="min-h-screen bg-black">
       <NavBar />
-      
+
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
@@ -75,22 +68,22 @@ const Gallery = () => {
             </p>
           </div>
 
-          <Tabs 
-            defaultValue="photos" 
+          <Tabs
+            defaultValue="photos"
             value={activeTab}
             onValueChange={setActiveTab}
             className="w-full"
           >
             <div className="flex justify-center mb-8">
               <TabsList className="bg-gray-800/50 border border-gray-700 p-1">
-                <TabsTrigger 
+                <TabsTrigger
                   value="photos"
                   className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-white"
                 >
                   <Image size={18} />
                   Photos
                 </TabsTrigger>
-                <TabsTrigger 
+                <TabsTrigger
                   value="videos"
                   className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-white"
                 >
@@ -104,13 +97,13 @@ const Gallery = () => {
               <TabsContent value="photos" className="mt-4">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   {allPhotos.map((photo, index) => (
-                    <div 
-                      key={photo.id} 
+                    <div
+                      key={photo.id}
                       className="relative overflow-hidden rounded-lg bg-gray-800 aspect-video group cursor-pointer"
                       onClick={() => handleItemClick(index)}
                     >
-                      <img 
-                        src={photo.src} 
+                      <img
+                        src={photo.src}
                         alt={photo.alt}
                         className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
                       />
@@ -125,8 +118,8 @@ const Gallery = () => {
               <TabsContent value="videos" className="mt-4">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                   {allVideos.map((video, index) => (
-                    <div 
-                      key={video.id} 
+                    <div
+                      key={video.id}
                       className="relative overflow-hidden rounded-lg bg-gray-800 aspect-video cursor-pointer"
                       onClick={() => handleItemClick(index)}
                     >
@@ -145,16 +138,16 @@ const Gallery = () => {
           </Tabs>
         </div>
       </main>
-      
+
       {/* Media Popup */}
-      <MediaPopup 
+      <MediaPopup
         items={getActiveItems()}
         currentIndex={currentItemIndex}
         open={popupOpen}
         onOpenChange={setPopupOpen}
         onNavigate={setCurrentItemIndex}
       />
-      
+
       <Footer />
     </div>
   );

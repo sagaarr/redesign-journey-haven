@@ -11,70 +11,49 @@ import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
 import { ArrowDown, ArrowUp } from 'lucide-react';
 
+const sections = ['hero', 'gallery-content', 'stats', 'initiatives', 'social-media', 'testimonials', 'footer']
 const Index = () => {
   const [showUpArrow, setShowUpArrow] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('')
 
-  // Smooth scroll behavior for anchor links
   useEffect(() => {
-    const handleAnchorClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const anchor = target.closest('a');
-      
-      if (!anchor) return;
-      
-      const href = anchor.getAttribute('href');
-      
-      if (href && href.startsWith('#') && href.length > 1) {
-        e.preventDefault();
-        
-        const targetElement = document.querySelector(href);
-        if (targetElement) {
-          window.scrollTo({
-            top: targetElement.getBoundingClientRect().top + window.scrollY - 100,
-            behavior: 'smooth'
-          });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visibleEntry = entries.find(entry => entry.isIntersecting)
+        if (visibleEntry) {
+          if (visibleEntry.target.id === 'footer') {
+            setShowUpArrow(true)
+          } else {
+            setShowUpArrow(false)
+          }
+          setActiveSection(visibleEntry.target.id)
         }
-      }
-    };
-    
-    document.addEventListener('click', handleAnchorClick);
-    
-    return () => {
-      document.removeEventListener('click', handleAnchorClick);
-    };
-  }, []);
+      }, {
+      root: null,
+      threshold: 0.6
+    }
+    );
 
-  // Handle scroll position to show up/down arrow
-  useEffect(() => {
-    const handleScroll = () => {
-      const bottomThreshold = document.documentElement.scrollHeight - window.innerHeight - 200;
-      setShowUpArrow(window.scrollY > bottomThreshold);
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el)
+    })
+
+
+    return () => observer.disconnect()
+  }, [])
 
   const scrollToNextSection = () => {
-    if (showUpArrow) {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    } else {
-      const galleryContent = document.getElementById('gallery-content');
-      if (galleryContent) {
-        const offset = galleryContent.getBoundingClientRect().top + window.scrollY - 100;
-        window.scrollTo({
-          top: offset,
-          behavior: 'smooth'
-        });
-      } else {
-        const gallerySection = document.getElementById('gallery');
-        if (gallerySection) {
-          gallerySection.scrollIntoView({ behavior: 'smooth' });
-        }
+    const currentIndex = sections.indexOf(activeSection);
+    const nextSectionId = sections[currentIndex + 1];
+    if (nextSectionId) {
+      const nextSection = document.getElementById(nextSectionId);
+      if (nextSection) {
+        nextSection.scrollIntoView({ behavior: 'smooth' });
       }
+    } else {
+      const reset = document.getElementById(sections[0]);
+      reset.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -83,17 +62,15 @@ const Index = () => {
       <NavBar />
       <main>
         <Hero />
-        <section id="gallery">
-          <MediaGallery />
-        </section>
+        <MediaGallery />
         <SafetyStats />
         <Initiatives />
         <SocialMediaTabs />
         <Testimonials />
-        <CallToAction />
+        {/* <CallToAction /> */}
       </main>
       <Footer />
-      
+
       <div className="fixed right-6 bottom-10 z-50">
         <button
           onClick={scrollToNextSection}

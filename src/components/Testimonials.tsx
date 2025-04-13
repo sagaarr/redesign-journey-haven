@@ -5,7 +5,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 
 const Testimonials = () => {
   const { t } = useLanguage();
-  
+
   const testimonials = [
     {
       quote: "The UNM Foundation's school safety program has transformed how our students think about road safety. We've seen a remarkable change in behavior.",
@@ -28,7 +28,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-20 bg-white" id='testimonials'>
       <div className="container px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="badge badge-primary">{t('testimonials.badge')}</span>
@@ -44,9 +44,9 @@ const Testimonials = () => {
               <Quote className="absolute top-6 right-6 h-12 w-12 text-primary/10" />
               <p className="text-gray-600 mb-6 relative z-10">"{testimonial.quote}"</p>
               <div className="flex items-center">
-                <img 
-                  src={testimonial.image} 
-                  alt={testimonial.name} 
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
                   className="w-12 h-12 rounded-full mr-4 object-cover"
                 />
                 <div>

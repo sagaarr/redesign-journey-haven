@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { 
+import {
   Carousel,
   CarouselContent,
   CarouselItem,
@@ -12,7 +12,6 @@ import {
 const Hero = () => {
   const { t } = useLanguage();
   const isMobile = useIsMobile();
-  
   const heroSlides = [
     {
       image: "/lovable-uploads/36472fbd-e07b-49d3-b095-355a160b6036.png",
@@ -47,13 +46,13 @@ const Hero = () => {
       law: "⚖️ Law References:\n– IPC Section 283 – Public obstruction\n– IPC Section 336 – Risk to life/safety"
     }
   ];
-  
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28">
+    <section id='hero' className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28">
       <div className="absolute inset-0 w-full h-full z-0">
-        <Carousel 
-          className="w-full h-full" 
-          opts={{ loop: true, duration: 30 }} 
+        <Carousel
+          className="w-full h-full"
+          opts={{ loop: true, duration: 30 }}
           autoPlay={true}
           autoPlayInterval={5000}
         >
@@ -61,12 +60,12 @@ const Hero = () => {
             {heroSlides.map((slide, index) => (
               <CarouselItem key={index} className="h-full">
                 <div className="h-full w-full relative">
-                  <img 
-                    src={slide.image} 
-                    alt={`Road safety image ${index + 1}`} 
-                    className="w-full h-full object-cover"
+                  <img
+                    src={slide.image}
+                    alt={`Road safety image ${index + 1}`}
+                    className={`w-full object-cover ${isMobile ? 'h-screen' : 'h-full'}`}
                   />
-                  
+
                   <div className="absolute inset-0 flex items-center justify-center z-20">
                     <div className="container mx-auto px-4 py-4 md:px-8 md:py-6">
                       <div className="flex flex-col gap-4 md:gap-8 lg:grid lg:grid-cols-12">

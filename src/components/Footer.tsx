@@ -8,7 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const Footer = () => {
   return (
-    <footer className="bg-background border-t border-border">
+    <footer id='footer' className="bg-background border-t border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left Column - Company Info */}
@@ -17,9 +17,9 @@ const Footer = () => {
               <h3 className="font-display font-bold text-2xl mb-4 text-foreground">
                 UNM<span className="text-primary">Foundation</span>
               </h3>
-              <p className="text-muted-foreground max-w-sm">
+              {/* <p className="text-muted-foreground max-w-sm">
                 Supporting excellence in education, healthcare, and research at the University of New Mexico.
-              </p>
+              </p> */}
             </div>
 
             <div>
@@ -63,7 +63,7 @@ const Footer = () => {
               </ul>
             </div>
           </div>
-          
+
           {/* Right Column - Contact Form */}
           <div>
             <h4 className="font-bold text-lg mb-6 text-foreground">Contact Us</h4>
@@ -78,21 +78,21 @@ const Footer = () => {
                   <Input id="email" type="email" placeholder="Your email" className="bg-white text-black placeholder:text-gray-500" />
                 </div>
               </div>
-              
+
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-foreground mb-1">Subject</label>
                 <Input id="subject" type="text" placeholder="Subject" className="bg-white text-black placeholder:text-gray-500" />
               </div>
-              
+
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-1">Message</label>
-                <Textarea 
-                  id="message" 
-                  placeholder="Your message" 
-                  className="min-h-[120px] bg-white text-black placeholder:text-gray-500" 
+                <Textarea
+                  id="message"
+                  placeholder="Your message"
+                  className="min-h-[120px] bg-white text-black placeholder:text-gray-500"
                 />
               </div>
-              
+
               <Button type="submit" className="w-full sm:w-auto flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90">
                 Send Message
                 <Send size={16} />
@@ -100,7 +100,7 @@ const Footer = () => {
             </form>
           </div>
         </div>
-        
+
         <div className="border-t border-border mt-12 pt-8 text-center">
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} UNM Foundation. All rights reserved.
