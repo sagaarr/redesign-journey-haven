@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, ArrowUp } from 'lucide-react';
@@ -15,10 +14,8 @@ const Hero = () => {
   const isMobile = useIsMobile();
   const [showUpArrow, setShowUpArrow] = useState(false);
   
-  // Monitor scroll position to determine which arrow to show
   useEffect(() => {
     const handleScroll = () => {
-      // Check if we're near the bottom of the page
       const bottomThreshold = document.documentElement.scrollHeight - window.innerHeight - 200;
       setShowUpArrow(window.scrollY > bottomThreshold);
     };
@@ -29,13 +26,11 @@ const Hero = () => {
   
   const scrollToNextSection = () => {
     if (showUpArrow) {
-      // Scroll to top if showing up arrow
       window.scrollTo({
         top: 0,
         behavior: 'smooth'
       });
     } else {
-      // Find the gallery content
       const galleryContent = document.getElementById('gallery-content');
       if (galleryContent) {
         const offset = galleryContent.getBoundingClientRect().top + window.scrollY - 100;
@@ -44,7 +39,6 @@ const Hero = () => {
           behavior: 'smooth'
         });
       } else {
-        // Fallback to gallery section if specific content element isn't found
         const gallerySection = document.getElementById('gallery');
         if (gallerySection) {
           gallerySection.scrollIntoView({ behavior: 'smooth' });
@@ -89,8 +83,7 @@ const Hero = () => {
   ];
   
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Image Slider Background */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-28">
       <div className="absolute inset-0 w-full h-full z-0">
         <Carousel 
           className="w-full h-full" 
@@ -108,35 +101,26 @@ const Hero = () => {
                     className="w-full h-full object-cover"
                   />
                   
-                  {/* Mobile-optimized content layout */}
                   <div className="absolute inset-0 flex items-center justify-center z-20">
                     <div className="container mx-auto px-4 py-4 md:px-8 md:py-6">
                       <div className="flex flex-col gap-4 md:gap-8 lg:grid lg:grid-cols-12">
-                        {/* Title section with improved mobile visibility */}
                         <div className="lg:col-span-5 flex flex-col justify-center">
-                          {/* Title container with better mobile sizing */}
                           <div className="bg-black/70 backdrop-blur-md p-4 md:p-8 rounded-xl border-l-4 border-[#00A8E8] shadow-xl max-w-full">
                             <div className="bg-gradient-to-r from-[#00A8E8] to-blue-700 h-2 w-16 md:w-24 mb-3 md:mb-4 rounded"></div>
                             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-lg animate-fade-in break-words hyphens-auto">
                               {slide.title}
                             </h2>
                             <div className="h-1 w-12 md:w-16 lg:w-32 bg-white/70 my-2 md:my-4 rounded"></div>
-                            {/* Improved subtitle sizing for mobile */}
                             <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-[#00A8E8] drop-shadow-xl break-words hyphens-auto">
                               {slide.subtitle}
                             </h3>
                           </div>
                         </div>
-                        
-                        {/* Content section with mobile optimization */}
                         <div className="lg:col-span-7 flex flex-col justify-center">
-                          {/* Improved content container for mobile */}
                           <div className="bg-black/70 backdrop-blur-md p-4 md:p-8 rounded-xl border-t-2 border-white/20 shadow-2xl max-w-full">
                             <p className="text-base sm:text-lg md:text-xl text-white leading-relaxed mb-3 md:mb-6 drop-shadow-md">
                               {slide.description}
                             </p>
-                            
-                            {/* Rules and laws with better mobile spacing */}
                             <div className="space-y-3 md:space-y-4 mt-2">
                               <div className="bg-gradient-to-r from-green-600/90 to-green-800/90 backdrop-blur-md px-3 py-3 md:px-5 md:py-4 rounded-lg shadow-lg">
                                 <p className="text-sm md:text-base lg:text-lg font-medium text-white drop-shadow-sm break-words">
@@ -161,7 +145,6 @@ const Hero = () => {
         </Carousel>
       </div>
       
-      {/* Navigation arrow button */}
       <div className="fixed right-6 bottom-10 z-50">
         <button
           onClick={scrollToNextSection}
