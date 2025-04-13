@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Image, Video, ArrowRight } from 'lucide-react';
@@ -50,7 +51,7 @@ const MediaGallery = () => {
   return (
     <section className="py-16 bg-black">
       <div className="container mx-auto px-4 sm:px-6">
-        <div className="text-center max-w-3xl mx-auto mb-10">
+        <div className="text-center max-w-3xl mx-auto mb-10" id="gallery-content">
           <span className="badge bg-primary/20 text-primary rounded-full px-3 py-1 text-sm">Media Gallery</span>
           <h2 className="text-3xl font-bold mt-3 text-white">Our Gallery</h2>
           <p className="mt-4 text-gray-300">

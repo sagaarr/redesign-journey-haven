@@ -35,10 +35,20 @@ const Hero = () => {
         behavior: 'smooth'
       });
     } else {
-      // Find the next section (gallery)
-      const gallerySection = document.getElementById('gallery');
-      if (gallerySection) {
-        gallerySection.scrollIntoView({ behavior: 'smooth' });
+      // Find the gallery content
+      const galleryContent = document.getElementById('gallery-content');
+      if (galleryContent) {
+        const offset = galleryContent.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({
+          top: offset,
+          behavior: 'smooth'
+        });
+      } else {
+        // Fallback to gallery section if specific content element isn't found
+        const gallerySection = document.getElementById('gallery');
+        if (gallerySection) {
+          gallerySection.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     }
   };
