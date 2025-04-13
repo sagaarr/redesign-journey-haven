@@ -1,0 +1,130 @@
+
+import React, { useState } from 'react';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Image, Video } from 'lucide-react';
+import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
+import { useLanguage } from '@/contexts/LanguageContext';
+
+const Gallery = () => {
+  const { t } = useLanguage();
+  const [activeTab, setActiveTab] = useState("photos");
+
+  // Extended dummy photos for the full gallery
+  const allPhotos = [
+    { id: 1, src: "https://images.unsplash.com/photo-1618783916343-568507b6e8ea?q=80&w=800", alt: "Road safety initiative" },
+    { id: 2, src: "https://images.unsplash.com/photo-1581092926525-6f18d64e7352?q=80&w=800", alt: "Pedestrian crossing" },
+    { id: 3, src: "https://images.unsplash.com/photo-1574350791058-2de8fa711885?q=80&w=800", alt: "Community workshop" },
+    { id: 4, src: "https://images.unsplash.com/photo-1517523267857-911fd453fa8b?q=80&w=800", alt: "Traffic education" },
+    { id: 5, src: "https://images.unsplash.com/photo-1496163668521-39614a16b23f?q=80&w=800", alt: "Road safety awareness" },
+    { id: 6, src: "https://images.unsplash.com/photo-1524225724388-acd4a85bfa61?q=80&w=800", alt: "School safety program" },
+    { id: 7, src: "https://images.unsplash.com/photo-1517429128068-53f07d33f3aa?q=80&w=800", alt: "Pedestrian walkway" },
+    { id: 8, src: "https://images.unsplash.com/photo-1465778893942-32123c606c6d?q=80&w=800", alt: "City street view" },
+    { id: 9, src: "https://images.unsplash.com/photo-1534803005679-28899af955ed?q=80&w=800", alt: "Traffic signal" },
+    { id: 10, src: "https://images.unsplash.com/photo-1588392382834-a891154bca4d?q=80&w=800", alt: "Nature path" },
+    { id: 11, src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=800", alt: "Safety workshop" },
+    { id: 12, src: "https://images.unsplash.com/photo-1525786210598-d527194d3e9a?q=80&w=800", alt: "Crosswalk marking" },
+  ];
+
+  // Extended dummy videos for the full gallery
+  const allVideos = [
+    { id: 1, youtubeId: "ZE8ODPL2VPI", title: "Road Safety Awareness" },
+    { id: 2, youtubeId: "QXU3L7V0_7I", title: "Pedestrian Safety Tips" },
+    { id: 3, youtubeId: "UxrHGPX_-QQ", title: "Safe Crossing Techniques" },
+    { id: 4, youtubeId: "9j4NKx2EGyE", title: "Traffic Rules Education" },
+    { id: 5, youtubeId: "zcTkSs-5Vuo", title: "Road Safety for Children" },
+    { id: 6, youtubeId: "dAhQ6xKoOj4", title: "Community Safety Initiatives" },
+    { id: 7, youtubeId: "n2XU6X6F0kc", title: "Urban Planning for Safety" },
+    { id: 8, youtubeId: "RNy7X1yVIqg", title: "Walkability in Cities" },
+    { id: 9, youtubeId: "LJvEIjRBSDA", title: "Safety Infrastructure Development" },
+    { id: 10, youtubeId: "rfscVS0vtbw", title: "Public Awareness Campaign" },
+    { id: 11, youtubeId: "1Rs2ND1ryYc", title: "School Zone Safety" },
+    { id: 12, youtubeId: "l4s4tM3cJjY", title: "Community Engagement" },
+  ];
+
+  return (
+    <div className="min-h-screen bg-black">
+      <NavBar />
+      
+      <main className="pt-24 pb-16">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <h1 className="text-4xl font-bold text-white">Media Gallery</h1>
+            <p className="mt-4 text-gray-300 text-lg">
+              Browse our complete collection of photos and videos showcasing our work in pedestrian safety.
+            </p>
+          </div>
+
+          <Tabs 
+            defaultValue="photos" 
+            value={activeTab}
+            onValueChange={setActiveTab}
+            className="w-full"
+          >
+            <div className="flex justify-center mb-8">
+              <TabsList className="bg-gray-800/50 border border-gray-700 p-1">
+                <TabsTrigger 
+                  value="photos"
+                  className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-white"
+                >
+                  <Image size={18} />
+                  Photos
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="videos"
+                  className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-white"
+                >
+                  <Video size={18} />
+                  Videos
+                </TabsTrigger>
+              </TabsList>
+            </div>
+
+            <TabsContent value="photos" className="mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                {allPhotos.map((photo) => (
+                  <div 
+                    key={photo.id} 
+                    className="relative overflow-hidden rounded-lg bg-gray-800 aspect-video group cursor-pointer"
+                  >
+                    <img 
+                      src={photo.src} 
+                      alt={photo.alt}
+                      className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                      <p className="text-white p-4 text-sm font-medium">{photo.alt}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+
+            <TabsContent value="videos" className="mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {allVideos.map((video) => (
+                  <div 
+                    key={video.id} 
+                    className="relative overflow-hidden rounded-lg bg-gray-800 aspect-video"
+                  >
+                    <iframe
+                      src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                      title={video.title}
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full"
+                    />
+                  </div>
+                ))}
+              </div>
+            </TabsContent>
+          </Tabs>
+        </div>
+      </main>
+      
+      <Footer />
+    </div>
+  );
+};
+
+export default Gallery;

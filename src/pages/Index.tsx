@@ -4,7 +4,7 @@ import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
 import SafetyStats from '@/components/SafetyStats';
 import Initiatives from '@/components/Initiatives';
-import MediaAndSocial from '@/components/MediaAndSocial';
+import MediaGallery from '@/components/MediaGallery';
 import Testimonials from '@/components/Testimonials';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
@@ -45,10 +45,10 @@ const Index = () => {
       <NavBar />
       <main>
         <Hero />
+        <MediaGallery />
         <SafetyStats />
         <Initiatives />
         <Testimonials />
-        <MediaAndSocial />
         <CallToAction />
       </main>
       <Footer />
