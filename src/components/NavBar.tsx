@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, Globe, ArrowLeft } from 'lucide-react';
+import { Menu, Globe, ArrowLeft, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { 
   DropdownMenu, 
@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { useLanguage, Language } from '@/contexts/LanguageContext';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -29,6 +30,7 @@ const NavBar = () => {
   const navLinks = [
     { name: t('navLinks.home'), href: '/' },
     { name: 'Gallery', href: '/gallery' },
+    { name: 'Social Media', href: '/social-media' },
     { name: t('navLinks.getInvolved'), href: '#contact' },
   ];
 

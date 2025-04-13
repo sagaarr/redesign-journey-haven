@@ -5,6 +5,7 @@ import Hero from '@/components/Hero';
 import SafetyStats from '@/components/SafetyStats';
 import Initiatives from '@/components/Initiatives';
 import MediaGallery from '@/components/MediaGallery';
+import SocialMediaTabs from '@/components/SocialMediaTabs';
 import Testimonials from '@/components/Testimonials';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
@@ -50,6 +51,7 @@ const Index = () => {
         </section>
         <SafetyStats />
         <Initiatives />
+        <SocialMediaTabs />
         <Testimonials />
         <CallToAction />
       </main>
