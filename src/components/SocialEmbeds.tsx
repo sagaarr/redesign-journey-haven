@@ -14,7 +14,7 @@ export const InstagramEmbed = ({ url, width }: { url: string; width?: number }) 
         height="680"
         frameBorder="0"
         scrolling="no"
-        allowTransparency={true}
+        allowTransparency="true"
         style={{ border: 'none', overflow: 'hidden', borderRadius: '4px' }}
         title="Instagram Post"
       />
@@ -51,7 +51,13 @@ export const XEmbed = ({ url, width }: { url: string; width?: number }) => {
   return (
     <div 
       id={containerId} 
-      style={{ width: width || '100%', minHeight: '300px', borderRadius: '4px' }}
+      style={{ 
+        width: width || '100%', 
+        minHeight: '300px', 
+        borderRadius: '4px',
+        margin: '0 auto',
+        maxWidth: width || '100%'
+      }}
     />
   );
 };
@@ -67,7 +73,9 @@ function loadTweet(containerId: string, url: string) {
         container,
         {
           conversation: 'none',
-          width: container.offsetWidth || undefined
+          width: container.offsetWidth || undefined,
+          align: 'center',
+          theme: 'dark'
         }
       );
     }

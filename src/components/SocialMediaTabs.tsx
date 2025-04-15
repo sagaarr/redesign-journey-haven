@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   Tabs,
@@ -136,11 +135,9 @@ const SocialMediaTabs = () => {
                     >
                       <CarouselContent className="h-full">
                         {flattenedXPosts.map((url, index) => (
-                          <CarouselItem key={index} className="w-full">
-                            <div className="flex justify-center">
-                              <div className="w-full max-w-[358px]">
-                                <XEmbed url={url} width={358} />
-                              </div>
+                          <CarouselItem key={index} className="w-full flex justify-center">
+                            <div className="flex justify-center w-full max-w-[358px]">
+                              <XEmbed url={url} width={358} />
                             </div>
                           </CarouselItem>
                         ))}
