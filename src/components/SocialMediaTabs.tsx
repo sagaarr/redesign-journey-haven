@@ -12,7 +12,7 @@ import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 import { instaPosts, twitterPost } from '@/lib/constants';
-import { InstagramEmbed, XEmbed } from 'react-social-media-embed';
+import { InstagramEmbed, XEmbed } from './SocialEmbeds';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const SocialMediaTabs = () => {
@@ -118,7 +118,6 @@ const SocialMediaTabs = () => {
                       Follow on Instagram
                     </Button>
                   </a>
-
                 </div>
               </CardContent>
             </Card>
@@ -185,7 +184,6 @@ const SocialMediaTabs = () => {
                       Follow on Twitter
                     </Button>
                   </a>
-
                 </div>
               </CardContent>
             </Card>
