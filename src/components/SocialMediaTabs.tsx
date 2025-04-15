@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   Tabs,
@@ -60,13 +59,12 @@ const SocialMediaTabs = () => {
                     autoPlay={true}
                     autoPlayInterval={5000}
                   >
-
                     <CarouselContent className="h-full">
                       {instaPosts.map((group, index) => (
                         <CarouselItem key={index} className="w-full">
-                          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1">
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                             {group.map((url, i) => (
-                              <div key={i} className="w-full max-w-[350px] mx-auto">
+                              <div key={i} className="w-full mx-auto">
                                 <InstagramEmbed url={url} width={358} />
                               </div>
                             ))}
@@ -74,7 +72,6 @@ const SocialMediaTabs = () => {
                         </CarouselItem>
                       ))}
                     </CarouselContent>
-
                   </Carousel>
                 </div>
 
