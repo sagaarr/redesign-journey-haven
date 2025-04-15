@@ -1,18 +1,22 @@
+
 import React from 'react';
-import { 
-  Tabs, 
-  TabsContent, 
-  TabsList, 
-  TabsTrigger 
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger
 } from '@/components/ui/tabs';
 import { Instagram, Twitter } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Carousel, CarouselContent, CarouselItem } from './ui/carousel';
+import { instaPosts } from '@/lib/constants';
+import { InstagramEmbed } from 'react-social-media-embed';
 
 const SocialMediaTabs = () => {
   const { t } = useLanguage();
-  
+
   return (
     <section id="social-media" className="py-16 bg-black">
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
@@ -25,19 +29,19 @@ const SocialMediaTabs = () => {
             Stay connected with our latest updates and campaigns
           </p>
         </div>
-        
+
         <Tabs defaultValue="instagram" className="w-full max-w-7xl mx-auto">
           <div className="flex justify-center mb-8">
             <TabsList className="bg-gray-800/50 border border-gray-700 p-1">
-              <TabsTrigger 
-                value="instagram" 
+              <TabsTrigger
+                value="instagram"
                 className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-white"
               >
                 <Instagram size={18} />
                 <span>Instagram</span>
               </TabsTrigger>
-              <TabsTrigger 
-                value="twitter" 
+              <TabsTrigger
+                value="twitter"
                 className="flex items-center gap-2 data-[state=active]:bg-primary data-[state=active]:text-white"
               >
                 <Twitter size={18} />
@@ -45,21 +49,35 @@ const SocialMediaTabs = () => {
               </TabsTrigger>
             </TabsList>
           </div>
-          
+
           <TabsContent value="instagram" className="mt-0">
             <Card className="border-0 shadow-md bg-gray-800 rounded-xl p-1">
               <CardContent className="p-6">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                  {[1, 2, 3, 4, 5, 6, 7, 8].map((item) => (
-                    <div key={item} className="aspect-square overflow-hidden rounded-lg bg-gray-700 hover:opacity-90 transition-opacity group">
-                      <img 
-                        src={`https://source.unsplash.com/random/300x300?pedestrian,safety,road&sig=${item}`}
-                        alt={`Instagram post ${item}`}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                      />
-                    </div>
-                  ))}
+                <div className='w-full'>
+                  <Carousel
+                    className="w-full h-full"
+                    opts={{ loop: true, duration: 30 }}
+                    autoPlay={true}
+                    autoPlayInterval={5000}
+                  >
+
+                    <CarouselContent className="h-full">
+                      {instaPosts.map((group, index) => (
+                        <CarouselItem key={index} className="w-full">
+                          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1">
+                            {group.map((url, i) => (
+                              <div key={i} className="w-full max-w-[350px] mx-auto">
+                                <InstagramEmbed url={url} width={358} />
+                              </div>
+                            ))}
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+
+                  </Carousel>
                 </div>
+
                 <div className="mt-6 text-center">
                   <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 hover:text-white rounded-full">
                     <Instagram className="mr-2 h-4 w-4" />
@@ -69,7 +87,7 @@ const SocialMediaTabs = () => {
               </CardContent>
             </Card>
           </TabsContent>
-          
+
           <TabsContent value="twitter" className="mt-0">
             <Card className="border-0 shadow-md bg-gray-800 rounded-xl p-1">
               <CardContent className="p-6">
@@ -85,11 +103,11 @@ const SocialMediaTabs = () => {
                         <div className="flex-1">
                           <p className="font-bold text-white">Walk Right India <span className="font-normal text-gray-400">@walkrightindia</span></p>
                           <p className="mt-2 text-gray-300">
-                            {item === 1 ? 
+                            {item === 1 ?
                               "Our pedestrian safety awareness campaign reached over 2000 people this week! Thanks to everyone who participated." :
-                              item === 2 ? 
-                              "New pedestrian crossing signals installed at 5 major intersections in Bangalore. A small step towards safer streets for all!" :
-                              "Join us for our upcoming workshop on road safety practices at Delhi Community Center on June 15th. Free registration link in bio!"}
+                              item === 2 ?
+                                "New pedestrian crossing signals installed at 5 major intersections in Bangalore. A small step towards safer streets for all!" :
+                                "Join us for our upcoming workshop on road safety practices at Delhi Community Center on June 15th. Free registration link in bio!"}
                             {" #RoadSafety #PedestrianSafety #India"}
                           </p>
                           <p className="mt-2 text-sm text-gray-400">{item} day{item > 1 ? 's' : ''} ago</p>
