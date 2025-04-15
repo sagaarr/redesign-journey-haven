@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { 
   Tabs, 
@@ -16,7 +15,7 @@ const SocialMediaTabs = () => {
   
   return (
     <section id="social-media" className="py-16 bg-black">
-      <div className="container mx-auto px-4 sm:px-6">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="badge bg-primary/20 text-primary rounded-full px-3 py-1 text-sm">Connect With Us</span>
           <h2 className="text-3xl font-bold mt-3 text-white">
@@ -27,7 +26,7 @@ const SocialMediaTabs = () => {
           </p>
         </div>
         
-        <Tabs defaultValue="instagram" className="w-full max-w-4xl mx-auto">
+        <Tabs defaultValue="instagram" className="w-full max-w-7xl mx-auto">
           <div className="flex justify-center mb-8">
             <TabsList className="bg-gray-800/50 border border-gray-700 p-1">
               <TabsTrigger 
