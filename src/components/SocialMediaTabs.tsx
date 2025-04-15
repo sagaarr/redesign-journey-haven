@@ -1,3 +1,4 @@
+
 import React from 'react';
 import {
   Tabs,
@@ -9,12 +10,17 @@ import { Instagram, Twitter } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Carousel, CarouselContent, CarouselItem } from './ui/carousel';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
 import { instaPosts } from '@/lib/constants';
 import { InstagramEmbed } from 'react-social-media-embed';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const SocialMediaTabs = () => {
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
+
+  // Flattened array for mobile view
+  const flattenedPosts = instaPosts.flat();
 
   return (
     <section id="social-media" className="py-16 bg-black">
@@ -52,27 +58,52 @@ const SocialMediaTabs = () => {
           <TabsContent value="instagram" className="mt-0">
             <Card className="border-0 shadow-md bg-gray-800 rounded-xl p-1">
               <CardContent className="p-6">
-                <div className='w-full'>
-                  <Carousel
-                    className="w-full h-full"
-                    opts={{ loop: true, duration: 30 }}
-                    autoPlay={true}
-                    autoPlayInterval={5000}
-                  >
-                    <CarouselContent className="h-full">
-                      {instaPosts.map((group, index) => (
-                        <CarouselItem key={index} className="w-full">
-                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            {group.map((url, i) => (
-                              <div key={i} className="w-full mx-auto">
+                <div className='w-full relative'>
+                  {isMobile ? (
+                    <Carousel
+                      className="w-full h-full"
+                      opts={{ loop: true, duration: 30 }}
+                      autoPlay={true}
+                      autoPlayInterval={5000}
+                    >
+                      <CarouselContent className="h-full">
+                        {flattenedPosts.map((url, index) => (
+                          <CarouselItem key={index} className="w-full">
+                            <div className="flex justify-center">
+                              <div className="w-full max-w-[358px]">
                                 <InstagramEmbed url={url} width={358} />
                               </div>
-                            ))}
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                  </Carousel>
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                      <div className="flex justify-center gap-2 mt-4">
+                        <CarouselPrevious className="relative static translate-y-0 left-0" />
+                        <CarouselNext className="relative static translate-y-0 right-0" />
+                      </div>
+                    </Carousel>
+                  ) : (
+                    <Carousel
+                      className="w-full h-full"
+                      opts={{ loop: true, duration: 30 }}
+                      autoPlay={true}
+                      autoPlayInterval={5000}
+                    >
+                      <CarouselContent className="h-full">
+                        {instaPosts.map((group, index) => (
+                          <CarouselItem key={index} className="w-full">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                              {group.map((url, i) => (
+                                <div key={i} className="w-full mx-auto">
+                                  <InstagramEmbed url={url} width={358} />
+                                </div>
+                              ))}
+                            </div>
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
+                    </Carousel>
+                  )}
                 </div>
 
                 <div className="mt-6 text-center">
