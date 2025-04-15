@@ -32,7 +32,7 @@ const Testimonials = () => {
       <div className="container px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="badge badge-primary">{t('testimonials.badge')}</span>
-          <h2 className="section-headline mt-2">{t('testimonials.title')}</h2>
+          <h2 className="section-headline mt-2 text-gray-900">{t('testimonials.title')}</h2>
           <p className="mt-4 text-gray-600 text-lg">
             {t('testimonials.subtitle')}
           </p>

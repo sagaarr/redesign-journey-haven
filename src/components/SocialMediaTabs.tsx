@@ -108,10 +108,17 @@ const SocialMediaTabs = () => {
                 </div>
 
                 <div className="mt-6 text-center">
-                  <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 hover:text-white rounded-full">
-                    <Instagram className="mr-2 h-4 w-4" />
-                    Follow on Instagram
-                  </Button>
+                  <a
+                    href="https://www.instagram.com/unmfoundationindia"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 hover:text-white rounded-full">
+                      <Instagram className="mr-2 h-4 w-4" />
+                      Follow on Instagram
+                    </Button>
+                  </a>
+
                 </div>
               </CardContent>
             </Card>
@@ -168,10 +175,17 @@ const SocialMediaTabs = () => {
                   )}
                 </div>
                 <div className="mt-6 text-center">
-                  <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 hover:text-white rounded-full">
-                    <Twitter className="mr-2 h-4 w-4" />
-                    Follow on Twitter
-                  </Button>
+                  <a
+                    href="https://x.com/UnMIndia"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="outline" className="border-white/20 text-white hover:bg-white/10 hover:text-white rounded-full">
+                      <Twitter className="mr-2 h-4 w-4" />
+                      Follow on Twitter
+                    </Button>
+                  </a>
+
                 </div>
               </CardContent>
             </Card>
