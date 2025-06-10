@@ -61,7 +61,7 @@ const Index = () => {
   // Road safety messages for the mascot hero
   const safetyMessages = [
     "Stop, Look, and Listen before crossing any street",
-    "Always use crosswalks and obey traffic signals", 
+    "Always use crosswalks and obey traffic signals",
     "Stay visible - wear bright colors and reflective gear",
     "Put down your phone and stay alert while walking",
     "Make eye contact with drivers before crossing"
@@ -80,17 +80,10 @@ const Index = () => {
     <div className="min-h-screen">
       <NavBar />
       <main>
-        <div id="mascot-hero">
-          <MascotHero 
-            mascotImage="/lovable-uploads/e9fe6340-0e37-4775-b4fe-0eaa7eaaa9b1.png"
-            messages={safetyMessages}
-            backgroundColors={backgroundColors}
-          />
-        </div>
         <Hero />
-        <MediaGallery />
         <SafetyStats />
         <Initiatives />
+        <MediaGallery />
         <SocialMediaTabs />
         <Testimonials />
         {/* <CallToAction /> */}

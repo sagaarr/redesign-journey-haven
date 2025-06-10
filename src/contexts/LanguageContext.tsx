@@ -96,13 +96,13 @@ const translations: Translations = {
       badge: 'Testimonials',
     },
     initiatives: {
-      heading1: 'International',
-      heading2: 'Rule For',
+      heading1: 'Indian',
+      heading2: 'Rule for',
       heading3: 'Pedestrians',
       description1: 'Our initiative',
-      description2: 'is aimed to make every citizen aware of this fact and make our roads a',
-      description3: 'by avoiding and reducing the',
-      rule: 'We should walk against the traffic, if there is no footpath or walkway, as it gives a better view of the oncoming vehicles and thus helps us to walk safely',
+      description2: 'aims to make every citizen aware of this important safety principle and help make our roads a',
+      description3: 'by preventing and reducing the',
+      rule: 'If there is no footpath, walk facing the oncoming traffic. This gives us a clearer view of approaching vehicles and helps us walk safely.',
       learnMore: 'Learn More',
       safeLife: 'LIFE is important and YOU are important.',
     },
@@ -246,7 +246,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const t = (key: string): string => {
     const keys = key.split('.');
     let result: any = translations[language];
-    
+
     for (const k of keys) {
       if (result[k] === undefined) {
         console.warn(`Translation key not found: ${key}`);
@@ -254,7 +254,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       }
       result = result[k];
     }
-    
+
     return result;
   };
 

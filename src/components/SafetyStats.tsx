@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AlertTriangle, Users, Activity, TrendingUp, BarChart2 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { 
+import {
   Dialog,
   DialogContent,
   DialogTrigger
@@ -13,7 +13,7 @@ import LEDBanner from './LEDBanner';
 
 const SafetyStats = () => {
   const { t } = useLanguage();
-  
+
   const pedestrianDeathsData = [
     { year: '2016', deaths: 5200 },
     { year: '2017', deaths: 5600 },
@@ -63,6 +63,14 @@ const SafetyStats = () => {
   return (
     <section id="stats" className="py-20 bg-card/30">
       <div className="container px-4 sm:px-6">
+        {/* LED Banner */}
+        <div className="mb-12 max-w-4xl mx-auto">
+          <LEDBanner
+            messages={ledMessages}
+            className="shadow-lg shadow-primary/20"
+          />
+        </div>
+
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="badge badge-primary">{t('stats.heading')}</span>
           <h2 className="section-headline mt-2 text-white">{t('stats.heading')}</h2>
@@ -75,7 +83,7 @@ const SafetyStats = () => {
           {stats.map((stat, index) => (
             <Card key={index} className="hover-card bg-black/40 backdrop-blur-md border border-white/10 overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-black/60 to-transparent"></div>
-              
+
               {stat.hasGraph ? (
                 <Dialog>
                   <CardContent className="pt-6 flex flex-col items-center text-center relative z-10">
@@ -85,10 +93,10 @@ const SafetyStats = () => {
                     <h3 className="text-3xl font-bold mb-2 text-white">{stat.value}</h3>
                     <p className="font-semibold text-gray-200">{stat.label}</p>
                     <p className="text-gray-400 text-sm mt-2">{stat.description}</p>
-                    
+
                     <DialogTrigger asChild>
-                      <Button 
-                        variant="outline" 
+                      <Button
+                        variant="outline"
                         className="mt-4 bg-primary/20 border-primary/30 hover:bg-primary/30 text-primary"
                       >
                         <BarChart2 className="mr-2 h-4 w-4" />
@@ -96,7 +104,7 @@ const SafetyStats = () => {
                       </Button>
                     </DialogTrigger>
                   </CardContent>
-                  
+
                   <DialogContent className="w-full max-w-3xl p-0 border-none bg-black/90 backdrop-blur-md shadow-xl">
                     <div className="p-6 rounded-lg w-full h-96">
                       <h4 className="text-white text-center text-xl font-semibold mb-4">
@@ -107,19 +115,19 @@ const SafetyStats = () => {
                           <CartesianGrid strokeDasharray="3 3" stroke="#444" />
                           <XAxis dataKey="year" stroke="#999" />
                           <YAxis stroke="#999" />
-                          <Tooltip 
-                            contentStyle={{ 
-                              backgroundColor: "rgba(0, 0, 0, 0.8)", 
+                          <Tooltip
+                            contentStyle={{
+                              backgroundColor: "rgba(0, 0, 0, 0.8)",
                               border: "1px solid #444",
                               borderRadius: "4px",
-                              color: "#fff" 
-                            }} 
+                              color: "#fff"
+                            }}
                           />
-                          <Line 
-                            type="monotone" 
-                            dataKey="deaths" 
-                            name="Fatalities" 
-                            stroke="#1EAEDB" 
+                          <Line
+                            type="monotone"
+                            dataKey="deaths"
+                            name="Fatalities"
+                            stroke="#1EAEDB"
                             strokeWidth={3}
                             dot={{ r: 4, strokeWidth: 2 }}
                             activeDot={{ r: 6, strokeWidth: 2 }}
@@ -143,13 +151,7 @@ const SafetyStats = () => {
           ))}
         </div>
 
-        {/* LED Banner */}
-        <div className="mt-12 max-w-4xl mx-auto">
-          <LEDBanner 
-            messages={ledMessages}
-            className="shadow-lg shadow-primary/20"
-          />
-        </div>
+
       </div>
     </section>
   );
