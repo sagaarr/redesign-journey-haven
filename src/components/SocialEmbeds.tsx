@@ -14,7 +14,7 @@ export const InstagramEmbed = ({ url, width }: { url: string; width?: number }) 
         height="680"
         frameBorder="0"
         scrolling="no"
-        allowTransparency="true"
+        allowTransparency={true}
         style={{ border: 'none', overflow: 'hidden', borderRadius: '4px' }}
         title="Instagram Post"
       />
