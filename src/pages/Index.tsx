@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
+import MascotHero from '@/components/MascotHero';
 import SafetyStats from '@/components/SafetyStats';
 import Initiatives from '@/components/Initiatives';
 import MediaGallery from '@/components/MediaGallery';
@@ -11,7 +12,8 @@ import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
 import { ArrowDown, ArrowUp } from 'lucide-react';
 
-const sections = ['hero', 'gallery-content', 'stats', 'initiatives', 'social-media', 'testimonials', 'footer']
+const sections = ['mascot-hero', 'hero', 'gallery-content', 'stats', 'initiatives', 'social-media', 'testimonials', 'footer']
+
 const Index = () => {
   const [showUpArrow, setShowUpArrow] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('')
@@ -39,7 +41,6 @@ const Index = () => {
       if (el) observer.observe(el)
     })
 
-
     return () => observer.disconnect()
   }, [])
 
@@ -57,10 +58,35 @@ const Index = () => {
     }
   };
 
+  // Road safety messages for the mascot hero
+  const safetyMessages = [
+    "Stop, Look, and Listen before crossing any street",
+    "Always use crosswalks and obey traffic signals", 
+    "Stay visible - wear bright colors and reflective gear",
+    "Put down your phone and stay alert while walking",
+    "Make eye contact with drivers before crossing"
+  ];
+
+  // Optional background colors that match your theme
+  const backgroundColors = [
+    '#1a1a2e', // dark blue
+    '#16213e', // navy
+    '#0f172a', // dark slate
+    '#1e293b', // slate
+    '#374151'  // gray
+  ];
+
   return (
     <div className="min-h-screen">
       <NavBar />
       <main>
+        <div id="mascot-hero">
+          <MascotHero 
+            mascotImage="/lovable-uploads/e9fe6340-0e37-4775-b4fe-0eaa7eaaa9b1.png"
+            messages={safetyMessages}
+            backgroundColors={backgroundColors}
+          />
+        </div>
         <Hero />
         <MediaGallery />
         <SafetyStats />
