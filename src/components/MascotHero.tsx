@@ -56,6 +56,23 @@ const MascotHero = ({
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
+      {/* Background Image Scroller */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="flex animate-scroll-x">
+          <img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716" alt="" className="h-full w-auto object-cover" />
+          <img src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb" alt="" className="h-full w-auto object-cover" />
+          <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21" alt="" className="h-full w-auto object-cover" />
+          <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff" alt="" className="h-full w-auto object-cover" />
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="" className="h-full w-auto object-cover" />
+          {/* Duplicate for seamless loop */}
+          <img src="https://images.unsplash.com/photo-1433086966358-54859d0ed716" alt="" className="h-full w-auto object-cover" />
+          <img src="https://images.unsplash.com/photo-1482938289607-e9573fc25ebb" alt="" className="h-full w-auto object-cover" />
+          <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21" alt="" className="h-full w-auto object-cover" />
+          <img src="https://images.unsplash.com/photo-1426604966848-d7adac402bff" alt="" className="h-full w-auto object-cover" />
+          <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb" alt="" className="h-full w-auto object-cover" />
+        </div>
+      </div>
+
       <div className="container mx-auto px-4 py-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center min-h-[80vh]">
           
