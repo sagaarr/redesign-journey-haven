@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { AlertTriangle, Users, Activity, TrendingUp, BarChart2 } from 'lucide-react';
@@ -10,6 +9,7 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from '@/contexts/LanguageContext';
+import LEDBanner from './LEDBanner';
 
 const SafetyStats = () => {
   const { t } = useLanguage();
@@ -51,6 +51,13 @@ const SafetyStats = () => {
       label: t('stats.reduction'),
       description: t('navLinks.about')
     }
+  ];
+
+  const ledMessages = [
+    "Every 22 minutes, a pedestrian is killed in a traffic crash",
+    "75% of pedestrian fatalities occur in urban areas",
+    "Safe streets save lives - join the movement",
+    "Together we can reduce pedestrian deaths by 50%"
   ];
 
   return (
@@ -134,6 +141,14 @@ const SafetyStats = () => {
               )}
             </Card>
           ))}
+        </div>
+
+        {/* LED Banner */}
+        <div className="mt-12 max-w-4xl mx-auto">
+          <LEDBanner 
+            messages={ledMessages}
+            className="shadow-lg shadow-primary/20"
+          />
         </div>
       </div>
     </section>
