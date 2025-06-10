@@ -30,9 +30,9 @@ const LEDBanner = ({ messages, className = '' }: LEDBannerProps) => {
   if (messages.length === 0) return null;
 
   return (
-    <div className={`bg-black border-2 border-primary rounded-lg p-4 ${className}`}>
+    <div className={`bg-black border-2 border-red-500 rounded-lg p-4 animate-pulse ${className}`}>
       <div 
-        className={`text-center text-primary font-mono text-lg font-bold transition-opacity duration-300 ${
+        className={`text-center text-red-500 font-mono text-lg font-bold transition-opacity duration-300 animate-pulse ${
           isVisible ? 'opacity-100' : 'opacity-0'
         }`}
         style={{ minHeight: '1.5rem' }}
