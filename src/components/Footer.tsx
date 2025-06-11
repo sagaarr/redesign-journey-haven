@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <footer id='footer' className="bg-background border-t border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Left Column - Company Info */}
           <div className="space-y-8">
             <div>
@@ -25,16 +25,16 @@ const Footer = () => {
             <div>
               <h4 className="font-bold text-lg mb-4 text-foreground">Stay Updated</h4>
               <div className="flex space-x-4">
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="https://x.com/UnMIndia" className="text-muted-foreground hover:text-primary transition-colors">
                   <Twitter size={22} />
                 </a>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="https://www.instagram.com/unmfoundationindia/#" className="text-muted-foreground hover:text-primary transition-colors">
                   <Instagram size={22} />
                 </a>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="https://www.facebook.com/people/UnM-Foundation-India/61565708144198/?_rdr" className="text-muted-foreground hover:text-primary transition-colors">
                   <Facebook size={22} />
                 </a>
-                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                <a href="https://in.linkedin.com/company/unm-foundation-india?trk=public_post_follow-view-profile" className="text-muted-foreground hover:text-primary transition-colors">
                   <Linkedin size={22} />
                 </a>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -63,6 +63,15 @@ const Footer = () => {
               </ul>
             </div>
           </div>
+
+           <div className="hidden md:flex md:justify-center md:items-center">
+          <img
+          src="/lovable-uploads/e9fe6340-0e37-4775-b4fe-0eaa7eaaa9b1.png"
+          alt="Mascot"
+          className="h-[400px] w-auto object-contain"
+        />
+            </div>
+        
 
           {/* Right Column - Contact Form */}
           <div>
