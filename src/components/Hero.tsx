@@ -45,7 +45,7 @@ const Hero = () => {
         <img
           src="/lovable-uploads/e9fe6340-0e37-4775-b4fe-0eaa7eaaa9b1.png"
           alt="Mascot"
-          className="h-[600px] w-auto object-contain ml-4"
+          className="h-[500px] w-auto object-contain ml-4"
         />
       </div>
 

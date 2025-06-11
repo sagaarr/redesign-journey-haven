@@ -51,6 +51,7 @@ const NavBar = () => {
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" size="icon" className="rounded-full text-white hover:bg-white/10">
                   <Globe className="h-5 w-5" />
+                  {languageOptions.find(lang => lang.code === language)?.name}
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="start" className="w-36">
@@ -73,7 +74,7 @@ const NavBar = () => {
           <div className="flex-1 flex justify-center">
             <Link to="/" className="flex items-center justify-center">
               <img
-                src="/lovable-uploads/d02c0ac4-0007-4c02-a70e-3db61b7dd182.png"
+                src="/lovable-uploads/1000076653.png"
                 alt="Walk Right India Logo"
                 className="h-10 md:h-16"
               />
