@@ -14,27 +14,31 @@ const Hero = () => {
   const heroSlides = [
     {
       image: "/lovable-uploads/36472fbd-e07b-49d3-b095-355a160b6036.png",
-      description: "Use footpaths where available. If none, walk on the right side of the road facing traffic.",
+      // description: "Use footpaths where available. If none, walk on the right side of the road facing traffic.",
+      description: "While walking on the road or footpath, ensure that children walk on the inner side.",
       rule: "📘 Rule: Rules of the Road Regulations, 1989 – Rule 8",
-      law: "⚖️ Law Reference: IPC Section 283 – Obstruction in public way"
+      // law: "⚖️ Law Reference: IPC Section 283 – Obstruction in public way"
+      law: "⚖️ Law Reference: IPC Section 336 – Act endangering life or personal safety"
     },
     {
       image: "/lovable-uploads/c0bd6173-b74b-4b5a-8a00-bda5e94da974.png",
-      description: "Always cross at zebra crossings, signals, or subways. Look left–right–left before crossing.",
-      rule: "📘 Rule: Rules of the Road Regulations, 1989 – Rule 11",
-      law: "⚖️ Law Reference: IPC Section 336 – Act endangering life or personal safety of others"
+      // description: "Always cross at zebra crossings, signals, or subways. Look left–right–left before crossing.",
+      description: "Women walking on the right side should stay alert and keep an eye on oncoming vehicles to prevent incidents like chain snatching.",
+      rule: "📘 Rule: Rules of the Road Regulations, 1989 – Rule 8",
+      law: "⚖️ Law Reference: \n–  IPC Section 356 – Assault to commit theft \n– IPC Section 379 – Theft \n– IPC Section 392/394 – Robbery with or without injury"
     },
     {
       image: "/lovable-uploads/4f563850-d96b-4829-87a9-1c7ebc6c94f8.png",
-      description: "Do not use mobile phones or wear headphones while crossing. Stay focused on surroundings.",
-      rule: "📘 Guideline: Indian Roads Congress (IRC:103-2012) – Pedestrian Facilities",
-      law: "⚖️ Law Reference: IPC Section 336 – Careless behavior leading to danger"
+      // description: "Do not use mobile phones or wear headphones while crossing. Stay focused on surroundings.",
+      description: "While crossing the road, stay focused on the traffic- avoid using mobile phones.",
+      rule: "📘 Rule: Rules of the Road Regulations, 1989 – Rule 11",
+      law: "⚖️ Law Reference: IPC Section 337 – Causing hurt by rash or negligent act"
     },
     {
       image: "/lovable-uploads/d0aab6de-6147-46a0-9cba-deba28803897.png",
-      description: "Careless walking or creating a traffic hazard can be penalized. Walk responsibly and lawfully.",
-      rule: "📘 Rule: Rules of the Road Regulations, 1989 – General conduct",
-      law: "⚖️ Law References:\n– IPC Section 283 – Public obstruction\n– IPC Section 336 – Risk to life/safety"
+      description: "Do not walk in groups or engage in conversations while walking on the road or footpath.",
+      rule: "📘 Rule: Rules of the Road Regulations, 1989 – Rule 8",
+      law: "⚖️ Law References:\n– IPC Section 283 – Danger or obstruction in public way"
     }
   ];
 
