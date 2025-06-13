@@ -28,19 +28,21 @@ const SafetyStats = () => {
   const stats = [
     {
       icon: <AlertTriangle className="h-12 w-12 text-red-500" />,
-      value: '270,000+',
+      // value: '270,000+',
+      value: '172,000+',
       label: t('stats.annual'),
       description: t('stats.worldwideReport')
     },
     {
       icon: <Users className="h-12 w-12 text-amber-500" />,
-      value: '22%',
+      // value: '22%',
+      value: '20%',
       label: t('stats.pedestrians'),
       description: t('stats.roadFatalities')
     },
     {
       icon: <Activity className="h-12 w-12 text-emerald-500" />,
-      value: '63+',
+      value: '90+',
       label: t('stats.killedDaily'),
       description: t('navLinks.home'),
       hasGraph: true

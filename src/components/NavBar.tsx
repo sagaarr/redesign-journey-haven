@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, Globe, ArrowLeft, Share2 } from 'lucide-react';
@@ -49,7 +48,7 @@ const NavBar = () => {
           <div className="w-1/3 md:w-1/4 flex justify-start items-center">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className="rounded-full text-white hover:bg-white/10">
+                <Button variant="ghost" className="text-white px-2 py-1 hover:bg-white/10">
                   <Globe className="h-5 w-5" />
                   {languageOptions.find(lang => lang.code === language)?.name}
                 </Button>
