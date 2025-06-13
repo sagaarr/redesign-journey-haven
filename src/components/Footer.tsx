@@ -1,10 +1,11 @@
-
 import React from 'react';
-import { Mail, MapPin, Twitter, Instagram, Facebook, Linkedin, Send, Phone } from 'lucide-react';
+import { Mail, MapPin, Twitter, Instagram, Facebook, Linkedin, Send, Phone, Youtube } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
+import { FaWhatsapp } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -25,7 +26,44 @@ const Footer = () => {
             <div>
               <h4 className="font-bold text-lg mb-4 text-foreground">Stay Updated</h4>
               <div className="flex space-x-4">
-                <a href="https://x.com/UnMIndia" className="text-muted-foreground hover:text-primary transition-colors">
+              
+              <Link 
+              to={"https://www.instagram.com/unmfoundationindia/#"} 
+              className="text-muted-foreground hover:text-primary transition-colors">
+               <Instagram size={22} />
+              </Link>
+
+              <Link 
+              to={"https://whatsapp.com/channel/0029VawuE4NFy72H25gnzO1v"} 
+              className="text-muted-foreground hover:text-primary transition-colors">
+               <FaWhatsapp size={22} />
+              </Link>
+
+              <Link 
+              to={"https://www.facebook.com/people/UnM-Foundation-India/61565708144198/?_rdr"} 
+              className="text-muted-foreground hover:text-primary transition-colors">
+                <Facebook size={22} />
+              </Link>
+
+              <Link 
+              to={"https://youtube.com/@unmfoundationindia?si=e4tCwDuKF5kB2vjo"} 
+              className="text-muted-foreground hover:text-primary transition-colors">
+                <Youtube size={22} />
+              </Link>
+
+              <Link 
+              to={"https://x.com/UnMIndia"} 
+              className="text-muted-foreground hover:text-primary transition-colors">
+                <Twitter size={22} />
+               </Link>
+
+              <Link 
+              to={"https://in.linkedin.com/company/unm-foundation-india?trk=public_post_follow-view-profile"} 
+              className="text-muted-foreground hover:text-primary transition-colors">
+                <Linkedin size={22} />
+              </Link>              
+              
+               {/* <a href="https://x.com/UnMIndia" className="text-muted-foreground hover:text-primary transition-colors">
                   <Twitter size={22} />
                 </a>
                 <a href="https://www.instagram.com/unmfoundationindia/#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -39,7 +77,7 @@ const Footer = () => {
                 </a>
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
                   <Phone size={22} />
-                </a>
+                </a> */}
               </div>
             </div>
 
