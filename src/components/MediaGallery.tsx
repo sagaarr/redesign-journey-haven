@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Image, Video, ArrowRight } from 'lucide-react';
@@ -24,10 +23,10 @@ const MediaGallery = () => {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
 
   const dummyPhotos: MediaItem[] = Array.from({ length: 6 }, (_, i) => ({
-    id: i + 1,
+    id: i + 18,
     type: 'photo',
-    src: `/lovable-uploads/gallery/${i + 1}.jpg`,
-    alt: `Gallery image ${i + 1}`,
+    src: `/lovable-uploads/gallery/${i + 18}.jpg`,
+    alt: `Gallery image ${i + 1}`, 
   }));
 
   const dummyVideos: MediaItem[] = [

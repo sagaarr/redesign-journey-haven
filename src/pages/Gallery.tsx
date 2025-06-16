@@ -24,7 +24,7 @@ const Gallery = () => {
   const [currentItemIndex, setCurrentItemIndex] = useState(0);
 
   // Extended dummy photos for the full gallery
-  const allPhotos: MediaItem[] = Array.from({ length: 17 }, (_, i) => ({
+  const allPhotos: MediaItem[] = Array.from({ length: 23 }, (_, i) => ({
     id: i + 1,
     type: 'photo',
     src: `/lovable-uploads/gallery/${i + 1}.jpg`,
