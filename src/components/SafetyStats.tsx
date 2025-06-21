@@ -56,10 +56,10 @@ const SafetyStats = () => {
   ];
 
   const ledMessages = [
-    "Every 22 minutes, a pedestrian is killed in a traffic crash",
-    "75% of pedestrian fatalities occur in urban areas",
-    "Safe streets save lives - join the movement",
-    "Together we can reduce pedestrian deaths by 50%"
+    "While walking on the road or footpath, ensure that children walk on the inner side.",
+    "Women walking on the right side should stay alert and keep an eye on oncoming vehicles to prevent incidents like chain snatching.",
+    "While crossing the road, stay focused on the traffic - avoid using mobile phones.",
+    "Do not walk in groups or engage in conversations while walking on the road or footpath."
   ];
 
   return (
