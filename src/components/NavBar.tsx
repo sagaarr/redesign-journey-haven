@@ -27,6 +27,7 @@ const NavBar = () => {
   }, []);
 
   const navLinks = [
+    { name: 'References', href: '/reference' },
     { name: 'Gallery', href: '/gallery' },
   ];
 
@@ -40,7 +41,7 @@ const NavBar = () => {
     <header
       className={cn(
         'fixed top-0 w-full z-50 transition-all duration-300',
-        scrolled ? 'bg-white/80 backdrop-blur-lg shadow-sm' : 'bg-black/40 backdrop-blur-sm'
+        scrolled ? 'backdrop-blur-lg shadow-sm' : 'bg-black/100'
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
