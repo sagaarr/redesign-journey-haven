@@ -30,12 +30,12 @@ const MediaGallery = () => {
   }));
 
   const dummyVideos: MediaItem[] = [
-    { id: 1, type: 'video', youtubeId: "ZE8ODPL2VPI", title: "Road Safety Awareness" },
-    { id: 2, type: 'video', youtubeId: "QXU3L7V0_7I", title: "Pedestrian Safety Tips" },
-    { id: 3, type: 'video', youtubeId: "UxrHGPX_-QQ", title: "Safe Crossing Techniques" },
-    { id: 4, type: 'video', youtubeId: "9j4NKx2EGyE", title: "Traffic Rules Education" },
-    { id: 5, type: 'video', youtubeId: "zcTkSs-5Vuo", title: "Road Safety for Children" },
-    { id: 6, type: 'video', youtubeId: "dAhQ6xKoOj4", title: "Community Safety Initiatives" },
+    { id: 1, type: 'video', youtubeId: "psADPWdT35I", title: "Road Safety Awareness" },
+    { id: 2, type: 'video', youtubeId: "IRwxCRYy4WQ", title: "Pedestrian Safety Tips" },
+    { id: 3, type: 'video', youtubeId: "t4vPloIg9EM", title: "Safe Crossing Techniques" },
+    { id: 4, type: 'video', youtubeId: "Li00UqtJ0Nw", title: "Traffic Rules Education" },
+    { id: 5, type: 'video', youtubeId: "VduEKQd3iP4", title: "Road Safety for Children" },
+    { id: 6, type: 'video', youtubeId: "DYL9mZcnUno", title: "Community Safety Initiatives" },
   ];
 
   const getActiveItems = () => activeTab === "photos" ? dummyPhotos : dummyVideos;
