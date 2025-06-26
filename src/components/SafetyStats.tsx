@@ -77,7 +77,13 @@ const SafetyStats = () => {
      <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg border border-white/10">
    
       {/* For Local Video */}
-      <video controls className="w-full h-full object-cover">
+      <video 
+      controls 
+      autoPlay
+      muted
+      loop
+      playsInline
+      className="w-full h-full object-cover">
       <source src="/videos/Statistic_video.mp4" type="video/mp4" />
       Your browser does not support the video tag.
      </video>
