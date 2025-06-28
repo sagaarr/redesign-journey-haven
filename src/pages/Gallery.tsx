@@ -34,18 +34,18 @@ const Gallery = () => {
 
   // Extended dummy videos for the full gallery
   const allVideos: MediaItem[] = [
-    { id: 1, type: 'video', youtubeId: "ZE8ODPL2VPI", title: "Road Safety Awareness" },
-    { id: 2, type: 'video', youtubeId: "QXU3L7V0_7I", title: "Pedestrian Safety Tips" },
-    { id: 3, type: 'video', youtubeId: "UxrHGPX_-QQ", title: "Safe Crossing Techniques" },
-    { id: 4, type: 'video', youtubeId: "9j4NKx2EGyE", title: "Traffic Rules Education" },
-    { id: 5, type: 'video', youtubeId: "zcTkSs-5Vuo", title: "Road Safety for Children" },
-    { id: 6, type: 'video', youtubeId: "dAhQ6xKoOj4", title: "Community Safety Initiatives" },
-    { id: 7, type: 'video', youtubeId: "n2XU6X6F0kc", title: "Urban Planning for Safety" },
-    { id: 8, type: 'video', youtubeId: "RNy7X1yVIqg", title: "Walkability in Cities" },
-    { id: 9, type: 'video', youtubeId: "LJvEIjRBSDA", title: "Safety Infrastructure Development" },
-    { id: 10, type: 'video', youtubeId: "rfscVS0vtbw", title: "Public Awareness Campaign" },
-    { id: 11, type: 'video', youtubeId: "1Rs2ND1ryYc", title: "School Zone Safety" },
-    { id: 12, type: 'video', youtubeId: "l4s4tM3cJjY", title: "Community Engagement" },
+   { id: 1, type: 'video', youtubeId: "psADPWdT35I", title: "Road Safety Awareness" },
+    { id: 2, type: 'video', youtubeId: "IRwxCRYy4WQ", title: "Pedestrian Safety Tips" },
+    { id: 3, type: 'video', youtubeId: "t4vPloIg9EM", title: "Safe Crossing Techniques" },
+    { id: 4, type: 'video', youtubeId: "Li00UqtJ0Nw", title: "Traffic Rules Education" },
+    { id: 5, type: 'video', youtubeId: "VduEKQd3iP4", title: "Road Safety for Children" },
+    { id: 6, type: 'video', youtubeId: "DYL9mZcnUno", title: "Community Safety Initiatives" },
+    { id: 7, type: 'video', youtubeId: "_a5FrqTtt2k", title: "Urban Planning for Safety" },
+    { id: 8, type: 'video', youtubeId: "b0eanFhtfnQ", title: "Walkability in Cities" },
+    { id: 9, type: 'video', youtubeId: "A1G85MIs0Bg", title: "Safety Infrastructure Development" },
+    { id: 10, type: 'video', youtubeId: "tCrDEL1YwgU", title: "Public Awareness Campaign" },
+    { id: 11, type: 'video', youtubeId: "1qJ39UMsO2c", title: "School Zone Safety" },
+    { id: 12, type: 'video', youtubeId: "JuBSH75v91A", title: "Community Engagement" },
   ];
 
   const getActiveItems = (): MediaItem[] => activeTab === "photos" ? allPhotos : allVideos;

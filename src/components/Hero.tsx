@@ -13,7 +13,7 @@ const Hero = () => {
 
   const heroSlides = [
     {
-      // image: "/lovable-uploads/36472fbd-e07b-49d3-b095-355a160b6036.png",
+      image: "/lovable-uploads/childrenwalk.jpeg",
       // description: "Use footpaths where available. If none, walk on the right side of the road facing traffic.",
       description: "While walking on the road or footpath, ensure that children walk on the inner side.",
       rule: "📘 Rule: Rules of the Road Regulations, 1989 – Rule 8",
@@ -22,6 +22,7 @@ const Hero = () => {
     },
     {
       // image: "/lovable-uploads/c0bd6173-b74b-4b5a-8a00-bda5e94da974.png",
+      image:"/lovable-uploads/chain_snatching.png",
       // description: "Always cross at zebra crossings, signals, or subways. Look left–right–left before crossing.",
       description: "Women walking on the right side should stay alert and keep an eye on oncoming vehicles to prevent incidents like chain snatching.",
       rule: "📘 Rule: Rules of the Road Regulations, 1989 – Rule 8",
@@ -30,13 +31,20 @@ const Hero = () => {
     {
       // image: "/lovable-uploads/4f563850-d96b-4829-87a9-1c7ebc6c94f8.png",
       // description: "Do not use mobile phones or wear headphones while crossing. Stay focused on surroundings.",
+      image:"/lovable-uploads/mobilephone.png",
       description: "While crossing the road, stay focused on the traffic- avoid using mobile phones.",
       rule: "📘 Rule: Rules of the Road Regulations, 1989 – Rule 11",
       law: "⚖️ Law Reference: IPC Section 337 – Causing hurt by rash or negligent act"
     },
     {
-      // image: "/lovable-uploads/d0aab6de-6147-46a0-9cba-deba28803897.png",
+      image: "/lovable-uploads/groupwalk.jpeg",
       description: "Do not walk in groups or engage in conversations while walking on the road or footpath.",
+      rule: "📘 Rule: Rules of the Road Regulations, 1989 – Rule 8",
+      law: "⚖️ Law References:\n– IPC Section 283 – Danger or obstruction in public way"
+    },
+    {
+      image: "/lovable-uploads/jogging.png",
+      description: "While walking or jogging, stay on the right side of the road.",
       rule: "📘 Rule: Rules of the Road Regulations, 1989 – Rule 8",
       law: "⚖️ Law References:\n– IPC Section 283 – Danger or obstruction in public way"
     }
@@ -64,16 +72,24 @@ const Hero = () => {
           {heroSlides.map((slide, index) => (
             <CarouselItem key={index} className="h-full">
               <div className="relative w-full h-screen"> {/* Use h-screen here to force fullscreen */}
-                {/* <img
-                  // src={slide.image}
+                <img
+                  src={slide.image}
                   alt={`Slide ${index + 1}`}
                   className={`absolute inset-0 w-full object-cover ${isMobile ? 'h-screen' : 'h-full'}`}
-                /> */}
+                />
 
                 {/* Message Section */}
                 <div className="absolute inset-0 z-20 flex items-center justify-start bg-white">
                   <div className="ml-[40%] w-full pr-6"> {/* Adjust to match mascot width */}
-                    <div className="bg-black/70 backdrop-blur-md p-6 md:p-10 rounded-xl shadow-2xl max-w-3xl w-full">
+                    {/* <div className="bg-black/70 backdrop-blur-md p-3 md:p-5 rounded-xl shadow-2xl max-w-4xl w-full flex flex-col md:flex-row gap-6 items-center"> */}
+                      <div className="relative max-w-4xl w-full">
+                      <img
+                      src={slide.image}
+                      alt="Context Visual"
+                      className="w-full h-64 md:h-96 object-cover rounded-xl"
+                      />                
+                     
+                      <div className="absolute inset-0 flex flex-col justify-center p-6 md:p-10 rounded-xl">           
                       <p className="text-white text-base md:text-lg lg:text-xl mb-4">
                         {slide.description}
                       </p>
@@ -85,6 +101,7 @@ const Hero = () => {
                           {slide.law}
                         </div>
                       </div> */}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -94,9 +111,6 @@ const Hero = () => {
         </CarouselContent>
       </Carousel>
     </section>
-
-
-
   );
 };
 
