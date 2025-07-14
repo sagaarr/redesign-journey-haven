@@ -17,7 +17,7 @@ const Footer = () => {
       toast.success("Thanks for contacting us! We'll get back to you soon.");
     }
     else if (state.errors) {
-      toast.error("There was an error submitting your message. Please try again later.");
+      toast.error("There was an error submitting your message. Please try again later." );
     }
   }, [state.succeeded, state.errors]);
 
