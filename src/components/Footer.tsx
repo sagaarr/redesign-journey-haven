@@ -93,13 +93,13 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="flex items-start">
-                  <MapPin size={18} className="mr-2 text-primary mt-1.5" />
-                  <span className="text-muted-foreground leading-snug">
-                      Inspiria Mall F- 9<br />
-                      Old Mumbai Rd, near Bhakti Shakti Chowk,<br />
-                      Nigdi Gaothan, Nigdi,<br />
-                      Pune, Maharashtra 411044
-                  </span>
+                   <MapPin size={20} className="mr-2 text-primary mt-1.5" />
+                    <span className="text-muted-foreground leading-snug">
+                        Inspiria Mall F- 9<br />
+                        Old Mumbai Rd, near Bhakti Shakti Chowk,<br />
+                        Nigdi Gaothan, Nigdi,<br />
+                        Pune, Maharashtra 411044
+                    </span>
                 </li>
               </ul>
             </div>
