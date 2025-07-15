@@ -84,7 +84,7 @@ const SafetyStats = () => {
       loop
       playsInline
       className="w-full h-full object-cover">
-      <source src="/videos/Statistic_video.mp4" type="video/mp4" />
+      <source src="/videos/Statistic_video_F.mp4" type="video/mp4" />
       Your browser does not support the video tag.
      </video>
    
