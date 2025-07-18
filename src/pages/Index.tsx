@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
@@ -10,9 +9,54 @@ import SocialMediaTabs from '@/components/SocialMediaTabs';
 import Testimonials from '@/components/Testimonials';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
-import { ArrowDown, ArrowUp } from 'lucide-react';
+import { ArrowDown, ArrowUp, Facebook, Instagram, Linkedin, Twitter, Youtube } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const sections = ['mascot-hero', 'hero', 'gallery-content', 'stats', 'initiatives', 'social-media', 'testimonials', 'footer']
+
+const SocialMediaBar = () => {
+  return (
+    // <div className="fixed right-6 bottom-28 flex flex-col items-center space-y-4 z-50">
+      <div className="fixed right-6 bottom-10 z-50 flex flex-col items-center space-y-4 bg-white p-3 rounded-xl shadow-lg border border-gray-200">
+     <Link
+                  to={"https://www.instagram.com/unmfoundationindia/#"}
+                  className="text-pink-500 hover:text-pink-600 transition-transform hover:scale-110">
+                  <Instagram size={22} />
+                </Link>
+
+                <Link
+                  to={"https://whatsapp.com/channel/0029VawuE4NFy72H25gnzO1v"}
+                  className="text-green-500 hover:text-green-600 transition-transform hover:scale-110">
+                  <FaWhatsapp size={22} />
+                </Link>
+
+                <Link
+                  to={"https://www.facebook.com/people/UnM-Foundation-India/61565708144198/?_rdr"}
+                  className="text-blue-600 hover:text-blue-700 transition-transform hover:scale-110">
+                  <Facebook size={22} />
+                </Link>
+
+                <Link
+                  to={"https://youtube.com/@unmfoundationindia?si=e4tCwDuKF5kB2vjo"}
+                  className="text-red-500 hover:text-red-600 transition-transform hover:scale-110">
+                  <Youtube size={22} />
+                </Link>
+
+                <Link
+                  to={"https://x.com/UnMIndia"}
+                  className="text-black hover:text-gray-800 transition-transform hover:scale-110">
+                  <Twitter size={22} />
+                </Link>
+
+                <Link
+                  to={"https://in.linkedin.com/company/unm-foundation-india?trk=public_post_follow-view-profile"}
+                  className="text-blue-700 hover:text-blue-800 transition-transform hover:scale-110">
+                  <Linkedin size={22} />
+                </Link>
+    </div>
+  );
+};
 
 const Index = () => {
   const [showUpArrow, setShowUpArrow] = useState(false);
@@ -90,7 +134,9 @@ const Index = () => {
       </main>
       <Footer />
 
-      <div className="fixed right-6 bottom-10 z-50">
+      <SocialMediaBar />
+
+      {/* <div className="fixed right-6 bottom-10 z-50">
         <button
           onClick={scrollToNextSection}
           className="flex items-center justify-center p-3 rounded-full bg-primary shadow-lg hover:bg-primary/90 transition-all duration-300 text-white"
@@ -102,7 +148,7 @@ const Index = () => {
             <ArrowDown className="h-6 w-6" />
           )}
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
