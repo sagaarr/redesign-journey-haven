@@ -2,23 +2,35 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from '@/components/NavBar';
 import Hero from '@/components/Hero';
-import MascotHero from '@/components/MascotHero';
 import SafetyStats from '@/components/SafetyStats';
 import Initiatives from '@/components/Initiatives';
 import MediaGallery from '@/components/MediaGallery';
 import SocialMediaTabs from '@/components/SocialMediaTabs';
 import Testimonials from '@/components/Testimonials';
-import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
 import { ArrowDown, ArrowUp } from 'lucide-react';
+import VideoAndBanner from '@/components/VideoAndBanner';
+import { logEvent } from "firebase/analytics";
+import { analytics } from '@/firebase';
 
-const sections = ['mascot-hero', 'hero', 'gallery-content', 'stats', 'initiatives', 'social-media', 'testimonials', 'footer']
+const sections = ['hero', 'video-banner', 'stats', 'initiatives', 'gallery-content', 'social-media', 'testimonials', 'footer']
 
 const Index = () => {
   const [showUpArrow, setShowUpArrow] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('')
 
   useEffect(() => {
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const source = urlParams.get('source');
+
+    if (source === 'qr') {
+
+      logEvent(analytics, 'qr_scan', { campaign: 'promo2025' });
+      console.log('User came via QR Code');
+      // Optionally log this to Google Analytics or your backend
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         const visibleEntry = entries.find(entry => entry.isIntersecting)
@@ -58,35 +70,18 @@ const Index = () => {
     }
   };
 
-  // Road safety messages for the mascot hero
-  const safetyMessages = [
-    "Stop, Look, and Listen before crossing any street",
-    "Always use crosswalks and obey traffic signals",
-    "Stay visible - wear bright colors and reflective gear",
-    "Put down your phone and stay alert while walking",
-    "Make eye contact with drivers before crossing"
-  ];
-
-  // Optional background colors that match your theme
-  const backgroundColors = [
-    '#1a1a2e', // dark blue
-    '#16213e', // navy
-    '#0f172a', // dark slate
-    '#1e293b', // slate
-    '#374151'  // gray
-  ];
 
   return (
     <div className="min-h-screen">
       <NavBar />
       <main>
         <Hero />
+        <VideoAndBanner />
         <SafetyStats />
         <Initiatives />
         <MediaGallery />
         <SocialMediaTabs />
         <Testimonials />
-        {/* <CallToAction /> */}
       </main>
       <Footer />
 

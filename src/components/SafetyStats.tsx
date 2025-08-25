@@ -65,34 +65,6 @@ const SafetyStats = () => {
   return (
     <section id="stats" className="py-20 bg-card/30">
       <div className="container px-4 sm:px-6">
-        {/* LED Banner */}
-        <div className="mb-12 max-w-4xl mx-auto">
-          <LEDBanner
-            messages={ledMessages}
-            className="shadow-lg shadow-primary/20"
-          />
-        </div>
-
-        <div className="mb-12 max-w-5xl mx-auto">
-     <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg border border-white/10">
-   
-      {/* For Local Video */}
-      <video 
-      controls 
-      autoPlay
-      muted
-      loop
-      playsInline
-      className="w-full h-full object-cover">
-      <source src="/videos/Statistic_video_F.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-     </video>
-   
-     </div>
-    {/* <p className="mt-4 text-center text-white text-lg font-medium">
-          {t('stats.videoCaption') || 'Watch this short video to learn how to walk safely on roads.'}
-        </p> */}
-     </div>
 
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="badge badge-primary">{t('stats.heading')}</span>

@@ -33,6 +33,7 @@ const App = () => (
             <Route path="/reference" element={<ReferencePage />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/social-media" element={<SocialMedia />} />
+            
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

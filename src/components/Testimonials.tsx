@@ -9,21 +9,21 @@ const Testimonials = () => {
   const testimonials = [
     {
       quote: "The UNM Foundation's school safety program has transformed how our students think about road safety. We've seen a remarkable change in behavior.",
-      name: "Deepak Patel",
-      title: "Principal, Delhi Public School",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80"
+      name: "Nirmalkumar Rakshe",
+      title: "Managing Director, UnM Group",
+      image: "/lovable-uploads/kumar_rakshe.jpeg"
     },
     {
-      quote: "After losing my son in a pedestrian accident, I joined UNM Foundation as a volunteer. The work they're doing is saving lives every day.",
-      name: "Meera Krishnan",
+      quote: "I joined UNM Foundation as a volunteer. The work they're doing is saving lives every day.",
+      name: "Nilima Puranik",
       title: "Safety Advocate & Volunteer",
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80"
+      image: "/lovable-uploads/nilima_puranik.jpeg"
     },
     {
       quote: "Working with UNM Foundation to improve crosswalks in high-risk areas has been one of our most effective public safety initiatives.",
-      name: "Rajiv Mehta",
-      title: "Urban Planning Officer, Mumbai",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&h=200&q=80"
+      name: "Dr. Amol Sahastrabuddhe",
+      title: "Safety Advocate & Volunteer",
+      image: "/lovable-uploads/amol_sahastrabudhhe.jpeg"
     }
   ];
 

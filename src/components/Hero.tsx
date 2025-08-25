@@ -38,7 +38,7 @@ const Hero = () => {
     <section id="hero" className="relative overflow-hidden min-h-screen">
 
       {isMobile ? (
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center gap-4 w-[90vw] max-w-sm px-4">
+        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-4 w-[90vw] max-w-sm px-4" style={{zIndex:2}}>
           {/* Bigger Mascot */}
           <img
             src="/lovable-uploads/mobile-mascote.png"
@@ -68,7 +68,7 @@ const Hero = () => {
           </div>
         </div>
       ) : (
-        <div className="absolute top-1/2 left-0 z-50 transform -translate-y-1/2 flex flex-col items-center ml-4">
+        <div className="absolute top-1/2 left-0 transform -translate-y-1/2 flex flex-col items-center ml-4" style={{zIndex:2}}>
           {/* Desktop Mascot */}
           <img
             src="/lovable-uploads/e9fe6340-0e37-4775-b4fe-0eaa7eaaa9b1.png"
