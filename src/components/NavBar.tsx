@@ -45,9 +45,14 @@ const NavBar = () => {
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+        <div className="flex justify-between items-center pt-4">
           <div className="w-1/3 md:w-1/4 flex justify-start items-center">
-            <DropdownMenu>
+            <img
+              src="/lovable-uploads/e9fe6340-0e37-4775-b4fe-0eaa7eaaa9b1.png"
+              alt="Mascot"
+              className="h-[80px] w-auto object-contain"
+            />
+            {/* <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <Button variant="ghost" className="text-white px-2 py-1 hover:bg-white/10">
                   <Globe className="h-5 w-5" />
@@ -68,7 +73,7 @@ const NavBar = () => {
                   </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
-            </DropdownMenu>
+            </DropdownMenu> */}
           </div>
 
           <div className="flex-1 flex justify-center">
@@ -76,7 +81,7 @@ const NavBar = () => {
               <img
                 src="/lovable-uploads/1000076653.png"
                 alt="Walk Right India Logo"
-                className="h-10 md:h-16"
+                className="h-10 md:h-[5rem]"
               />
             </Link>
           </div>

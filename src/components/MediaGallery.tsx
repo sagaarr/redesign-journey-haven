@@ -26,7 +26,7 @@ const MediaGallery = () => {
     id: i + 18,
     type: 'photo',
     src: `/lovable-uploads/gallery/${i + 18}.jpg`,
-    alt: `Gallery image ${i + 1}`, 
+    alt: `Gallery image ${i + 1}`,
   }));
 
   const dummyVideos: MediaItem[] = [
@@ -46,14 +46,11 @@ const MediaGallery = () => {
   };
 
   return (
-    <section className="py-16 bg-black">
+    <section className="py-16 bg-[#10100e]">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="text-center max-w-3xl mx-auto mb-10" id="gallery-content">
           <span className="badge bg-primary/20 text-primary rounded-full px-3 py-1 text-sm">Media Gallery</span>
-          <h2 className="text-3xl font-bold mt-3 text-white">Our Gallery</h2>
-          <p className="mt-4 text-gray-300">
-            Explore our collection of photos and videos showcasing our pedestrian safety initiatives and community impact.
-          </p>
+          <h2 className="text-3xl font-bold mt-3 text-white">Our Work and Initiatives</h2>
         </div>
 
         <Tabs

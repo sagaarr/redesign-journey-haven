@@ -1,140 +1,200 @@
-import React from 'react';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { useIsMobile } from '@/hooks/use-mobile';
+import React from "react";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-} from '@/components/ui/carousel';
+  CarouselPrevious,
+  CarouselNext,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 
-const Hero = () => {
-  const { t } = useLanguage();
-  const isMobile = useIsMobile();
+// Helper so each slide can swap sources by viewport
+const SlideImage: React.FC<{
+  desktopSrc: string;
+  mobileSrc: string;
+  alt: string;
+}> = ({ desktopSrc, mobileSrc, alt }) => {
+  return (
+    <div className="flex h-full w-full items-center justify-center">
+      <picture>
+        {/* Mobile first */}
+        <source media="(max-width: 767px)" srcSet={mobileSrc} />
+        {/* Fallback: tablet/desktop */}
+        <img
+          src={desktopSrc}
+          alt={alt}
+          className="
+         
+            object-contain w-auto
+            max-h-[calc(100vh-64px-2rem)]
+            sm:max-h-[calc(100vh-64px-3rem)]
+            md:max-h-[calc(100vh-64px-1rem)]
+          "
+          loading="lazy"
+        />
+      </picture>
+    </div>
+  );
+};
 
-  const heroSlides = [
-    {
-      image: "/lovable-uploads/childrenwalk.jpeg",
-      description: "While walking on the road or footpath, ensure that children walk on the inner side.",
-    },
-    {
-      image: "/lovable-uploads/chain_snatching.png",
-      description: "Women walking on the right side should stay alert and keep an eye on oncoming vehicles to prevent incidents like chain snatching.",
-    },
-    {
-      image: "/lovable-uploads/mobilewalkboy.jpeg",
-      description: "While crossing the road, stay focused on the traffic—avoid using mobile phones.",
-    },
-    {
-      image: "/lovable-uploads/groupwalk.jpeg",
-      description: "Do not walk in groups or engage in conversations while walking on the road or footpath.",
-    },
-    {
-      image: "/lovable-uploads/jogging1.png",
-      description: "While walking or jogging, stay on the right side of the road.",
-    }
-  ];
+type Slide = {
+  id: number;
+  alt: string;
+  desktopSrc: string;
+  mobileSrc: string;
+  title: string;
+  message: string;
+};
+
+const slides: Slide[] = [
+  {
+    id: 1,
+    alt: "pointing left mascot image",
+    desktopSrc: "/lovable-uploads/hero_slider/test/childrenwalk.webp",
+    mobileSrc: "/lovable-uploads/hero_slider/mobile/childrenwalk.png",
+    title: "Keep Children on the Inner Side",
+    message:
+      "While walking on the road or footpath, ensure that children walk on the inner side.",
+  },
+  {
+    id: 2,
+    alt: "pointing left mascot image",
+    desktopSrc: "/lovable-uploads/hero_slider/test/chain_snatching.webp",
+    mobileSrc: "/lovable-uploads/hero_slider/mobile/chain_snatching.png",
+    title: "Protect Your Belongings",
+    message:
+      "Keep bags on the inner side of the footpath and stay alert at crowded junctions.",
+  },
+  {
+    id: 3,
+    alt: "pointing left mascot image",
+    desktopSrc: "/lovable-uploads/hero_slider/test/mobilewalkboy.webp",
+    mobileSrc: "/lovable-uploads/hero_slider/mobile/mobilewalkboy.jpg",
+    title: "Eyes Up, Phone Down",
+    message:
+      "While crossing the road, stay focused on the traffic—avoid using mobile phones.",
+  },
+  {
+    id: 4,
+    alt: "pointing left mascot image",
+    desktopSrc: "/lovable-uploads/hero_slider/test/groupwalk.webp",
+    mobileSrc: "/lovable-uploads/hero_slider/mobile/groupwalk.jpg",
+    title: "Use the Zebra Crossing",
+    message:
+      "Cross only at the zebra crossing and follow the signal—drivers expect you there.",
+  },
+  {
+    id: 5,
+    alt: "pointing left mascot image",
+    desktopSrc: "/lovable-uploads/hero_slider/test/jogging.webp",
+    mobileSrc: "/lovable-uploads/hero_slider/mobile/jogging.png",
+    title: "Be Visible",
+    message:
+      "At night, prefer light/reflective clothing and stay in well-lit areas.",
+  },
+];
+
+const Hero: React.FC = () => {
+  const [api, setApi] = React.useState<CarouselApi | null>(null);
+  const [current, setCurrent] = React.useState(0);
+
+  React.useEffect(() => {
+    if (!api) return;
+    // Set initial state and subscribe to changes
+    const update = () => setCurrent(api.selectedScrollSnap());
+    update();
+    api.on("select", update);
+    api.on("reInit", update);
+    return () => {
+      api.off("select", update);
+      api.off("reInit", update);
+    };
+  }, [api]);
+
+  const active = slides[current] ?? slides[0];
 
   return (
-    <section id="hero" className="relative overflow-hidden min-h-screen">
+    // <section className="w-full min-h-[calc(100vh-64px)] bg-[#10100e] text-white rounded-xl overflow-hidden">
+    <section className="w-full bg-[#10100e] text-white rounded-xl overflow-hidden">
 
-      {isMobile ? (
-        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-50 flex flex-col items-center gap-4 w-[90vw] max-w-sm px-4">
-          {/* Bigger Mascot */}
-          <img
-            src="/lovable-uploads/mobile-mascote.png"
-            alt="Mascot"
-            className="h-48 w-auto object-contain"
-          />
+      {/* <div className="grid grid-cols-1 md:grid-cols-[7fr_3fr] md:min-h-[calc(100vh-64px)]"> */}
+      <div className="grid grid-cols-1 md:grid-cols-[7fr_3fr]">
+        {/* LEFT: Slider (70%) */}
+        <div className="relative order-1 md:order-1">
+          <div className="w-full  p-4">
+            <Carousel opts={{ loop: true, align: 'start' }} className="w-full" setApi={setApi}>
+              <CarouselContent className="md:h-full h-[570px]">
+                {slides.map((s) => (
+                  <CarouselItem key={s.id} className="h-full">
+                    <SlideImage
+                      desktopSrc={s.desktopSrc}
+                      mobileSrc={s.mobileSrc}
+                      alt={s.alt}
+                    />
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
 
-          {/* Logos */}
-          <div className="bg-black/40 px-4 py-3 pb-4 rounded-md backdrop-blur-sm w-full">
-            <p className="text-white text-sm font-semibold text-center mb-3">
-              In Association With
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-4">
-              <div className="bg-white/80 p-1.5 rounded shadow-md">
-                <img src="/lovable-uploads/IDTRS.png" alt="IDTR Logo" className="h-10 w-auto" />
+              {/* Controls */}
+              <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full p-2" />
+              <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full p-2" />
+
+              {/* Dots */}
+              <div className="absolute bottom-4 left-0 right-0 flex items-center justify-center gap-2">
+                {slides.map((_, i) => (
+                  <button
+                    key={i}
+                    aria-label={`Go to slide ${i + 1}`}
+                    onClick={() => api?.scrollTo(i)}
+                    className={[
+                      "h-2 w-2 rounded-full transition-opacity",
+                      current === i ? "opacity-100 bg-white" : "opacity-40 bg-white",
+                    ].join(" ")}
+                  />
+                ))}
               </div>
-              <div className="bg-white/80 p-1.5 rounded shadow-md">
-                <img src="/lovable-uploads/nhai.png" alt="NHAI Logo" className="h-10 w-auto" />
-              </div>
-              <div className="bg-white/80 p-1.5 rounded shadow-md">
-                <img src="/lovable-uploads/nhitc.png" alt="NHITC Logo" className="h-10 w-auto" />
-              </div>
-              <div className="bg-white/80 p-1.5 rounded shadow-md">
-                <img src="/lovable-uploads/Road_Safety_Logo.jpg" alt="Road Safety Logo" className="h-10 w-auto" />
-              </div>
-            </div>
+            </Carousel>
           </div>
         </div>
-      ) : (
-        <div className="absolute top-1/2 left-0 z-50 transform -translate-y-1/2 flex flex-col items-center ml-4">
-          {/* Desktop Mascot */}
-          <img
-            src="/lovable-uploads/e9fe6340-0e37-4775-b4fe-0eaa7eaaa9b1.png"
-            alt="Mascot"
-            className="h-[450px] w-auto object-contain"
-          />
 
-          {/* Logos */}
-          <div className="mt-4 bg-black/40 px-4 py-3 pb-4 rounded-md backdrop-blur-sm flex flex-col items-center w-full max-w-[360px]">
-            <p className="text-white text-base font-semibold text-center mb-4">
-              In Association With
+        {/* RIGHT: Synced text (30%) */}
+        <aside className="order-2 md:order-2 ">
+          <div className="w-full p-6 sm:p-8 md:p-10 flex flex-col justify-start md:h-full md:justify-center">
+            <div className="mb-3 text-xs uppercase tracking-widest text-white/60">
+              Slide {current + 1} / {slides.length}
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-semibold leading-tight">
+              {active.title}
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-white/90" aria-live="polite">
+              {active.message}
             </p>
-            <div className="flex flex-row justify-evenly items-center gap-4 flex-wrap">
-              <div className="bg-white/80 p-1.5 rounded shadow-md">
-                <img src="/lovable-uploads/IDTRS.png" alt="IDTR Logo" className="h-12 w-auto" />
-              </div>
-              <div className="bg-white/80 p-1.5 rounded shadow-md">
-                <img src="/lovable-uploads/nhai.png" alt="NHAI Logo" className="h-12 w-auto" />
-              </div>
-              <div className="bg-white/80 p-1.5 rounded shadow-md">
-                <img src="/lovable-uploads/nhitc.png" alt="NHITC Logo" className="h-12 w-auto" />
-              </div>
-              <div className="bg-white/80 p-1.5 rounded shadow-md">
-                <img src="/lovable-uploads/Road_Safety_Logo.jpg" alt="Road Safety Logo" className="h-12 w-auto" />
-              </div>
+
+            {/* Optional CTA per slide (uncomment & add to slides if needed) */}
+            {/* {active.cta && (
+              <button className="mt-6 inline-flex items-center justify-center rounded-2xl px-4 py-2 bg-white/10 hover:bg-white/20 transition">
+                {active.cta}
+              </button>
+            )} */}
+
+            {/* Optional manual nav */}
+            <div className="mt-6 flex items-center gap-3">
+              <button
+                onClick={() => api?.scrollPrev()}
+                className="rounded-full px-3 py-2 bg-white/10 hover:bg-white/20"
+              >
+                Prev
+              </button>
+              <button
+                onClick={() => api?.scrollNext()}
+                className="rounded-full px-3 py-2 bg-white/10 hover:bg-white/20"
+              >
+                Next
+              </button>
             </div>
           </div>
-        </div>
-      )}
-
-      <Carousel
-        className="w-full min-h-screen"
-        opts={{ loop: true, duration: 10000000 }}
-        autoPlay={true}
-        autoPlayInterval={100000}
-      >
-        <CarouselContent className="h-full">
-          {heroSlides.map((slide, index) => (
-            <CarouselItem key={index} className="h-full">
-              <div className="relative w-full h-screen">
-                {/* Background gradient */}
-                <div className="absolute inset-0 z-10 flex items-center justify-start bg-gradient-to-br from-[#0B0F1C] via-[#1C1F2A] to-[#2C3E50] text-white">
-                  <div className={`w-full  ${isMobile ? 'mt-4 mb-64 px-3' : 'pr-6 ml-[40%]'}`}>
-                    <div className="relative max-w-5xl w-full mx-auto">
-                      <img
-                        src={slide.image}
-                        alt={`Slide ${index + 1}`}
-                        className="w-full h-90 md:h-[36rem] object-center rounded-xl"
-                      />
-                      <div className="absolute inset-0 flex flex-col justify-center p-6 md:p-10 rounded-xl">
-                        <div className="rounded-md backdrop-blur-sm p-2 w-fit">
-                          <h2 className="section-headline text-white text-base md:text-lg lg:text-xl mb-4 font-semibold">
-                            {slide.description}
-                          </h2>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CarouselItem>
-
-
-          ))}
-        </CarouselContent>
-      </Carousel>
+        </aside>
+      </div>
     </section>
   );
 };

@@ -11,6 +11,10 @@ import Testimonials from '@/components/Testimonials';
 import CallToAction from '@/components/CallToAction';
 import Footer from '@/components/Footer';
 import { ArrowDown, ArrowUp } from 'lucide-react';
+import HeroTrafficSafety from '@/componentRevamp/HeroTrafficSafety';
+import PedestrianTrendSection from '@/componentRevamp/PedestrianTrendSection';
+import PedestrianRulesSection from '@/componentRevamp/PedestrianRulesSection';
+import SafetySlider from '@/componentRevamp/SaftySlider';
 
 const sections = ['mascot-hero', 'hero', 'gallery-content', 'stats', 'initiatives', 'social-media', 'testimonials', 'footer']
 
@@ -80,9 +84,13 @@ const Index = () => {
     <div className="min-h-screen">
       <NavBar />
       <main>
+
+        <HeroTrafficSafety />
         <Hero />
-        <SafetyStats />
-        <Initiatives />
+        <PedestrianRulesSection />
+        <SafetySlider />
+        {/* <SafetyStats /> */}
+        {/* <Initiatives /> */}
         <MediaGallery />
         <SocialMediaTabs />
         <Testimonials />

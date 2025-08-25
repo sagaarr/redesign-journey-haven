@@ -23,7 +23,7 @@ const SocialMediaTabs = () => {
   const flattenedXPosts = twitterPost.flat();
 
   return (
-    <section id="social-media" className="py-16 bg-black">
+    <section id="social-media" className="py-16 bg-[#10100e]">
       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="badge bg-primary/20 text-primary rounded-full px-3 py-1 text-sm">Connect With Us</span>
@@ -192,3 +192,127 @@ const SocialMediaTabs = () => {
 };
 
 export default SocialMediaTabs;
+
+// import React from 'react';
+// import { Instagram, Twitter } from 'lucide-react';
+// import { Button } from '@/components/ui/button';
+// import { Card } from '@/components/ui/card';
+// import { AspectRatio } from '@/components/ui/aspect-ratio';
+// import { useIsMobile } from '@/hooks/use-mobile';
+// import { InstagramEmbed, XEmbed } from './SocialEmbeds';
+// import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+// import { instaPosts, twitterPost } from '@/lib/constants';
+
+// type Media = { type: 'ig' | 'x'; url: string };
+
+// const mixPosts = (ig: string[][], x: string[][]): Media[] => {
+//   // flatten and interleave
+//   const A = ig.flat().map(url => ({ type: 'ig' as const, url }));
+//   const B = x.flat().map(url => ({ type: 'x' as const, url }));
+//   const max = Math.max(A.length, B.length);
+//   const out: Media[] = [];
+//   for (let i = 0; i < max; i++) {
+//     if (A[i]) out.push(A[i]);
+//     if (B[i]) out.push(B[i]);
+//   }
+//   return out.slice(0, 12); // keep the section tight
+// };
+
+// const SocialMediaWall = () => {
+//   const isMobile = useIsMobile();
+//   const mixed = mixPosts(instaPosts, twitterPost);
+
+//   return (
+//     <section
+//       id="social-media"
+//       className="
+//         relative py-16
+//         bg-black
+//         [background:radial-gradient(1200px_600px_at_50%_-20%,rgba(255,255,255,0.08),transparent)]
+//       "
+//     >
+//       <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+//         {/* Header */}
+//         <div className="text-center max-w-2xl mx-auto mb-10">
+//           <span className="inline-block rounded-full px-3 py-1 text-xs tracking-wide bg-white/5 text-white/80 ring-1 ring-white/10">
+//             Connect With Us
+//           </span>
+//           <h2 className="mt-3 text-3xl font-bold text-white">Social Media</h2>
+//           <p className="mt-3 text-sm text-white/70">
+//             Stay connected with our latest updates and campaigns.
+//           </p>
+//         </div>
+
+//         {/* Content */}
+//         {isMobile ? (
+//           <Carousel
+//             className="w-full"
+//             opts={{ loop: true, duration: 30 }}
+//             autoPlay
+//             autoPlayInterval={5000}
+//           >
+//             <CarouselContent>
+//               {mixed.map((item, i) => (
+//                 <CarouselItem key={i} className="p-1">
+//                   <Card className="bg-white/5 border-white/10 rounded-xl p-3">
+//                     <AspectRatio ratio={9 / 16} className="overflow-hidden rounded-lg">
+//                       <div className="h-full w-full flex items-center justify-center">
+//                         {item.type === 'ig' ? (
+//                           <InstagramEmbed url={item.url} width={100} />
+//                         ) : (
+//                           <XEmbed url={item.url} width={100} />
+//                         )}
+//                       </div>
+//                     </AspectRatio>
+//                   </Card>
+//                 </CarouselItem>
+//               ))}
+//             </CarouselContent>
+//             <div className="flex justify-center gap-2 mt-4">
+//               <CarouselPrevious className="relative static translate-y-0 left-0" />
+//               <CarouselNext className="relative static translate-y-0 right-0" />
+//             </div>
+//           </Carousel>
+//         ) : (
+//           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+//             {mixed.map((item, i) => (
+//               <Card key={i} className="bg-white/5 border-white/10 rounded-xl p-3">
+//                 <AspectRatio ratio={9 / 16} className="overflow-hidden rounded-lg">
+//                   <div className="h-full w-full flex items-center justify-center">
+//                     {item.type === 'ig' ? (
+//                       <InstagramEmbed url={item.url} width={100} />
+//                     ) : (
+//                       <XEmbed url={item.url} width={100} />
+//                     )}
+//                   </div>
+//                 </AspectRatio>
+//               </Card>
+//             ))}
+//           </div>
+//         )}
+
+//         {/* CTAs */}
+//         <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+//           <a
+//             href="https://www.instagram.com/unmfoundationindia"
+//             target="_blank"
+//             rel="noopener noreferrer"
+//           >
+//             <Button variant="outline" className="rounded-full border-white/20 text-white hover:bg-white/10">
+//               <Instagram className="mr-2 h-4 w-4" />
+//               Follow on Instagram
+//             </Button>
+//           </a>
+//           <a href="https://x.com/UnMIndia" target="_blank" rel="noopener noreferrer">
+//             <Button variant="outline" className="rounded-full border-white/20 text-white hover:bg-white/10">
+//               <Twitter className="mr-2 h-4 w-4" />
+//               Follow on X
+//             </Button>
+//           </a>
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default SocialMediaWall;
