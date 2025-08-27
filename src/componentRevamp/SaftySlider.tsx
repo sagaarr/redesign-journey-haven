@@ -1,114 +1,3 @@
-// import React from "react";
-// import {
-//     Carousel,
-//     CarouselContent,
-//     CarouselItem,
-//     CarouselPrevious,
-//     CarouselNext,
-// } from "@/components/ui/carousel";
-
-// // Stand-alone component using shadcn/ui Carousel
-// // Left 80% = slider, Right 20% = static message "What Next ?"
-
-// const slides = [
-//     {
-//         id: 1,
-//         content: (
-//             <div className="flex h-full w-full items-center justify-center">
-//                 <img
-//                     src="/lovable-uploads/slider/1.png"
-//                     alt="pointing left mascot image"
-//                     className="
-//                         object-contain w-auto
-//                         max-h-[calc(100vh-64px-2rem)]
-//                         sm:max-h-[calc(100vh-64px-3rem)]
-//                         md:max-h-[calc(100vh-64px-1rem)]
-//                     "
-//                     loading="lazy"
-//                 />
-//             </div>
-//         ),
-//     },
-//     {
-//         id: 2,
-//         content: (
-//             <div className="flex h-full w-full items-center justify-center">
-//                 <img
-//                     src="/lovable-uploads/slider/2.png"
-//                     alt="pointing left mascot image"
-//                     className="
-//                         object-contain w-auto
-//                         max-h-[calc(100vh-64px-2rem)]
-//                         sm:max-h-[calc(100vh-64px-3rem)]
-//                         md:max-h-[calc(100vh-64px-1rem)]
-//                     "
-//                     loading="lazy"
-//                 />
-//             </div>
-//         ),
-//     },
-//     {
-//         id: 3,
-//         content: (
-//             <div className="flex h-full w-full items-center justify-center">
-//                 <img
-//                     src="/lovable-uploads/slider/3.png"
-//                     alt="pointing left mascot image"
-//                     className="
-//                         object-contain w-auto
-//                         max-h-[calc(100vh-64px-2rem)]
-//                         sm:max-h-[calc(100vh-64px-3rem)]
-//                         md:max-h-[calc(100vh-64px-1rem)]
-//                     "
-//                     loading="lazy"
-//                 />
-//             </div>
-//         ),
-//     },
-//     {
-//         id: 4,
-//         content: (
-//             <div className="flex h-full w-full items-center justify-center">
-//                 <img
-//                     src="/lovable-uploads/slider/4.png"
-//                     alt="pointing left mascot image"
-//                     className="
-//                         object-contain w-auto
-//                         max-h-[calc(100vh-64px-2rem)]
-//                         sm:max-h-[calc(100vh-64px-3rem)]
-//                         md:max-h-[calc(100vh-64px-1rem)]
-//                     "
-//                     loading="lazy"
-//                 />
-//             </div>
-//         ),
-//     },
-// ];
-
-// const SaftySlider: React.FC = () => {
-//     return (
-//         // bg-slate-900
-//         <section className="w-full min-h-[calc(100vh-64px)] flex bg-[#10100e]  text-white rounded-xl overflow-hidden shadow-lg">
-//             <div className="relative w-full p-4 h-full">
-//                 <Carousel className="w-full h-full">
-//                     <CarouselContent className="h-full">
-//                         {slides.map((slide) => (
-//                             <CarouselItem key={slide.id} className="h-full">
-//                                 {slide.content}
-//                             </CarouselItem>
-//                         ))}
-//                     </CarouselContent>
-//                     <CarouselPrevious className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full p-2" />
-//                     <CarouselNext className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/10 hover:bg-white/20 text-white rounded-full p-2" />
-//                 </Carousel>
-//             </div>
-//         </section>
-//     );
-// };
-
-// export default SaftySlider;
-
-
 import React from "react";
 import {
     Carousel,
@@ -194,7 +83,8 @@ const SaftySlider: React.FC = () => {
 
     const active = slides[current] ?? slides[0];
     return (
-        <section className="w-full min-h-[calc(100vh-64px)] flex bg-[#10100e] text-white rounded-xl overflow-hidden shadow-lg">
+        // min-h-[calc(100vh-64px)]
+        <section className="w-full min-h[calc(100svh-64px)] md:min-h-[calc(100vh-64px)]   flex bg-[#10100e] text-white rounded-xl overflow-hidden shadow-lg">
             <div className="relative w-full p-4 h-full">
                 <Carousel opts={{ loop: true, align: 'start' }} className="w-full h-full" setApi={setApi}>
                     <CarouselContent className="h-full">

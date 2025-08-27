@@ -50,57 +50,66 @@ const slides: Slide[] = [
   {
     id: 1,
     alt: "pointing left mascot image",
-    desktopSrc: "/lovable-uploads/hero_slider/test/childrenwalk.webp",
-    mobileSrc: "/lovable-uploads/hero_slider/mobile/childrenwalk.png",
-    title: "Keep Children on the Inner Side",
+    desktopSrc: "/lovable-uploads/hero_slider/test/childrenwalk.jpg",
+    mobileSrc: "/lovable-uploads/hero_slider/mobile/childrenwalk.jpg",
+    title: "Children Saftey",
     message:
-      "While walking on the road or footpath, ensure that children walk on the inner side.",
+      "While walking on the road or footpath, ensure that children walk on your right-hand side.",
   },
   {
     id: 2,
     alt: "pointing left mascot image",
-    desktopSrc: "/lovable-uploads/hero_slider/test/chain_snatching.webp",
-    mobileSrc: "/lovable-uploads/hero_slider/mobile/chain_snatching.png",
-    title: "Protect Your Belongings",
+    desktopSrc: "/lovable-uploads/hero_slider/test/chain_snatching.jpg",
+    mobileSrc: "/lovable-uploads/hero_slider/mobile/chain_snatching.jpg",
+    title: "Women's Safety",
     message:
       "Keep bags on the inner side of the footpath and stay alert at crowded junctions.",
   },
   {
     id: 3,
     alt: "pointing left mascot image",
-    desktopSrc: "/lovable-uploads/hero_slider/test/mobilewalkboy.webp",
+    desktopSrc: "/lovable-uploads/hero_slider/test/mobilewalkboy.jpg",
     mobileSrc: "/lovable-uploads/hero_slider/mobile/mobilewalkboy.jpg",
-    title: "Eyes Up, Phone Down",
+    title: "Use Zebra Crossing",
     message:
       "While crossing the road, stay focused on the traffic—avoid using mobile phones.",
-  },
-  {
-    id: 4,
-    alt: "pointing left mascot image",
-    desktopSrc: "/lovable-uploads/hero_slider/test/groupwalk.webp",
-    mobileSrc: "/lovable-uploads/hero_slider/mobile/groupwalk.jpg",
-    title: "Use the Zebra Crossing",
-    message:
-      "Cross only at the zebra crossing and follow the signal—drivers expect you there.",
   },
   {
     id: 5,
     alt: "pointing left mascot image",
     desktopSrc: "/lovable-uploads/hero_slider/test/jogging.webp",
     mobileSrc: "/lovable-uploads/hero_slider/mobile/jogging.png",
-    title: "Be Visible",
+    title: "jogger's Safety",
     message:
       "At night, prefer light/reflective clothing and stay in well-lit areas.",
   },
 ];
 
 const Hero: React.FC = () => {
+  // const [api, setApi] = React.useState<CarouselApi | null>(null);
+  // const [current, setCurrent] = React.useState(0);
+
+  // React.useEffect(() => {
+  //   if (!api) return;
+  //   // Set initial state and subscribe to changes
+  //   const update = () => setCurrent(api.selectedScrollSnap());
+  //   update();
+  //   api.on("select", update);
+  //   api.on("reInit", update);
+  //   return () => {
+  //     api.off("select", update);
+  //     api.off("reInit", update);
+  //   };
+  // }, [api]);
+
+  // const active = slides[current] ?? slides[0];
+
   const [api, setApi] = React.useState<CarouselApi | null>(null);
   const [current, setCurrent] = React.useState(0);
 
+  // Handle active slide updates
   React.useEffect(() => {
     if (!api) return;
-    // Set initial state and subscribe to changes
     const update = () => setCurrent(api.selectedScrollSnap());
     update();
     api.on("select", update);
@@ -109,6 +118,17 @@ const Hero: React.FC = () => {
       api.off("select", update);
       api.off("reInit", update);
     };
+  }, [api]);
+
+  // ✅ Autoplay every 5 seconds
+  React.useEffect(() => {
+    if (!api) return;
+
+    const interval = setInterval(() => {
+      api.scrollNext();
+    }, 5000); // change to 3000 for 3s, 8000 for 8s, etc.
+
+    return () => clearInterval(interval); // cleanup
   }, [api]);
 
   const active = slides[current] ?? slides[0];

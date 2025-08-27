@@ -145,9 +145,9 @@ const PedestrianRulesSection: React.FC = () => {
                             alt="Walk facing oncoming traffic"
                             className="
                 object-contain w-auto
-                max-h-[calc(100vh-64px-2rem)]
+                max-h-[calc(100vh-64px-24rem)]
                 sm:max-h-[calc(100vh-64px-3rem)]
-                md:max-h-[calc(100vh-64px-2rem)]
+                md:max-h-[calc(100vh-64px-4rem)]
               "
                             loading="lazy"
                         />
@@ -170,10 +170,7 @@ const PedestrianRulesSection: React.FC = () => {
                                 </h2>
                             </div>
 
-                            {/* Helper line */}
-                            <p className="mt-3 text-sm text-blue-100/80">
-                                If there’s no footpath, walk on the side facing traffic so you can see vehicles.
-                            </p>
+
                         </Card>
 
                         {/* India */}
@@ -187,7 +184,7 @@ const PedestrianRulesSection: React.FC = () => {
                                 </Chip>
 
                                 <h3 className="text-white/90 text-2xl sm:text-3xl font-semibold">
-                                    Walk on the footpath, or on the <span className="underline decoration-emerald-400/70 underline-offset-4">right-hand side</span> of the road.
+                                    Walk on the footpath, or on the <span className="underline decoration-emerald-400/70 underline-offset-4">right side</span> of the road.
                                 </h3>
                             </div>
 

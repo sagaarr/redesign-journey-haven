@@ -37,12 +37,14 @@ const NavBar = () => {
     { code: 'mr', name: 'मराठी' },
   ];
 
+  // -- THE LANGUAGE TRANSLATOR IS DISABLED FOR NOW --
   return (
     <header
       className={cn(
-        'fixed top-0 w-full z-50 transition-all duration-300',
-        scrolled ? 'backdrop-blur-lg shadow-sm' : 'bg-black/100'
+        'fixed top-0 w-full z-50 transition-all duration-300 bg-black/100',
+        // scrolled ? 'backdrop-blur-lg shadow-sm' : 'bg-black/100'
       )}
+      style={{ zIndex: 5 }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center pt-4">
@@ -58,8 +60,8 @@ const NavBar = () => {
                   <Globe className="h-5 w-5" />
                   {languageOptions.find(lang => lang.code === language)?.name}
                 </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-36">
+              </DropdownMenuTrigger> */}
+            {/* <DropdownMenuContent align="start" className="w-36">
                 {languageOptions.map((lang) => (
                   <DropdownMenuItem
                     key={lang.code}
@@ -139,7 +141,7 @@ const NavBar = () => {
                         </SheetClose>
                       ))}
                     </nav>
-                    <div className="mt-auto p-4 space-y-3">
+                    {/* <div className="mt-auto p-4 space-y-3">
                       <div className="flex justify-center space-x-4 mt-6">
                         {languageOptions.map((lang) => (
                           <Button
@@ -156,7 +158,7 @@ const NavBar = () => {
                           </Button>
                         ))}
                       </div>
-                    </div>
+                    </div> */}
                   </div>
                 </SheetContent>
               </Sheet>

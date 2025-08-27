@@ -14,7 +14,7 @@ const Initiatives = () => {
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-[#1EAEDB]/10 rounded-full blur-3xl"></div>
       <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#ea384c]/10 rounded-full blur-3xl"></div>
 
-      <div className="container px-4 sm:px-6 relative z-10">
+      <div className="container px-4 sm:px-6 relative">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center justify-center p-1 bg-white/10 rounded-full mb-4 animate-pulse">
             <span className="badge badge-primary px-4 py-1.5 flex items-center gap-2">

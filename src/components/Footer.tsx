@@ -17,7 +17,7 @@ const Footer = () => {
       toast.success("Thanks for contacting us! We'll get back to you soon.");
     }
     else if (state.errors) {
-      toast.error("There was an error submitting your message. Please try again later." );
+      toast.error("There was an error submitting your message. Please try again later.");
     }
   }, [state.succeeded, state.errors]);
 
@@ -28,9 +28,11 @@ const Footer = () => {
           {/* Left Column - Company Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="font-display font-bold text-2xl mb-4 text-foreground">
-                UNM<span className="text-primary">Foundation</span>
-              </h3>
+              <img
+                src="/lovable-uploads/1000076653.png"
+                alt="Walk Right India Logo"
+                className="h-10 md:h-[5rem]"
+              />
               {/* <p className="text-muted-foreground max-w-sm">
                 Supporting excellence in education, healthcare, and research at the University of New Mexico.
               </p> */}
@@ -93,13 +95,13 @@ const Footer = () => {
                   </a>
                 </li>
                 <li className="flex items-start">
-                   <MapPin size={20} className="mr-2 text-primary mt-1.5" />
-                    <span className="text-muted-foreground leading-snug">
-                        Inspiria Mall F- 9<br />
-                        Old Mumbai Rd, near Bhakti Shakti Chowk,<br />
-                        Nigdi Gaothan, Nigdi,<br />
-                        Pune, Maharashtra 411044
-                    </span>
+                  <MapPin size={20} className="mr-2 text-primary mt-1.5" />
+                  <span className="text-muted-foreground leading-snug">
+                    Inspiria Mall F- 9<br />
+                    Old Mumbai Rd, near Bhakti Shakti Chowk,<br />
+                    Nigdi Gaothan, Nigdi,<br />
+                    Pune, Maharashtra 411044
+                  </span>
                 </li>
               </ul>
             </div>
